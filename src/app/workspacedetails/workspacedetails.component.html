@@ -1,0 +1,42 @@
+<mat-card class="example-card">
+  <form [formGroup]="workForm" (ngSubmit)="onSubmit(myForm)">
+    <div>
+      <input formControlName="WorkspaceName" placeholder="Workspace  Name">
+    </div>
+
+
+    <div formArrayName ="channels">
+      <div *ngFor="let channelName of workForm.get('channels').controls; let i = index;">
+        <div [formGroupName]="i">
+          <input formControlName="channelName" placeholder="Channel Name">
+        </div>
+      </div>
+      <a button mat-raised-button color="primary" (click)="addChannel()">Add More Channels...</a>
+    </div>
+    <br>
+
+    <div formArrayName ="Invitemembers">
+      <div *ngFor="let emailId of workForm.get('Invitemembers').controls; let i = index;">
+        <div [formGroupName]="i">
+          <input formControlName="emailId" placeholder="Email Address">
+        </div>
+      </div>
+      <a button mat-raised-button color="primary" (click)="addMember()">Invite More Members...</a>
+    </div>
+    <br>
+<!--
+    <div formArrayName="labels">
+      <div *ngFor="let tag of myForm.get('labels').controls; let i = index;">
+        <div [formGroupName]="i">
+          <input formControlName="label" placeholder="Label">
+        </div>
+      </div>
+      <a class="button btn" (click)="addLabel()">Add More Labels...</a>
+    </div>
+    <br>
+
+    <button type="submit">
+      Create
+    </button> -->
+  </form>
+ </mat-card>

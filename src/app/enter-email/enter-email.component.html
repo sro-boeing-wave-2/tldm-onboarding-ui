@@ -1,0 +1,22 @@
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title ><h1>Get Onboard</h1></mat-card-title>
+    <mat-card-title ><h3> Welcome to {{workspace}}</h3></mat-card-title>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <div class="InputContent">
+  <mat-card-content>
+      <form class="example-form">
+          <!-- <h3 style="text-align: center"> SignUp</h3> -->
+          <mat-form-field class="example-full-width">
+            <input [ngModelOptions] ="{standalone: true}" matInput placeholder="Enter your Email Id" [(ngModel)]= "userModel.Email">
+          </mat-form-field><br>
+        </form>
+  </mat-card-content>
+  <mat-card-actions class="buttonCss">
+      <button mat-raised-button color="primary" (click)="PostToGmail()" (click) ="Verify()" (click)="newMessage()" >Done</button>
+      <!-- <button mat-raised-button color="primary" (click)="Verify()">Next</button> -->
+  </mat-card-actions>
+</div>
+</mat-card>
