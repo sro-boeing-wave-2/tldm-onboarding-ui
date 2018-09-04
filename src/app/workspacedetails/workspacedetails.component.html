@@ -1,42 +1,48 @@
 <mat-card class="example-card">
-  <form [formGroup]="workForm" (ngSubmit)="onSubmit(myForm)">
-    <div>
-      <input formControlName="WorkspaceName" placeholder="Workspace  Name">
-    </div>
-
-
-    <div formArrayName ="channels">
-      <div *ngFor="let channelName of workForm.get('channels').controls; let i = index;">
-        <div [formGroupName]="i">
-          <input formControlName="channelName" placeholder="Channel Name">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Workspace Details</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <div class="InputContent">
+    <mat-card-content>
+      <form fxLayout="column" [formGroup]="workForm" (ngSubmit)="onSubmit(workForm)">
+        <div class="input-row" fxLayout= "row"  fxLayout.lt-md= "column">
+          <!-- <input formControlName="WorkspaceName" placeholder="Workspace  Name"> -->
+          <mat-form-field class="example-full-width" fxFlex>
+            <input  matInput placeholder="Workspace Name" formControlName="WorkspaceName">
+          </mat-form-field>
         </div>
-      </div>
-      <a button mat-raised-button color="primary" (click)="addChannel()">Add More Channels...</a>
-    </div>
-    <br>
 
-    <div formArrayName ="Invitemembers">
-      <div *ngFor="let emailId of workForm.get('Invitemembers').controls; let i = index;">
-        <div [formGroupName]="i">
-          <input formControlName="emailId" placeholder="Email Address">
-        </div>
-      </div>
-      <a button mat-raised-button color="primary" (click)="addMember()">Invite More Members...</a>
-    </div>
-    <br>
-<!--
-    <div formArrayName="labels">
-      <div *ngFor="let tag of myForm.get('labels').controls; let i = index;">
-        <div [formGroupName]="i">
-          <input formControlName="label" placeholder="Label">
-        </div>
-      </div>
-      <a class="button btn" (click)="addLabel()">Add More Labels...</a>
-    </div>
-    <br>
 
-    <button type="submit">
-      Create
-    </button> -->
-  </form>
- </mat-card>
+        <div formArrayName="channels">
+          <div *ngFor="let channelName of workForm.get('channels').controls; let i = index;">
+            <div [formGroupName]="i" class="input-row" fxLayout= "row"  fxLayout.lt-md= "column">
+              <!-- <input matInput type="text" formControlName="channelName" placeholder="Channel Name"> -->
+              <mat-form-field class="example-full-width" fxFlex>
+                <input  matInput placeholder="Channel Name" formControlName="channelName">
+              </mat-form-field>
+            </div>
+          </div>
+          <a button mat-raised-button color="primary" (click)="addChannel()" style="margin-bottom: 10px">Add More Channels...</a>
+        </div>
+
+
+        <div formArrayName ="Invitemembers">
+          <div *ngFor = "let emailId of workForm.get('Invitemembers').controls; let i = index;">
+            <div [formGroupName]= "i" class="input-row" fxLayout ="row" fxLayout.lt-md ="column">
+              <!-- <input matInput type="text" formControlName="emailId" placeholder="Email Address"> -->
+              <mat-form-field class="example-full-width" fxFlex>
+                <input matInput placeholder="Email Address" formControlName="emailId">
+              </mat-form-field>
+            </div>
+          </div>
+          <a button mat-raised-button color="primary" (click)="addMember()">Invite More Members...</a>
+        </div>
+        <br>
+        <button mat-raised-button color="primary" mat-button type="submit" style="float: right ;">Submit</button>
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>

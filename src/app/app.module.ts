@@ -15,6 +15,7 @@ import { EnterOTPComponent } from './enter-otp/enter-otp.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { LoginComponent } from './login/login.component';
 import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.component';
+import { ListOfWorkspaceComponent } from './list-of-workspace/list-of-workspace.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.c
     EnterOTPComponent,
     UserdetailsComponent,
     LoginComponent,
-    WorkspacedetailsComponent
+    WorkspacedetailsComponent,
+    ListOfWorkspaceComponent
   ],
   imports: [
     BrowserModule,

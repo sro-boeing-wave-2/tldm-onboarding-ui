@@ -35,10 +35,10 @@ onSubmit(form: FormGroup) {
   // console.log('PlainText', form.value.plaintext);
   // console.log('PinStauts',form.value.pinstatus);
   console.log('Channels',form.value.channels);
-  console.log('Members',form.value.members)
+  console.log('Invitemembers',form.value.Invitemembers)
 
   this.workspace = new Workspace(form.value.WorkspaceName,null,form.value.channels,form.value.Invitemembers);
-
+console.log(this.workspace);
 
    this._onboard.postworkspace(  this.workspace).subscribe(data=>console.log('Success!',data),
    error=>console.log('Error!',error));
@@ -52,7 +52,7 @@ addChannel(): void {
  }
 
  addMember():void{
-   this.Invitemembers=this.workForm.get('members') as FormArray;
+   this.Invitemembers=this.workForm.get('Invitemembers') as FormArray;
    this.Invitemembers.push(this.createMember());
  }
 

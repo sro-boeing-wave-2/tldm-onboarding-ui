@@ -1,12 +1,14 @@
 <mat-toolbar color="primary">TL;DM
-  <button mat-raised-button color="Basic" class="login" (click)="getLogged()">Log In</button>
-  <span class="example-fill-remaining-space"></span>
+  <div class="login">
+    <button mat-raised-button color="Basic" (click)="getLogged()">Log In</button>
+  </div>
+  <!-- <span class="example-fill-remaining-space"></span> -->
 </mat-toolbar>
 
 <body>
   <!-- <button mat-raised-button color="primary" (click)="getStart()">Get Started</button> -->
-  <button  mat-stroked-button color="primary" class="getWorkspace" (click)="getWorkspace()">Create Your Own Workspace</button>
-  <div class="bg"></div><br><br>
-  <button  mat-stroked-button color="primary" class="getWorkspace" >Join a Workspace</button>
-
+  <div class="getWorkspace">
+    <button class="btn-space" mat-stroked-button color="primary" (click)="getWorkspace()">Create Your Own Workspace</button>
+    <button class="btn-space" mat-stroked-button color="primary">Join a Workspace</button>
+  </div>
 </body>

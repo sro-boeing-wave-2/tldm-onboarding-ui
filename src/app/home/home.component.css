@@ -1,20 +1,25 @@
 .login{
-  float: right;
-
-  margin-left: 1000px;
+  width: 100%;
+ text-align: right;
 }
 
 .join{
   float: right;
-
-  margin-left: 1000px;
-
+  margin: auto;
 }
 .example-fill-remaining-space{
   width: 100px;
 }
 .getWorkspace{
-  width: 400px;
+  width: 100%;
+  text-align: center;
   margin-top: 100px;
-  margin-left: 450px;
+
+}
+.btn-space {
+  margin-top: 4%;
+  display: block;
+  text-align: center;
+  width: 40%;
+  margin-left: 30%;
 }

@@ -22,6 +22,7 @@ export class OnboardingService {
   private SignupApi: string = "http://172.23.238.206:5000/api/onboard/signup";
   private _url2: string = "http://172.23.238.162:8000/api/users";
   private _url3: string = "http://172.23.238.162:8000/api/users/verify";
+  private ListofWorkspaceApi = "";
 
   AccessToken : string = "";
   private messageSource = new BehaviorSubject('default message');
@@ -71,7 +72,12 @@ export class OnboardingService {
 
   postworkspace(work : Workspace){
    return this.http.post(this._url2,work,httpOptions );
-
   }
+
+  getWorkspaces(email : string): Observable<Workspace[]>{
+      return this.http.post<Workspace[]>(this.ListofWorkspaceApi ,email, httpOptions)
+  }
+
+
 }
 

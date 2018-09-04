@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import {LoginViewModel} from '../Model';
 import{TokenParams} from '../Model'
 import { OnboardingService } from '../onboarding.service';
-import {FormGroup} from  '@angular/forms';
+import {FormGroup, FormBuilder} from  '@angular/forms';
 import {FormControl} from  '@angular/forms';
+import{MaterialModule} from '../materialmodule'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   tokenparam:TokenParams;
   loginModel = new LoginViewModel('','','')
-  constructor(private _loginservice : OnboardingService, private router: Router) { }
+  constructor(private _loginservice : OnboardingService, private router: Router, private fb: FormBuilder) { }
    users = [];
   ngOnInit() {
   }
@@ -27,12 +28,16 @@ export class LoginComponent implements OnInit {
     });
     // this.router.navigate(['/getStarted']);
   }
-  myGroup = new FormGroup({
-    Username: new FormControl(),
-    Password: new FormControl(),
-    WorkspaceName: new FormControl()
- });
+  hide: boolean=true;
 
+  loginForm = this.fb.group({
+    EmailId: [''],
+    Password: [''],
+    Workspace: [''],
+  });
+ toWorkspaceList(){
+   this.router.navigate(['/workspacelist'])
+ }
 
 
 }

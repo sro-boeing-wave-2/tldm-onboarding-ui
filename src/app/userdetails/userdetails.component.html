@@ -10,26 +10,26 @@
       <form class="example-form" name="form">
 
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions] ="{standalone: true}" matInput placeholder="FirstName" [(ngModel)]="signUpModel.FirstName">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="FirstName" [(ngModel)]="signUpModel.FirstName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions] = "{standalone: true}" matInput placeholder="LastName" [(ngModel)]="signUpModel.LastName">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="LastName" [(ngModel)]="signUpModel.LastName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]= "{standalone: true}" matInput placeholder="Username" [(ngModel)]="signUpModel.Username" #Username="ngModel">
-            </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input [ngModelOptions]= "{standalone: true}" matInput placeholder="Password" [(ngModel)]="signUpModel.Password" #Password="ngModel">
-              </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <input [ngModelOptions]= "{standalone: true}" matInput placeholder="Designation" [(ngModel)]="signUpModel.Designation">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <input [ngModelOptions]= "{standalone: true}" matInput placeholder="WorkspaceName" [(ngModel)]="signUpModel.WorkspaceName">
-            </mat-form-field>
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Username" [(ngModel)]="signUpModel.Username" #Username="ngModel">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Password" [(ngModel)]="signUpModel.Password" #Password="ngModel">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Designation" [(ngModel)]="signUpModel.Designation">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="WorkspaceName" [(ngModel)]="signUpModel.WorkspaceName">
+        </mat-form-field>
       </form>
       <mat-card-actions class="buttonCss">
-        <button mat-raised-button color="primary" (click)="CallToDatabase()" (click) ="ToWorkspaceDetails()">SignUp</button>
+        <button mat-raised-button color="primary" (click)="CallToDatabase()" (click)="ToWorkspaceDetails()">SignUp</button>
       </mat-card-actions>
     </mat-card-content>
 

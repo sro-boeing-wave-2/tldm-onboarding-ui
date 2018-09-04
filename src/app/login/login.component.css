@@ -1,14 +1,39 @@
 .example-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+  /* display: flex;
+  flex-direction: column; */
+  text-align: center;
+  margin : auto;
+
+
 }
 
 .example-container > * {
   width: 60%;
 }
 
-#increase {
+/* #increase {
   width: 150%;
-}
+} */
+.example-card{
+  width: 500px;
+  margin: auto;
+  /* align-content: center;
+  margin-top: 65px; */
+ }
+
+ /* .InputContent{
+  padding-top: 50px;
+  align-content: center;
+  width: 500px;
+
+ } */
+
+ .example-full-width{
+   width: 475px;
+   align-content: center;
+  }
+
+ /* .buttonCss{
+   align-items: center;
+   padding-left: 13px;
+ } */
