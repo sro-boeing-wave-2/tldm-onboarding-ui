@@ -7,8 +7,9 @@
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <div class="InputContent">
     <mat-card-content *ngFor = "let workspace of workspaces">
-      {{workspace}}<button mat-raised-button (click)="submitWorkspace(workspace)" color="primary">Launch</button>
+      {{workspace}}<a [href]="_url+'?email='+currentEmail+'&workspace='+workspace"><button mat-raised-button color="primary">Launch</button></a>
     </mat-card-content>
+    {{currentEmail}}
   </div>
   <button mat-raised-button color="primary" (click) = "EnterWorkspaceName()">Create Workspace</button>
 </mat-card>

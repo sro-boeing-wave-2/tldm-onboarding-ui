@@ -11,10 +11,16 @@ export class ListOfWorkspaceComponent implements OnInit {
 
   workspaces = [];
   email : string;
+  _url: string ="http://172.23.238.182:9999";
+  currentEmail: string;
   constructor(private workspaceservice  : OnboardingService, private router : Router ) { }
 
   ngOnInit() {
-    this.workspaceservice.getWorkspaces(this.email).subscribe(data => this.workspaces=data, err => console.log(err));
+    //this.workspaceservice.getWorkspaces(this.email).subscribe(data => this.workspaces=data, err => console.log(err));
+    this.workspaceservice.currentMessageEmail.subscribe(email => this.currentEmail=email);
+    this.workspaces = [
+      "TLDM"
+    ]
   }
   // getWorkspaceList(){
   //   console.log(this.email);
@@ -26,7 +32,7 @@ export class ListOfWorkspaceComponent implements OnInit {
   }
 
   submitWorkspace(workspace) {
-    var _url: string ="http://172.23.238.182:4200/";
+
     //this.workspaceservice.storeWorkspace(workspace);
   }
 

@@ -5,28 +5,28 @@
     </mat-card-title>
   </mat-card-header>
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+
   <div class="InputContent">
     <mat-card-content>
-      <form [formGroup] = "signupForm" (ngSubmit)= "onSubmit()">
-
+      <form [formGroup] = "signupForm" (ngsubmit)= "onSubmit()">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="FirstName" formControlName= "FirstName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="LastName" formControlName ="LastName">
+          <input matInput placeholder="LastName" formControlName="LastName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input  matInput placeholder="EmailId" formControlName ="EmailId" >
+          <input  matInput placeholder="EmailId" formControlName="EmailId" >
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input  matInput placeholder="Password" formControlName= "Password" >
+          <input matInput placeholder="Password" formControlName="Password" >
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input  matInput readonly [value]="workspace">
+          <input matInput placeholder="Workspace" formControlName="Workspaces">
         </mat-form-field>
       </form>
       <mat-card-actions class="buttonCss">
-        <button mat-raised-button color="primary" (click)="CallToDatabase()" (click)= "ToWorkspaceDetails()">SignUp</button>
+        <button mat-raised-button color="primary" (click)="CallToDatabase()"(click)="navigateToInvite()" >SignUp</button>
       </mat-card-actions>
     </mat-card-content>
 

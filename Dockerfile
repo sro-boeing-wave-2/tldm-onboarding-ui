@@ -1,17 +1,13 @@
-##STAGE 1 : Build Angular Application##
 FROM node:8 as builder
 
-COPY
+WORKDIR /src
 
-WORKDIR
+COPY package*.json /src/
 
 RUN npm install
-RUN $(npm bin)/ng build
 
+COPY ./ /src/
 
-##STAGE 2 : Run nginx to serve application##
-FROM nginx
+EXPOSE 4200
 
-COPY
-
-EXPOSE 80
+CMD ["npm","start"]

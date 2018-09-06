@@ -18,6 +18,7 @@ import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.c
 import { ListOfWorkspaceComponent } from './list-of-workspace/list-of-workspace.component';
 import { InvitemembersComponent } from './invitemembers/invitemembers.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { InvitemembersComponent } from './invitemembers/invitemembers.component'
     LoginComponent,
     WorkspacedetailsComponent,
     ListOfWorkspaceComponent,
-    InvitemembersComponent
+    InvitemembersComponent,
+
   ],
   imports: [
     BrowserModule,

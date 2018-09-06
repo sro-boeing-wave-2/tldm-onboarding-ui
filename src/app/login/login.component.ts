@@ -22,9 +22,12 @@ export class LoginComponent implements OnInit {
   getLogged() {
     console.log("Open Gmail");
     console.log(this.loginForm.value);
+    this._loginservice.showEmailId(this.loginForm.value.EmailId);
     this._loginservice.login(this.loginForm.value).subscribe(data => {
     this.tokenparam = data;
     this._loginservice.AccessToken=this.tokenparam.token;
+    console.log("Email Id",this.loginForm.value.EmailId);
+
 
     });
     // this.router.navigate(['/getStarted']);
