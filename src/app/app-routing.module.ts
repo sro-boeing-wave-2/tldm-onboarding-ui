@@ -15,6 +15,8 @@ import {ListOfWorkspaceComponent} from './list-of-workspace/list-of-workspace.co
 import { from } from 'rxjs';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.component';
+
+import { InvitemembersComponent } from './invitemembers/invitemembers.component';
 const routes :  Routes =[
   {path : '', component : HomeComponent},
   {path : 'enterWorkspace', component : EnterWorkspaceComponent},
@@ -26,6 +28,7 @@ const routes :  Routes =[
  {path : 'login', component : LoginComponent},
  {path : 'enterWorkspaceDetails', component : WorkspacedetailsComponent},
  {path : 'workspacelist', component : ListOfWorkspaceComponent},
+ {path : 'invite', component: InvitemembersComponent }
   // {path : 'verify', component : TokenComponent},
   // {path : 'displaydata', component :DisplaydataComponent},
   // {path : 'signup', component: SignupComponent}
@@ -39,4 +42,4 @@ const routes :  Routes =[
 
   export class AppRoutingModule{ }
 // export const routingComponents = [HomeComponent, GetStartComponent, VerifyComponent, LoginComponent, TokenComponent,DisplaydataComponent,SignupComponent];
-export const routingComponents = [HomeComponent,EnterWorkspaceComponent,EnterEmailComponent,UserdetailsComponent,EnterOTPComponent,LoginComponent,WorkspacedetailsComponent,ListOfWorkspaceComponent];
+export const routingComponents = [HomeComponent,EnterWorkspaceComponent,EnterEmailComponent,InvitemembersComponent,UserdetailsComponent,EnterOTPComponent,LoginComponent,WorkspacedetailsComponent,ListOfWorkspaceComponent];

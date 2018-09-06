@@ -14,14 +14,15 @@ import{MaterialModule} from '../materialmodule'
 export class LoginComponent implements OnInit {
 
   tokenparam:TokenParams;
-  loginModel = new LoginViewModel('','','')
+  // loginModel = new LoginViewModel('','','')
   constructor(private _loginservice : OnboardingService, private router: Router, private fb: FormBuilder) { }
    users = [];
   ngOnInit() {
   }
   getLogged() {
     console.log("Open Gmail");
-    this._loginservice.login(this.loginModel).subscribe(data => {
+    console.log(this.loginForm.value);
+    this._loginservice.login(this.loginForm.value).subscribe(data => {
     this.tokenparam = data;
     this._loginservice.AccessToken=this.tokenparam.token;
 
@@ -33,7 +34,6 @@ export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
     EmailId: [''],
     Password: [''],
-    Workspace: [''],
   });
  toWorkspaceList(){
    this.router.navigate(['/workspacelist'])

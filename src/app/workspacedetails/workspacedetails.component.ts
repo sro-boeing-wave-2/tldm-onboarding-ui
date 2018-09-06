@@ -13,41 +13,49 @@ import{Router} from '@angular/router'
   styleUrls: ['./workspacedetails.component.css']
 })
 export class WorkspacedetailsComponent implements OnInit {
-  workForm: FormGroup;
+    workForm: FormGroup;
+    workspacename : string;
     Invitemembers: any = [];
-  channels:any = [];
+  channels:any =[];
   workspace : Workspace;
   constructor(private _onboard:OnboardingService,private fb: FormBuilder, private router:Router) { }
 
   ngOnInit() {
-    this.workForm=this.fb.group({
-      WorkspaceName :['',Validators.required],
+    this._onboard.currentMessageWorkspace.subscribe(workspacename => this.workspacename = workspacename)
 
-      channels:this.fb.array([this.createChannel()]),
-      Invitemembers:this.fb.array([this.createMember()]),
+    //this.workspace.WorkspaceName=this.workspacename;
+    this.workForm=this.fb.group({
+      WorkspaceName :[this.workspacename,Validators.required],
+
+      Channels:this.fb.array([this.createChannel()]),
+      // Invitemembers:this.fb.array([this.createMember()]),
   });
 }
 
-onSubmit(form: FormGroup) {
+
+
+get f() { return this.workForm.controls; }
+onSubmit() {
   // console.log('Valid?', form.valid); // true or false
   // console.log('Id', form.value.id);
-  console.log('Workspace', form.value.WorkspaceName);
-  // console.log('PlainText', form.value.plaintext);
-  // console.log('PinStauts',form.value.pinstatus);
-  console.log('Channels',form.value.channels);
-  console.log('Invitemembers',form.value.Invitemembers)
+  // console.log('Workspace', form.value.WorkspaceName);
+  // // console.log('PlainText', form.value.plaintext);
+  // // console.log('PinStauts',form.value.pinstatus);
+  // console.log('Channels',form.value.channels);
+  // console.log('Invitemembers',form.value.Invitemembers)
 
-  this.workspace = new Workspace(form.value.WorkspaceName,null,form.value.channels,form.value.Invitemembers);
-console.log(this.workspace);
+  // this.workspace = new Workspace(form.value.WorkspaceName,null,form.value.channels,form.value.Invitemembers);
+  console.log(this.workForm.value);
 
-   this._onboard.postworkspace(  this.workspace).subscribe(data=>console.log('Success!',data),
+   this._onboard.postworkspaceDetails(this.workForm.value).subscribe(data=>console.log('Success!',data),
    error=>console.log('Error!',error));
+   this.router.navigate(['/invite']);
     // this.router.navigate(['']);
 
 }
 
 addChannel(): void {
-   this.channels = this.workForm.get('channels') as FormArray;
+   this.channels = this.workForm.get('Channels');
    this.channels.push(this.createChannel());
  }
 
@@ -58,7 +66,7 @@ addChannel(): void {
 
  createChannel(): FormGroup {
    return this.fb.group({
-     channelName : ''
+     ChannelName : ''
    });
  }
 
@@ -71,6 +79,23 @@ addChannel(): void {
      }
    )
  }
+ newMessage() {
+  console.log(this.workForm.value);
+  this._onboard.showEmailId(this.workForm.value.EmailId);
+}
+
+navigateInvite(){
+  this.router.navigate(['/invite']);
+}
+
+// WorkspaceDetails(){
+//   this.workForm.value.Workspaces= [ {
+//     "Name": this.workspace
+//   }];
+//   console.log(this.workForm.value);
+//    this._onboard.postworkspaceDetails(this.workForm.value).subscribe(data => console.log('success'), err => console.log(err));
+// }
+
 // ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 

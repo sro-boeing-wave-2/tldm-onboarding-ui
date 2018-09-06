@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 @Component({
-  selector: 'app-enter-email',
-  templateUrl: './enter-email.component.html',
-  styleUrls: ['./enter-email.component.css']
+  selector: 'app-invitemembers',
+  templateUrl: './invitemembers.component.html',
+  styleUrls: ['./invitemembers.component.css']
 })
-export class EnterEmailComponent implements OnInit {
+export class InvitemembersComponent implements OnInit {
+
   emailForm: FormGroup;
   submitted = false;
   workspace : string;
@@ -39,12 +40,7 @@ export class EnterEmailComponent implements OnInit {
     var Email = {
       "emailId": this.emailForm.value.EmailId,
       "workspace" : this.workspace
-    };
-    //this._emailservice.postEmail(this.emailModel).subscribe(data => console.log('Success',
-      //error => console.log('Error', error)));
-    // this.router.navigate(['enterToken']);
-    //console.log(this.emailModel.toString());
-    this._emailservice.sendMail(Email).subscribe(data => console.log('success'), err => console.log(err));
+    };    this._emailservice.sendInviteMail(Email).subscribe(data => console.log('success'), err => console.log(err));
   }
   Verify() {
     console.log("enter verification code ")

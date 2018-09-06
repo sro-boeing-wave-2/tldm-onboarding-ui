@@ -7,29 +7,26 @@
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <div class="InputContent">
     <mat-card-content>
-      <form class="example-form" name="form">
+      <form [formGroup] = "signupForm" (ngSubmit)= "onSubmit()">
 
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="FirstName" [(ngModel)]="signUpModel.FirstName">
+          <input matInput placeholder="FirstName" formControlName= "FirstName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="LastName" [(ngModel)]="signUpModel.LastName">
+          <input matInput placeholder="LastName" formControlName ="LastName">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Username" [(ngModel)]="signUpModel.Username" #Username="ngModel">
+          <input  matInput placeholder="EmailId" formControlName ="EmailId" >
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Password" [(ngModel)]="signUpModel.Password" #Password="ngModel">
+          <input  matInput placeholder="Password" formControlName= "Password" >
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Designation" [(ngModel)]="signUpModel.Designation">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="WorkspaceName" [(ngModel)]="signUpModel.WorkspaceName">
+          <input  matInput readonly [value]="workspace">
         </mat-form-field>
       </form>
       <mat-card-actions class="buttonCss">
-        <button mat-raised-button color="primary" (click)="CallToDatabase()" (click)="ToWorkspaceDetails()">SignUp</button>
+        <button mat-raised-button color="primary" (click)="CallToDatabase()" (click)= "ToWorkspaceDetails()">SignUp</button>
       </mat-card-actions>
     </mat-card-content>
 

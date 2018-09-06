@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Userstate } from '../Model';
+import{TokenParams} from '../Model'
 
 @Component({
   selector: 'app-enter-otp',
@@ -10,11 +11,12 @@ import { Userstate } from '../Model';
 })
 export class EnterOTPComponent implements OnInit {
   message:string;
+  tokenparam:TokenParams;
   OTPmodel = new Userstate( '',false, '')
   constructor(private _OtpService: OnboardingService, private router: Router) { }
 
   ngOnInit() {
-    this._OtpService.currentMessage.subscribe(message => this.message = message)
+    this._OtpService.currentMessageEmail.subscribe(message => this.message = message)
 
   }
   RedirectToSignUp() {
@@ -24,7 +26,10 @@ export class EnterOTPComponent implements OnInit {
 
   PostToServer() {
     console.log("Posted To server");
-    this._OtpService.sendOTP(this.OTPmodel.Otp).subscribe(data => console.log('success'), err => console.log(err));
+    console.log(this.OTPmodel.Otp);
+    this._OtpService.sendOTP(this.OTPmodel.Otp).subscribe(data => {
+      this._OtpService.AccessToken=data['token'];
+      });
   }
 
 

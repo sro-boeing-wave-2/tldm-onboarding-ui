@@ -1,0 +1,14 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>List Of Workspaces</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <div class="InputContent">
+    <mat-card-content *ngFor = "let workspace of workspaces">
+      {{workspace}}<button mat-raised-button (click)="submitWorkspace(workspace)" color="primary">Launch</button>
+    </mat-card-content>
+  </div>
+  <button mat-raised-button color="primary" (click) = "EnterWorkspaceName()">Create Workspace</button>
+</mat-card>

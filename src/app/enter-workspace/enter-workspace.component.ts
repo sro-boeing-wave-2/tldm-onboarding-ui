@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{Workspace} from '../Model';
 import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-enter-workspace',
@@ -10,8 +11,8 @@ import { OnboardingService } from '../onboarding.service';
 })
 export class EnterWorkspaceComponent implements OnInit {
 
-  workspaceModel = new Workspace('','',null,null);
-  constructor(private router : Router, private _workspaceservice : OnboardingService) { }
+  workspaceModel = new Workspace('','',null,null,null);
+  constructor(private router : Router, private _workspaceservice : OnboardingService, private http : Http) { }
 
   ngOnInit() {
   }
@@ -24,4 +25,14 @@ export class EnterWorkspaceComponent implements OnInit {
     console.log(this.workspaceModel.WorkspaceName);
     this._workspaceservice.showWorkspace(this.workspaceModel.WorkspaceName);
   }
+
+  sendWorkspace(){
+    var workspacenameObject = {
+      "WorkspaceName":this.workspaceModel.WorkspaceName,
+    };
+    console.log(workspacenameObject);
+    this._workspaceservice.postworkspace(workspacenameObject).subscribe(data=>console.log('Success!',data),
+    error=>console.log('Error!',error));
+  }
+
 }

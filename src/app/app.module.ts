@@ -16,6 +16,7 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { LoginComponent } from './login/login.component';
 import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.component';
 import { ListOfWorkspaceComponent } from './list-of-workspace/list-of-workspace.component';
+import { InvitemembersComponent } from './invitemembers/invitemembers.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListOfWorkspaceComponent } from './list-of-workspace/list-of-workspace.
     UserdetailsComponent,
     LoginComponent,
     WorkspacedetailsComponent,
-    ListOfWorkspaceComponent
+    ListOfWorkspaceComponent,
+    InvitemembersComponent
   ],
   imports: [
     BrowserModule,

@@ -20,10 +20,8 @@
             <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon> -->
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
           </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Workspace Name" formControlName= "Workspace" required>
-          </mat-form-field>
-          <button mat-raised-button color="primary" mat-button type="submit" (click)="toWorkspaceList()">Login</button>
+          <!-- <button mat-raised-button color="primary" mat-button type="submit" (click)="toWorkspaceList()">Login</button> -->
+          <button type="button" (click)="toWorkspaceList()" (click) ="getLogged()">Login</button>
         </div>
       </form>
     </mat-card-content>
