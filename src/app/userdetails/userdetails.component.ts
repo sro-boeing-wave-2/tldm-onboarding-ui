@@ -78,6 +78,8 @@ export class UserdetailsComponent implements OnInit {
     console.log(this.signupForm.value);
     this._signupservice.PostDataBySignUp(this.signupForm.value).subscribe(data => {
       console.log(data);
+      workspace = data["Workspaces"];
+      console.log(workspace);
       console.log("jsonwith workspace", workspace);
       //console.log(JSONForm.json()["Workspace"]);
       console.log("workspace name", workspace);
@@ -91,7 +93,7 @@ export class UserdetailsComponent implements OnInit {
       // this.JoinForm.value.Password = this.signupForm.value.Password;
       // this.JoinForm.value.Workspaces = this.signupForm.value.Workspaces.Name;
       console.log("here is shit ", workspace);
-      this._signupservice.postSignupDataToChat(JSONForm, workspace).subscribe(workspace => console.log('Success', workspace))
+      this._signupservice.postSignupDataToChat(JSONForm, this.workspace).subscribe(workspace => console.log('Success', workspace))
     });
     //this._signupservice.postSignupDataToChat(this.data, this.workspace).subscribe();
   }

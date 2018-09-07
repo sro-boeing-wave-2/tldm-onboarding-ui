@@ -19,7 +19,7 @@ const httpOptions = {
 export class OnboardingService {
   private _ipaddress = "http://172.23.238.165:5000";
   private _ipaddress1 ="http://172.23.238.230:5000";
-  private TokenApi: string = `${this._ipaddress}/api/onboard/login`;
+  private TokenApi: string = `${this._ipaddress}/api/onboarding/login`;
   private UsersApi: string = `${this._ipaddress}/api/users`;
   private _signupUrlOnboarding: string = `${this._ipaddress}/api/onboard/signup`;
   private _url2: string = `${this._ipaddress}/api/onboarding/create/workspace/email`;
@@ -29,7 +29,7 @@ export class OnboardingService {
   private _signupUrl: string = `${this._ipaddress}/api/onboarding/personaldetails`;
   private _workspacedetails: string = `${this._ipaddress}/api/onboarding/workspacedetails`;
   private inviteusers: string = `${this._ipaddress}/api/onboarding/invite`;
-  private ListofWorkspaceApi = `${this._ipaddress}/api/onboarding/`;
+  private ListofWorkspaceApi : string = `${this._ipaddress}/api/onboarding/`;
   private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
   private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
 
@@ -127,7 +127,13 @@ export class OnboardingService {
 
   /*this is to get workspace list from onboarding api */
   getWorkspaces(email: string): Observable<Workspace[]> {
-    return this.http.get<Workspace[]>(`this.ListofWorkspaceApi${email}`);
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.AccessToken}`
+      })
+    };
+    return this.http.get<Workspace[]>(`${this.ListofWorkspaceApi}${email}`,httpOptions);
   }
 
   /*This is to update existing workspace details */
@@ -143,7 +149,7 @@ export class OnboardingService {
 
   /*This is to post workspace details with ID to chat API */
   getWorkspacesDetailsWithId(email: string): Observable<Workspace[]> {
-    return this.http.get<Workspace[]>(`this.ListofWorkspaceApi${email}`);
+    return this.http.get<Workspace[]>(`${this.ListofWorkspaceApi}${email}`);
   }
 
   /*This is to post invite details to Onboarding API */

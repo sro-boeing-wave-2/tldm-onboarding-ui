@@ -16,11 +16,12 @@ export class ListOfWorkspaceComponent implements OnInit {
   constructor(private workspaceservice  : OnboardingService, private router : Router ) { }
 
   ngOnInit() {
-    //this.workspaceservice.getWorkspaces(this.email).subscribe(data => this.workspaces=data, err => console.log(err));
-    this.workspaceservice.currentMessageEmail.subscribe(email => this.currentEmail=email);
-    this.workspaces = [
-      "TLDM"
-    ]
+
+        this.workspaceservice.currentMessageEmail.subscribe(email => this.currentEmail=email);
+        console.log(this.currentEmail)
+        this.workspaceservice.getWorkspaces(this.currentEmail).subscribe(data => this.workspaces=data, err => console.log(err));
+
+
   }
   // getWorkspaceList(){
   //   console.log(this.email);
