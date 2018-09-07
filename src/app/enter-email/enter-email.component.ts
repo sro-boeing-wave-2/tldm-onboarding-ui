@@ -31,7 +31,9 @@ export class EnterEmailComponent implements OnInit {
           return;
       }
 
-      alert('SUCCESS!! :-)')
+      this.PostToGmail();
+      this.newMessage();
+      this.Verify();
   }
 
   PostToGmail() {

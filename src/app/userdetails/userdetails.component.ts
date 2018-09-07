@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { OnboardingService } from '../onboarding.service';
-import{UserAccount} from '../Model'
+import { UserAccount } from '../Model'
 import { Router } from '@angular/router';
-import {FormGroup, FormBuilder} from  '@angular/forms';
-import {FormControl} from  '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+
+import { Validators } from '@angular/forms';
 @Component({
   selector: 'app-userdetails',
   templateUrl: './userdetails.component.html',
   styleUrls: ['./userdetails.component.css']
 })
 export class UserdetailsComponent implements OnInit {
-  workspace : string;
-  signUpModel = new UserAccount('','','','',true,null,null)
-  constructor( private _signupservice : OnboardingService, private router : Router,private fb: FormBuilder) { }
+  workspace: string;
+  signUpModel = new UserAccount('', '', '', '', true, null, null);
+  submitted = false;
+  constructor(private _signupservice: OnboardingService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this._signupservice.currentMessageWorkspace.subscribe(workspace => this.workspace = workspace)
@@ -21,12 +24,13 @@ export class UserdetailsComponent implements OnInit {
   }
 
   signupForm = new FormGroup({
-    FirstName: new FormControl(''),
-    LastName: new FormControl(''),
-    EmailId: new FormControl(''),
-    Password: new FormControl(''),
-    Workspaces: new FormControl(''),
+    FirstName: new FormControl('', Validators.required),
+    LastName: new FormControl('', Validators.required),
+    EmailId: new FormControl('', [Validators.required, Validators.email]),
+    Password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    // Workspaces: new FormControl('', Validators.required),
   });
+  get f() { return this.signupForm.controls; }
 
   // signupForm = this.fb.group({
   //   FirstName: [''],
@@ -42,30 +46,45 @@ export class UserdetailsComponent implements OnInit {
     FirstName: [''],
     LastName: [''],
     EmailId: [''],
-    Password : [''],
+    Password: [''],
     // Isverified : true,
-    Workspaces : [''],
+    Workspaces: [''],
     // UserWorkspaces : []
   });
 
-  CallToDatabase(){
-    var JSONForm=this.signupForm.value;
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.signupForm.invalid) {
+      console.log("please ");
+      return;
+    }
+    else {
+      console.log("please come")
+      this.CallToDatabase();
+      this.navigateToInvite();
+    }
+  }
+
+  CallToDatabase() {
+    var JSONForm = this.signupForm.value;
     var workspace = this.signupForm.value.Workspaces;
-    console.log("b4",JSONForm);
-    this.signupForm.value.Workspaces= [ {
+    console.log("b4", JSONForm);
+    this.signupForm.value.Workspaces = [{
       "Name": this.workspace
     }];
-    console.log("after",this.signupForm.value);
+    console.log("after", this.signupForm.value);
     console.log(this.signupForm.value);
     this._signupservice.PostDataBySignUp(this.signupForm.value).subscribe(data => {
       console.log(data);
-      console.log("jsonwith workspace",workspace);
+      console.log("jsonwith workspace", workspace);
       //console.log(JSONForm.json()["Workspace"]);
-      console.log("workspace name",workspace);
+      console.log("workspace name", workspace);
       console.log(JSON.stringify(JSONForm));
-      JSONForm["id"]=data["id"];
+      JSONForm["id"] = data["id"];
       console.log(data["id"]);
-      console.log("workspace"+JSON.stringify(JSONForm));
+      console.log("workspace" + JSON.stringify(JSONForm));
       // this.JoinForm.value.EmailId = this.signupForm.value.EmailId;
       // this.JoinForm.value.FirstName = this.signupForm.value.FirstName;
       // this.JoinForm.value.LastName = this.signupForm.value.LastName;
@@ -81,7 +100,7 @@ export class UserdetailsComponent implements OnInit {
   //   console.log("ascCQAW");
   //   this.router.navigate(['/enterWorkspaceDetails']);
   // }
-  navigateToInvite(){
-  this.router.navigate(['/invite']);
-}
+  navigateToInvite() {
+    this.router.navigate(['/invite']);
+  }
 }

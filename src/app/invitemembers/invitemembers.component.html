@@ -3,7 +3,7 @@
 
     <mat-card-title>
       <h1>Send invitations</h1>
-      <h4>Your Slack workspace workspace is ready to go. Know a few friends or coworkers who’d like to explore TLDM with
+      <h4>Your workspace is ready to go. Know a few friends or coworkers who’d like to explore TLDM with
         you?</h4>
     </mat-card-title>
   </mat-card-header>
@@ -20,6 +20,8 @@
         </mat-form-field>
         <mat-card-actions class="buttonCss">
           <button mat-raised-button color="primary" (click)="PostToGmail()" (click)="newMessage()">Send Invitation</button>
+          <button mat-raised-button color="primary" routerLink="/login">Login</button>
+
         </mat-card-actions>
       </form>
     </mat-card-content>

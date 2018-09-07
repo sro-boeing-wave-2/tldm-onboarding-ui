@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.component';
 import { ListOfWorkspaceComponent } from './list-of-workspace/list-of-workspace.component';
 import { InvitemembersComponent } from './invitemembers/invitemembers.component';
+import { InvitedUserVerificationComponent } from './invited-user-verification/invited-user-verification.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { InvitemembersComponent } from './invitemembers/invitemembers.component'
     WorkspacedetailsComponent,
     ListOfWorkspaceComponent,
     InvitemembersComponent,
+    InvitedUserVerificationComponent,
 
   ],
   imports: [

@@ -2,6 +2,7 @@
   <mat-card-header>
     <mat-card-title>
       <h1>List Of Workspaces</h1>
+       <h3>Welcome {{currentEmail}}</h3>
     </mat-card-title>
   </mat-card-header>
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
@@ -9,7 +10,6 @@
     <mat-card-content *ngFor = "let workspace of workspaces">
       {{workspace}}<a [href]="_url+'?email='+currentEmail+'&workspace='+workspace"><button mat-raised-button color="primary">Launch</button></a>
     </mat-card-content>
-    {{currentEmail}}
   </div>
   <button mat-raised-button color="primary" (click) = "EnterWorkspaceName()">Create Workspace</button>
 </mat-card>

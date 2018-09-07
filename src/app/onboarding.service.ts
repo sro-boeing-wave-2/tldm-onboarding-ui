@@ -17,13 +17,14 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OnboardingService {
-  private _ipaddress = "http://172.23.238.162:5000";
+  private _ipaddress = "http://172.23.238.165:5000";
   private _ipaddress1 ="http://172.23.238.230:5000";
   private TokenApi: string = `${this._ipaddress}/api/onboard/login`;
   private UsersApi: string = `${this._ipaddress}/api/users`;
   private _signupUrlOnboarding: string = `${this._ipaddress}/api/onboard/signup`;
   private _url2: string = `${this._ipaddress}/api/onboarding/create/workspace/email`;
   private _url3: string = `${this._ipaddress}/api/onboarding/create/workspace/verify`;
+  private _url4: string = `${this._ipaddress}/api/onboarding/invite/verify`;
   private _createworkspaceUrl: string = `${this._ipaddress}/api/onboarding/create/workspace`;
   private _signupUrl: string = `${this._ipaddress}/api/onboarding/personaldetails`;
   private _workspacedetails: string = `${this._ipaddress}/api/onboarding/workspacedetails`;
@@ -31,6 +32,7 @@ export class OnboardingService {
   private ListofWorkspaceApi = `${this._ipaddress}/api/onboarding/`;
   private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
   private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
+
 
   AccessToken: string = "";
   private messageSourceEmail = new BehaviorSubject('');
@@ -51,7 +53,7 @@ export class OnboardingService {
     this.messageSourceEmail.next(message)
   }
 
-  showWorkspace(workspace: string) {
+  showWorkspace(workspace: any) {
     this.messageSourceWorkspace.next(workspace)
   }
 
@@ -144,8 +146,10 @@ export class OnboardingService {
     return this.http.get<Workspace[]>(`this.ListofWorkspaceApi${email}`);
   }
 
-  /*This is to post signup details to chat API */
-
+  /*This is to post invite details to Onboarding API */
+  postInviteData(inviteData : any){
+    return this.http.post(this._url4, inviteData, httpOptions);
+  }
 
 
 }

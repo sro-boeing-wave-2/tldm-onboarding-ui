@@ -11,12 +11,12 @@
     <mat-card-content>
       <form class="example-form">
         <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Your confirmation code" [(ngModel)]="OTPmodel.Otp">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Your confirmation code" [(ngModel)]= "OTPmodel.Otp">
         </mat-form-field><br>
       </form>
     </mat-card-content>
     <mat-card-actions class="buttonCss">
-      <button [disabled]="!OTPmodel.Otp" mat-raised-button color="primary" (click)="PostToServer()" (click)="RedirectToSignUp()">Done</button>
+      <button [disabled]="!OTPmodel.Otp" mat-raised-button color="primary" (click)="PostToServer()" (click)= "RedirectToSignUp()">Done</button>
     </mat-card-actions>
   </div>
 </mat-card>

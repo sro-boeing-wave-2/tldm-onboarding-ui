@@ -1,11 +1,9 @@
-<mat-card class="example-card">
+<!-- <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>
       <h1>SignUp</h1>
     </mat-card-title>
   </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-
   <div class="InputContent">
     <mat-card-content>
       <form [formGroup] = "signupForm" (ngsubmit)= "onSubmit()">
@@ -22,7 +20,7 @@
           <input matInput placeholder="Password" formControlName="Password" >
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Workspace" formControlName="Workspaces">
+          <input  matInput readonly [value]="workspace">
         </mat-form-field>
       </form>
       <mat-card-actions class="buttonCss">
@@ -30,5 +28,85 @@
       </mat-card-actions>
     </mat-card-content>
 
+  </div>
+</mat-card> -->
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>SignUp</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <div class="InputContent">
+    <mat-card-content>
+
+      <div class="jumbotron">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+              <form [formGroup]="signupForm" (ngSubmit)= "onSubmit()">
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="First Name" formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }"
+                    />
+                  </mat-form-field>
+                  <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+                    <div *ngIf= "f.FirstName.errors.required"> * FirstName is required</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Last Name" formControlName="LastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }"
+                    />
+                  </mat-form-field>
+                  <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                    <div *ngIf= "f.LastName.errors.required"> * LastName is required</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="EmailId" formControlName="EmailId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
+                    />
+                  </mat-form-field>
+                  <div *ngIf="submitted && f.EmailId.errors" class="invalid-feedback">
+                    <div *ngIf="f.EmailId.errors.required"> * EmailId is required</div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input type="text" matInput placeholder="Password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
+                    />
+                  </mat-form-field>
+                  <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                    <div *ngIf="f.Password.errors.required"> * Password is required</div>
+                    <div *ngIf="f.Password.errors.minlength"> * Password must be at least 6 characters</div>
+                  </div>
+                </div>
+                <!-- <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="First Name" formControlName="FirstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"/>
+            </mat-form-field>
+            <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+              <div *ngIf="f.FirstName.errors.required" > * FirstName is required</div>
+            </div>
+          </div> -->
+                <mat-form-field class="example-full-width">
+                  <input matInput readonly [value]="workspace">
+                </mat-form-field>
+                <div class="form-group">
+                  <mat-card-actions class="buttonCss">
+                    <button mat-raised-button color="primary">Submit</button>
+                  </mat-card-actions>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
   </div>
 </mat-card>
