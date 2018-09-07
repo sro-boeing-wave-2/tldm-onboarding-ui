@@ -1,38 +1,23 @@
-<!--
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title ><h1>Enter your Workspace Name</h1></mat-card-title>
-  </mat-card-header>
-  <div class="InputContent">
-  <mat-card-content>
-      <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input [ngModelOptions] ="{standalone: true}" matInput placeholder="Enter workspace name" [(ngModel)]= "workspaceModel.WorkspaceName" required>
-          </mat-form-field><br>
-        </form>
-  </mat-card-content>
-  <mat-card-actions class="buttonCss">
-      <button mat-raised-button color="primary" (click)="WorkspaceEnter()" (click)= "newMessage()" (click)= "sendWorkspace()"   >Done</button>
-  </mat-card-actions>
-</div>
-</mat-card> -->
-
+<mat-toolbar>
+    <span class="example-header-image"></span>
+    <span>TLDM</span>
+  </mat-toolbar>
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>
       <h1>Enter your Workspace Name</h1>
+      <h4>We"ll use this to name your TLDM Workspace</h4>
     </mat-card-title>
   </mat-card-header>
   <div class="InputContent">
     <mat-card-content>
-        <!-- (ngSubmit)= "onSubmit() -->
-      <form class="example-form" (ngSubmit)= "onSubmit()">
-        <mat-form-field class="example-full-width" >
-          <input [ngModelOptions]= "{standalone: true}" matInput placeholder="Enter workspace name" [(ngModel)]= "workspaceModel.WorkspaceName"
+      <form class="example-form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width">
+          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Enter workspace name" [(ngModel)]="workspaceModel.WorkspaceName"
             required>
         </mat-form-field>
         <mat-card-actions class="buttonCss">
-          <button mat-raised-button [disabled]="!workspaceModel.WorkspaceName" color="primary">Done</button>
+          <button mat-raised-button [disabled]="!workspaceModel.WorkspaceName" color="primary">Create Workspace</button>
         </mat-card-actions>
       </form>
     </mat-card-content>

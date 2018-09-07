@@ -1,28 +1,23 @@
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>
-      <h1>Get Onboard</h1>
-    </mat-card-title>
-    <mat-card-title>
-      <h3> Welcome to {{workspace}}</h3>
+      <h1>Welcome to {{workspace}}</h1>
+      <h4>Please confirm your email address</h4>
     </mat-card-title>
   </mat-card-header>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <div class="InputContent">
     <mat-card-content>
       <form [formGroup]= "emailForm" class="example-form" (ngSubmit)= "onSubmit()">
-        <!-- <h3 style="text-align: center"> SignUp</h3> -->
         <mat-form-field class="example-full-width">
           <input matInput  formControlName="EmailId" class="form-control" [ngClass]= "{ 'is-invalid': submitted && f.EmailId.errors }"
-          placeholder="Enter Your Email address"/>
+          placeholder="name@example.com"/>
           <div *ngIf= "submitted && f.EmailId.errors" class="invalid-feedback">
-            <div *ngIf= "f.EmailId.errors.required">Email is required</div>
-            <div *ngIf= "f.EmailId.errors.email">Email must be a valid email address</div>
+            <div *ngIf= "f.EmailId.errors.required">Please fill in your email.</div>
+            <div *ngIf= "f.EmailId.errors.email">Sorry, but the email is invalid.</div>
           </div>
         </mat-form-field>
         <mat-card-actions class="buttonCss">
-          <button mat-raised-button color="primary" (click)="PostToGmail()" (click)= "Verify()" (click)= "newMessage()">Done</button>
-          <!-- <button mat-raised-button color="primary" (click)="Verify()">Next</button> -->
+          <button mat-raised-button color="primary" (click)="PostToGmail()" (click)= "Verify()" (click)= "newMessage()">Confirm</button>
         </mat-card-actions>
       </form>
     </mat-card-content>

@@ -1,14 +1,12 @@
-<mat-toolbar color="primary">TL;DM
-  <div class="login">
-    <button mat-raised-button color="Basic" (click)="getLogged()">Log In</button>
-  </div>
-  <!-- <span class="example-fill-remaining-space"></span> -->
+<mat-toolbar>
+  <span class="example-header-image"></span>
+  <span>TLDM</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="Basic" (click)="getLogged()">Sign In</button>
 </mat-toolbar>
-
-<body>
-  <!-- <button mat-raised-button color="primary" (click)="getStart()">Get Started</button> -->
-  <div class="getWorkspace">
-    <button class="btn-space" mat-stroked-button color="primary" (click)="getWorkspace()">Create Your Own Workspace</button>
-    <button class="btn-space" mat-stroked-button color="primary" routerLink="/enterOTP" >Join a Workspace</button>
-  </div>
-</body>
+<div class="getWorkspace">
+  <button class="btn-space" mat-raised-button (click)="getWorkspace()"><h1>Create a new Workspace</h1>
+    <h2>Get your company or organization on TLDM</h2></button>
+  <button class="btn-space" mat-raised-button routerLink="/enterOTP"><h1>Find your TLDM workspace</h1>
+    <h2>Join existing workspaces</h2></button>
+</div>
