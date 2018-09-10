@@ -17,6 +17,7 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.component';
 import {InvitedUserVerificationComponent} from './invited-user-verification/invited-user-verification.component'
 import { InvitemembersComponent } from './invitemembers/invitemembers.component';
+import {AddDefaultBotsComponent} from './add-default-bots/add-default-bots.component'
 const routes :  Routes =[
   {path : '', component : HomeComponent},
   {path : 'enterWorkspace', component : EnterWorkspaceComponent},
@@ -30,6 +31,7 @@ const routes :  Routes =[
  {path : 'workspacelist', component : ListOfWorkspaceComponent},
  {path : 'invite', component: InvitemembersComponent },
  {path : 'invitedUserVerify', component : InvitedUserVerificationComponent},
+ {path : 'defaultBots', component : AddDefaultBotsComponent},
   // {path : 'verify', component : TokenComponent},
   // {path : 'displaydata', component :DisplaydataComponent},
   // {path : 'signup', component: SignupComponent}
@@ -43,4 +45,4 @@ const routes :  Routes =[
 
   export class AppRoutingModule{ }
 // export const routingComponents = [HomeComponent, GetStartComponent, VerifyComponent, LoginComponent, TokenComponent,DisplaydataComponent,SignupComponent];
-export const routingComponents = [HomeComponent,EnterWorkspaceComponent,EnterEmailComponent,InvitemembersComponent,UserdetailsComponent,EnterOTPComponent,LoginComponent,WorkspacedetailsComponent,ListOfWorkspaceComponent,InvitedUserVerificationComponent];
+export const routingComponents = [HomeComponent,EnterWorkspaceComponent,EnterEmailComponent,AddDefaultBotsComponent,InvitemembersComponent,UserdetailsComponent,EnterOTPComponent,LoginComponent,WorkspacedetailsComponent,ListOfWorkspaceComponent,InvitedUserVerificationComponent];

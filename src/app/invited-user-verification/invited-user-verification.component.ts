@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-invited-user-verification',
@@ -12,7 +13,8 @@ export class InvitedUserVerificationComponent implements OnInit {
   inviteForm: FormGroup;
   submitted = false;
   workspace : string;
-  constructor(private form : FormBuilder, private router :Router, private _inviteservice: OnboardingService) { }
+  error;
+  constructor(private form : FormBuilder, private router :Router, private _inviteservice: OnboardingService, private localStorage: LocalStorageService) { }
 
 
   ngOnInit() {
@@ -31,15 +33,29 @@ export class InvitedUserVerificationComponent implements OnInit {
     }
     this.newMessage();
     this.postToOnboard();
-    this.ToSignUp();
+
 
 }
 postToOnboard(){
   console.log(this.inviteForm.value);
 
   this._inviteservice.postInviteData(this.inviteForm.value).subscribe(data => {
+    this.localStorage.store("otpverifytoken",data["token"]);
+    console.log("Token Info",data);
     console.log('Success!', data),
     error => console.log('Error!', error);
+    if(data['token'] !== null )
+    {
+      this.ToSignUp();
+    }
+
+    else{
+
+      return;
+    }
+  }, err => {
+    this.error=err;
+    console.log("Error");
   });
 }
 ToSignUp(){

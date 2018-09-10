@@ -18,11 +18,5 @@
   }
 
  .buttonCss{
-   align-items: center;
-   padding-left: 13px;
+   float: right;
  }
-.unauthorised {
-  color: red;
-  font-size: 15px;
-
-}

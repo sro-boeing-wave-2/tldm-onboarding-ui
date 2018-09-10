@@ -7,6 +7,7 @@ import { wrapIntoObservable } from '../../../node_modules/@angular/router/src/ut
 import { Workspace } from '../Model';
 import { OnboardingService } from '../onboarding.service';
 import { Router } from '@angular/router'
+import { LocalStorageService } from 'ngx-webstorage';
 @Component({
   selector: 'app-workspacedetails',
   templateUrl: './workspacedetails.component.html',
@@ -19,7 +20,7 @@ export class WorkspacedetailsComponent implements OnInit {
   channels: any = [];
   workspace: Workspace;
   submitted = false;
-  constructor(private _onboard: OnboardingService, private fb: FormBuilder, private router: Router) { }
+  constructor(private _onboard: OnboardingService, private fb: FormBuilder, private router: Router, private localStorage: LocalStorageService) { }
 
   ngOnInit() {
     this._onboard.currentMessageWorkspace.subscribe(workspacename => this.workspacename = workspacename)
@@ -38,17 +39,21 @@ export class WorkspacedetailsComponent implements OnInit {
   get f() { return this.workForm.controls; }
   onSubmit() {
 
-    this._onboard.postworkspaceDetails(this.workForm.value).subscribe(data => {
-      console.log('Success!', data);
-      this._onboard.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
-    },
-      error => console.log('Error!', error));
+    this.localStorage.store("workspacewithchannels", this.workForm.value);
+
+    // this._onboard.postworkspaceDetails(this.workForm.value).subscribe(data => {
+    //   console.log('Success!', data);
+    //   this._onboard.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
+    // },
+      // error => console.log('Error!', error));
 
     //  this.router.navigate(['/invite']);
-    this.router.navigate(['/enterEmail']);
+    this.router.navigate(['/defaultBots']);
     // this.router.navigate(['']);
 
   }
+
+
 
   addChannel(): void {
     this.channels = this.workForm.get('Channels');
@@ -83,11 +88,6 @@ export class WorkspacedetailsComponent implements OnInit {
   // navigateInvite(){
   //   this.router.navigate(['/invite']);
   // }
-
-  WorkspaceEnter() {
-    console.log("navigating to enter email component");
-    this.router.navigate(['/enterEmail']);
-  }
 
   // WorkspaceDetails(){
   //   this.workForm.value.Workspaces= [ {

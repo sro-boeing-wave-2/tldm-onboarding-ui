@@ -57,11 +57,11 @@ export class UserdetailsComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.signupForm.invalid) {
-      console.log("please ");
+      // console.log("please ");
       return;
     }
     else {
-      console.log("please come")
+      // console.log("please come")
       this.CallToDatabase();
       this.navigateToInvite();
     }

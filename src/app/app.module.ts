@@ -18,6 +18,8 @@ import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.c
 import { ListOfWorkspaceComponent } from './list-of-workspace/list-of-workspace.component';
 import { InvitemembersComponent } from './invitemembers/invitemembers.component';
 import { InvitedUserVerificationComponent } from './invited-user-verification/invited-user-verification.component';
+import { Ng2Webstorage } from 'ngx-webstorage';
+import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.component';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { InvitedUserVerificationComponent } from './invited-user-verification/in
     ListOfWorkspaceComponent,
     InvitemembersComponent,
     InvitedUserVerificationComponent,
+    AddDefaultBotsComponent,
 
   ],
   imports: [
@@ -42,7 +45,8 @@ import { InvitedUserVerificationComponent } from './invited-user-verification/in
     HttpClientModule,
     HttpModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2Webstorage
   ],
   exports : [RouterModule],
   providers: [],

@@ -1,0 +1,43 @@
+<!-- <mat-grid-list cols="3" rowHeight="100%">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <h3>Select the bots </h3>
+      <mat-selection-list [(ngModel)]=b otSelected #selectedChannels>
+        <mat-list-option *ngFor="let bot of Bots" [value]=b ot>
+          {{bot['name']}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-card-actions>
+        <button (click)="addBot()" mat-raised-button color="primary">Submit</button>
+
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list> -->
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Enter your default Bots</h1>
+      <h2>All the Bots will get automatically added to your channels </h2>
+    </mat-card-title>
+  </mat-card-header>
+  <div class="InputContent">
+    <mat-card-content>
+
+      <h3>Select your Default bots </h3>
+      <mat-selection-list [(ngModel)]= botSelected #selectedChannels>
+        <mat-list-option *ngFor= "let bot of Bots" [value]= bot>
+          {{bot['name']}}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-card-actions>
+        <button (click)="addBot()" mat-raised-button color="primary" class="buttonCss">Submit</button>
+
+      </mat-card-actions>
+
+    </mat-card-content>
+  </div>
+</mat-card>

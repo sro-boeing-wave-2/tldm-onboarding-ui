@@ -6,6 +6,7 @@ import { OnboardingService } from '../onboarding.service';
 import {FormGroup, FormBuilder} from  '@angular/forms';
 import {FormControl} from  '@angular/forms';
 import{MaterialModule} from '../materialmodule'
+import { LocalStorageService } from 'ngx-webstorage';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,32 +16,47 @@ export class LoginComponent implements OnInit {
 
   tokenparam:TokenParams;
   // loginModel = new LoginViewModel('','','')
-  constructor(private _loginservice : OnboardingService, private router: Router, private fb: FormBuilder) { }
+  constructor(private _loginservice : OnboardingService, private router: Router, private fb: FormBuilder, private localStorage: LocalStorageService) { }
    users = [];
+   hide: boolean=true;
+   error;
+
+   loginForm = this.fb.group({
+     EmailId: [''],
+     Password: [''],
+   });
   ngOnInit() {
+    console.log("Hi");
   }
-  getLogged() {
-    console.log("Open Gmail");
+  onSubmit() {
     console.log(this.loginForm.value);
     this._loginservice.showEmailId(this.loginForm.value.EmailId);
-    this._loginservice.login(this.loginForm.value).subscribe(data => {
-    this.tokenparam = data;
-    this._loginservice.AccessToken=this.tokenparam.token;
-    console.log("Email Id",this.loginForm.value.EmailId);
-
-
-    });
-    // this.router.navigate(['/getStarted']);
+    this._loginservice.login(this.loginForm.value).subscribe(tokenInfo => {
+      console.log(tokenInfo);
+      console.log(tokenInfo["token"]);
+      this.localStorage.store("token",tokenInfo["token"]);
+      console.log(this.localStorage.retrieve("token"));
+      this.router.navigate(['/workspacelist']);
+    }, err => this.error=err);
   }
-  hide: boolean=true;
+//   getLogged() {
+//     console.log("Open Gmail");
+//     console.log(this.loginForm.value);
+//     this._loginservice.showEmailId(this.loginForm.value.EmailId);
+//     this._loginservice.login(this.loginForm.value).subscribe(data => {
+//     this.tokenparam = data;
+//     console.log( this.tokenparam);
+//     this._loginservice.AccessToken=this.tokenparam.token;
+//     console.log("Email Id",this.loginForm.value.EmailId);
 
-  loginForm = this.fb.group({
-    EmailId: [''],
-    Password: [''],
-  });
- toWorkspaceList(){
-   this.router.navigate(['/workspacelist'])
- }
+
+//     });
+//     // this.router.navigate(['/getStarted']);
+//   }
+
+//  toWorkspaceList(){
+//    this.router.navigate(['/workspacelist'])
+//  }
 
 
 }

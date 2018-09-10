@@ -11,6 +11,7 @@ import{TokenParams} from '../Model'
 })
 export class EnterOTPComponent implements OnInit {
   message:string;
+  error;
   tokenparam:TokenParams;
   OTPmodel = new Userstate( '',false, '')
   constructor(private _OtpService: OnboardingService, private router: Router) { }
@@ -28,8 +29,19 @@ export class EnterOTPComponent implements OnInit {
     console.log("Posted To server");
     console.log(this.OTPmodel.Otp);
     this._OtpService.sendOTP(this.OTPmodel.Otp).subscribe(data => {
+      // console.log("Unauthorised",data)
       this._OtpService.AccessToken=data['token'];
-      });
+
+      if(data['token'] !== null )
+      {
+        this.RedirectToSignUp();
+      }
+
+      else{
+
+        return;
+      }
+      }, err => this.error=err);
   }
 
 
