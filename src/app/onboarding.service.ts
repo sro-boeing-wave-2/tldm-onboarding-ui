@@ -20,27 +20,27 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OnboardingService {
-  private _ipaddress = "http://172.23.238.165:5000";
+  private _ipaddress = "http://172.23.238.165:7000";
 
-  private TokenApi: string = `${this._ipaddress}/api/onboarding/login`;
-  private UsersApi: string = `${this._ipaddress}/api/users`;
+  private TokenApi: string = `${this._ipaddress}/onboard/login`;
+  private UsersApi: string = `${this._ipaddress}onboard/users`;
   // private _signupUrlOnboarding: string = `${this._ipaddress}/api/onboard/signup`;
-  private _url2: string = `${this._ipaddress}/api/onboarding/create/workspace/email`;
-  private _url3: string = `${this._ipaddress}/api/onboarding/create/workspace/verify`;
-  private _url4: string = `${this._ipaddress}/api/onboarding/invite/verify`;
-  private _createworkspaceUrl: string = `${this._ipaddress}/api/onboarding/create/workspace`;
-  private _signupUrl: string = `${this._ipaddress}/api/onboarding/personaldetails`;
-  private _workspacedetailsWithBots: string = `${this._ipaddress}/api/onboarding/workspacedetails`;
-  private inviteusers: string = `${this._ipaddress}/api/onboarding/invite`;
-  private ListofWorkspaceApi: string = `${this._ipaddress}/api/onboarding/`;
+  private _url2: string = `${this._ipaddress}/onboard/create/workspace/email`;
+  private _url3: string = `${this._ipaddress}/onboard/create/workspace/verify`;
+  private _url4: string = `${this._ipaddress}/onboard/invite/verify`;
+  private _createworkspaceUrl: string = `${this._ipaddress}/onboard/create/workspace`;
+  private _signupUrl: string = `${this._ipaddress}/onboard/personaldetails`;
+  private _workspacedetailsWithBots: string = `${this._ipaddress}/onboard/workspacedetails`;
+  private inviteusers: string = `${this._ipaddress}/onboard/invite`;
+  private ListofWorkspaceApi: string = `${this._ipaddress}/onboard/`;
 
 
-  private _ipaddress1 = "http://172.23.238.230:5004";
-  private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
-  private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
+  // private _ipaddress1 = "http://172.23.238.230:5004";
+  // private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
+  // private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
 
-  private _ipaddress2 = "http://172.23.238.180:9999";
-  private _getBotsApi = `${this._ipaddress2}/api/applications/all`;
+  // private _ipaddress2 = "http://172.23.238.180:9999";
+  // private _getBotsApi = `${this._ipaddress2}/api/applications/all`;
 
   AccessToken: string = "";
   private messageSourceEmail = new BehaviorSubject('');
@@ -97,7 +97,7 @@ export class OnboardingService {
 
   /*this is to get workspace list from onboarding api */
   getWorkspaces(email: string): Observable<Workspace[]> {
-    console.log("Token",this.localStorage.retrieve("token"));
+    console.log("Token", this.localStorage.retrieve("token"));
     var httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -107,17 +107,16 @@ export class OnboardingService {
     return this.http.get<Workspace[]>(`${this.ListofWorkspaceApi}${email}`, httpOptions);
   }
 
-  getUsers(): Observable<UserAccount[]> {
-    var HeadersForUser = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.AccessToken}`
-    });
-    console.log(this.AccessToken);
-    console.log(HeadersForUser.append('Authorization', 'Bearer ' + this.AccessToken))
-    //HeadersForUser.append('Authorization','Bearer ' + this.AccessToken)
+  // getUsers(): Observable<UserAccount[]> {
+  //   var HeadersForUser = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${this.AccessToken}`
+  //   });
+  //   console.log(this.AccessToken);
+  //   console.log(HeadersForUser.append('Authorization', 'Bearer ' + this.AccessToken))
 
-    return this.http.get<UserAccount[]>(this.UsersApi, { headers: HeadersForUser });
-  }
+  //   return this.http.get<UserAccount[]>(this.UsersApi, { headers: HeadersForUser });
+  // }
 
   /*this is to post userdetails to onboarding api */
   PostDataBySignUp(signup: any) {
@@ -134,10 +133,10 @@ export class OnboardingService {
     // return this.http.post(this._signupUrlChatApi, signup, httpOptions);
   }
 
-  postSignupDataToChat(signup: any, workspace: string) {
-    console.log(workspace);
-    return this.http.put(`${this._signupUrlChatApi}${workspace}`, signup);
-  }
+  // postSignupDataToChat(signup: any, workspace: string) {
+  //   console.log(workspace);
+  //   return this.http.put(`${this._signupUrlChatApi}${workspace}`, signup);
+  // }
 
 
   /*this is to post workspace object to onboarding api */
@@ -145,9 +144,9 @@ export class OnboardingService {
     return this.http.post(this._createworkspaceUrl, work, httpOptions);
   }
 
-  postworkspaceToChat(workspaceWithBots: any) {
-    return this.http.post(this.workspaceobjecForChat, workspaceWithBots, httpOptions);
-  }
+  // postworkspaceToChat(workspaceWithBots: any) {
+  //   return this.http.post(this.workspaceobjecForChat, workspaceWithBots, httpOptions);
+  // }
 
   /*This is to update existing workspace details with default Bots */
   postworkspaceDetails(Bots: any) {
@@ -171,10 +170,10 @@ export class OnboardingService {
     return this.http.post(this._url4, inviteData, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));
   }
 
-/*This is to get all Bots details from Integration Microservice */
-  getBots(){
-    return this.http.get(this._getBotsApi);
-  }
+  /*This is to get all Bots details from Integration Microservice */
+  // getBots(){
+  //   return this.http.get(this._getBotsApi);
+  // }
 
 }
 

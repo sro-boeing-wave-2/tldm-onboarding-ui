@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 
 import { Validators } from '@angular/forms';
+import { ChatService } from '../chat.service';
 @Component({
   selector: 'app-userdetails',
   templateUrl: './userdetails.component.html',
@@ -15,7 +16,7 @@ export class UserdetailsComponent implements OnInit {
   workspace: string;
   signUpModel = new UserAccount('', '', '', '', true, null, null);
   submitted = false;
-  constructor(private _signupservice: OnboardingService, private router: Router, private fb: FormBuilder) { }
+  constructor(private _signupservice: OnboardingService, private router: Router, private fb: FormBuilder, private _signupServicetoChat : ChatService) { }
 
   ngOnInit() {
     this._signupservice.currentMessageWorkspace.subscribe(workspace => this.workspace = workspace)
@@ -93,7 +94,7 @@ export class UserdetailsComponent implements OnInit {
       // this.JoinForm.value.Password = this.signupForm.value.Password;
       // this.JoinForm.value.Workspaces = this.signupForm.value.Workspaces.Name;
       console.log("here is shit ", workspace);
-      this._signupservice.postSignupDataToChat(JSONForm, this.workspace).subscribe(workspace => console.log('Success', workspace))
+      this._signupServicetoChat.postSignupDataToChat(JSONForm, this.workspace).subscribe(workspace => console.log('Success', workspace))
     });
     //this._signupservice.postSignupDataToChat(this.data, this.workspace).subscribe();
   }

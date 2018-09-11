@@ -39,7 +39,7 @@ export class WorkspacedetailsComponent implements OnInit {
   get f() { return this.workForm.controls; }
   onSubmit() {
 
-    // this.localStorage.store("workspacewithchannels", this.workForm.value);
+    this.localStorage.store("workspacewithchannels", this.workForm.value);
 
     // this._onboard.postworkspaceDetails(this.workForm.value).subscribe(data => {
     //   console.log('Success!', data);

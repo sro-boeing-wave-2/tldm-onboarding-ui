@@ -31,8 +31,13 @@ export class InvitemembersComponent implements OnInit {
       if (this.emailForm.invalid) {
           return;
       }
+      else{
+        this.PostToGmail();
+        this.newMessage();
+        // alert('SUCCESS!! :-)')
+      }
 
-      alert('SUCCESS!! :-)')
+
   }
 
   PostToGmail() {
@@ -42,10 +47,7 @@ export class InvitemembersComponent implements OnInit {
       "workspace" : this.workspace
     };    this._emailservice.sendInviteMail(Email).subscribe(data => console.log('success'), err => console.log(err));
   }
-  Verify() {
-    console.log("enter verification code ")
-    this.router.navigate(['/enterOTP']);
-  }
+
   newMessage() {
     console.log(this.emailForm.value);
     this._emailservice.showEmailId(this.emailForm.value.EmailId);

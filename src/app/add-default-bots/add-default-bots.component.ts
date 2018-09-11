@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OnboardingService } from '../onboarding.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
+import { BotIntegrationService } from '../bot-integration.service';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-add-default-bots',
@@ -11,11 +13,11 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class AddDefaultBotsComponent implements OnInit {
   Bots;
   botSelected;
-  constructor(private Botservice : OnboardingService, private router : Router, private localStorage: LocalStorageService) { }
+  constructor(private Botservice : OnboardingService, private router : Router, private localStorage: LocalStorageService, private ResponseBotData : ChatService, private getBotsService : BotIntegrationService) { }
   defaultBots;
 
   ngOnInit() {
-     this.Botservice.getBots().subscribe(data => {this.Bots = data});
+     this.getBotsService.getBots().subscribe(data => {this.Bots = data});
      this.defaultBots = this.localStorage.retrieve("workspacewithchannels");
 
   }
@@ -29,7 +31,7 @@ export class AddDefaultBotsComponent implements OnInit {
     this.Botservice.postworkspaceDetails(this.defaultBots).subscribe(data => {
       console.log('Success!', data);
       error => console.log('Error!', error);
-      this.Botservice.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
+      this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
       this.router.navigate(['/enterEmail']);
     });;
   }
