@@ -27,8 +27,9 @@ export class AddDefaultBotsComponent implements OnInit {
 
     console.log("Full Object", JSON.stringify(this.defaultBots));
     this.Botservice.postworkspaceDetails(this.defaultBots).subscribe(data => {
-      console.log('Success!', data),
+      console.log('Success!', data);
       error => console.log('Error!', error);
+      this.Botservice.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
       this.router.navigate(['/enterEmail']);
     });;
   }

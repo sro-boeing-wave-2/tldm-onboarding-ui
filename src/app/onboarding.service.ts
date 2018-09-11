@@ -125,8 +125,8 @@ export class OnboardingService {
     var httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${this.localStorage.retrieve("otpverifytoken")}`
-        'Authorization': `Bearer ${this.AccessToken}`
+        'Authorization': `Bearer ${this.localStorage.retrieve("otpverifytoken")}`
+        // 'Authorization': `Bearer ${this.AccessToken}`
       })
     };
 
@@ -145,8 +145,8 @@ export class OnboardingService {
     return this.http.post(this._createworkspaceUrl, work, httpOptions);
   }
 
-  postworkspaceToChat(work: any) {
-    return this.http.post(this.workspaceobjecForChat, work, httpOptions);
+  postworkspaceToChat(workspaceWithBots: any) {
+    return this.http.post(this.workspaceobjecForChat, workspaceWithBots, httpOptions);
   }
 
   /*This is to update existing workspace details with default Bots */
