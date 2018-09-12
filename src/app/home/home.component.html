@@ -1,12 +1,25 @@
-<mat-toolbar>
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<mat-toolbar class="main-toolbar" color="primary">
   <span class="example-header-image"></span>
   <span>TLDM</span>
   <span class="example-spacer"></span>
   <button mat-raised-button color="Basic" (click)="getLogged()">Log In</button>
 </mat-toolbar>
-<div class="getWorkspace">
-  <button class="btn-space" mat-raised-button (click)="getWorkspace()"><h1>Create a new Workspace</h1>
-    <h2>Get your company or organization on TLDM</h2></button>
-  <button class="btn-space" mat-raised-button routerLink = "/invitedUserVerify"><h1>Find your TLDM workspace</h1>
-    <h2>Join existing workspaces</h2></button>
+<div class="container" fxLayoutfxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="10px">
+  <div class="btn" (click)="getWorkspace()">
+    <button mat-stroked-button color="primary">
+      <div class="buttonText">
+        <h1>Create a new Workspace </h1>
+        <h2>Get your organization on TLDM</h2>
+      </div>
+    </button>
+  </div>
+  <div class="btn" routerLink="/invitedUserVerify">
+    <button mat-stroked-button color="primary">
+      <div class="buttonText">
+        <h1>Find your TLDM workspace</h1>
+        <h2>Join existing workspaces</h2>
+      </div>
+    </button>
+  </div>
 </div>

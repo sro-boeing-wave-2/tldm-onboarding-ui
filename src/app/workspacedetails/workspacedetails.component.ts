@@ -40,16 +40,8 @@ export class WorkspacedetailsComponent implements OnInit {
   onSubmit() {
 
     this.localStorage.store("workspacewithchannels", this.workForm.value);
-
-    // this._onboard.postworkspaceDetails(this.workForm.value).subscribe(data => {
-    //   console.log('Success!', data);
-    //   this._onboard.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
-    // },
-    //   error => console.log('Error!', error));
-
-    //  this.router.navigate(['/invite']);
     this.router.navigate(['/defaultBots']);
-    // this.router.navigate(['']);
+
 
   }
 
