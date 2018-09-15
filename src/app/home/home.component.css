@@ -1,68 +1,81 @@
-.btn{
-  border-radius: 10px;
-  margin-top: 15%;
-  align-content: center;
-  text-align:center;
 
-
-}
-
-.buttonText{
-
-   font-family : Open Sans;
-}
-/* @media only screen and (min-width: 720px) {
-  .buttonText {
-    font-size: 10px;
-  }
-}
-
-@media only screen and (min-width: 640px) {
-  .buttonText {
-    font-size: 8px;
-  }
-}
-
-@media only screen and (max-width: 560) {
-  .buttonText {
-    font-size: 6px;
-  }
-}
-
-
-@media only screen and (max-width: 420px) {
-  .buttonText {
-    font-size: 4px;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .buttonText {
-    font-size: 2.5px;
-  }
-} */
-
-.main-toolbar{
-  width: 100%;
-}
-button:hover {
-  background-color: grey;
-  color: white;
-}
-
-a, span {
-  text-decoration: none;
-  color: white;
-
-}
 
 .example-spacer {
   flex: 1 1 auto;
 }
 
-/* .example-header-image {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cro_semicolon_plain.svg/2000px-Cro_semicolon_plain.svg.png');
-  background-size: cover;
-} */
 
 
+.aside {
+  /* background-color: #33b5e5; */
+  /* padding: 15px; */
+  text-align: center;
+  font-size: 14px;
+  align-content: center;
+  padding-top: 20%;
+
+}
+.btn{
+  border-radius: 10px;
+  background-color:Transparent;
+  border-color: black;
+  align-content: center;
+  text-align:center;
+  /* background-color: #4CAF50;  */
+  color: black;
+
+}
+
+.main-toolbar{
+  background-color:white;
+  color: black;
+}
+
+.buttonText{
+  font-family: Open Sans;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  float: left;
+  /* padding: 20px; */
+
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+
+
+* {
+  box-sizing: border-box;
+}

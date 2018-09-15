@@ -1,23 +1,32 @@
-.example-container {
-  text-align: center;
-  margin : auto;
-}
 
-.example-container > * {
-  width: 60%;
-}
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-.example-card{
-  width: 500px;
-  margin: auto;
-  margin-top: 12%;
- }
+  mat-card {
+    width: 100%;
+  }
 
- .example-full-width{
-   width: 475px;
-   align-content: center;
+  button {
+   float: right;
   }
   .unauthorised{
     color: red;
     font-size: 12px;
   }
+
+  .example-card{
+     border: 1px solid;
+     height: 350px;
+     width: 350px;
+   }
+
+   .maintile{
+    margin: 1px 1px 1px 1px;
+   }
+
+   .example-full-width{
+    width: 100%;
+    align-content: center;
+   }

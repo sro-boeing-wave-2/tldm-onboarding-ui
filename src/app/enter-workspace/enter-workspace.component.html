@@ -1,7 +1,6 @@
-<mat-toolbar>
-    <span class="example-header-image"></span>
-    <span>TLDM</span>
-  </mat-toolbar>
+<mat-grid-list cols="8" rowHeight= "100%">
+  <mat-grid-tile [colspan]= "1"></mat-grid-tile>
+  <mat-grid-tile [colspan]= "6" class="maintile">
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>
@@ -11,11 +10,14 @@
   </mat-card-header>
   <div class="InputContent">
     <mat-card-content>
-      <form class="example-form" (ngSubmit)="onSubmit()">
+      <form class="example-form" (ngSubmit)= "onSubmit()">
         <mat-form-field class="example-full-width">
           <input [ngModelOptions]="{standalone: true}" matInput placeholder="Enter workspace name" [(ngModel)]="workspaceModel.WorkspaceName"
             required>
         </mat-form-field>
+        <p *ngIf= "error" class="unauthorised">
+          * Workspace Name already taken. Please enter different workspace name.
+        </p>
         <mat-card-actions class="buttonCss">
           <button mat-raised-button [disabled]="!workspaceModel.WorkspaceName" color="primary">Create Workspace</button>
         </mat-card-actions>
@@ -23,3 +25,6 @@
     </mat-card-content>
   </div>
 </mat-card>
+</mat-grid-tile>
+<mat-grid-tile [colspan]= "1"></mat-grid-tile>
+</mat-grid-list>

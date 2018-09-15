@@ -1,22 +1,28 @@
+
+ .example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  width: 100%;
+}
+
+button {
+ float: right;
+}
+.unauthorised{
+  color: red;
+  font-size: 12px;
+}
+
 .example-card{
-  width: 500px;
-  margin: auto;
-  align-content: center;
-  margin-top: 65px;
+   border: 1px solid;
+   width: 400px;
+   height: auto;
+
  }
 
- .InputContent{
-  padding-top: 50px;
-  align-content: center;
-  width: 500px;
-  /* height: 500px; */
- }
-
- .example-full-width{
-   width: 475px;
-   align-content: center;
-  }
-
- .buttonCss{
-   float: right;
+ .maintile{
+  margin: 1px 1px 1px 1px;
  }

@@ -13,7 +13,7 @@ export class EnterWorkspaceComponent implements OnInit {
 
   workspaceModel = new Workspace('', '', null, null, null);
   constructor(private router: Router, private _workspaceservice: OnboardingService, private http: Http) { }
-
+  error;
   ngOnInit() {
   }
 
@@ -26,9 +26,8 @@ export class EnterWorkspaceComponent implements OnInit {
       window.alert("Enter a name");
     }
     else {
-      this.newMessage();
       this.sendWorkspace();
-      this.ToWorkspaceDetails()
+      this.newMessage();
     }
   }
   // WorkspaceEnter(){
@@ -53,7 +52,11 @@ export class EnterWorkspaceComponent implements OnInit {
     console.log(workspacenameObject);
     this._workspaceservice.postworkspace(workspacenameObject).subscribe(data => {
       console.log('Success!', data),
-      error => console.log('Error!', error);
+      // error => console.log('Error!', error);
+      this.ToWorkspaceDetails();
+    }, err => {
+      this.error=err;
+      console.log("Error1234");
     });
 
   }

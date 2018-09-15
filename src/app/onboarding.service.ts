@@ -141,7 +141,7 @@ export class OnboardingService {
 
   /*this is to post workspace object to onboarding api */
   postworkspace(work: any) {
-    return this.http.post(this._createworkspaceUrl, work, httpOptions);
+    return this.http.post(this._createworkspaceUrl, work, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));;
   }
 
   // postworkspaceToChat(workspaceWithBots: any) {

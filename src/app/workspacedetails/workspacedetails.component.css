@@ -1,37 +1,36 @@
-/* .example-container {
+
+.example-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
 }
 
-.example-container > * {
-  width: 60%;
+InputContent{
+  text-align: center;
+}
+mat-card {
+  width: 100%;
 }
 
-#increase {
-  width: 150%;
-} */
+button {
+ float: right;
+}
+
 .example-card{
-  width: 500px;
-  margin: auto;
-  align-content: center;
-  margin-top: 65px;
+   border: 1px solid;
+   width: 400px;
+   height: auto;
  }
 
- .InputContent{
-  padding-top: 50px;
-  align-content: center;
-  width: 500px;
-  /* height: 500px; */
+ .maintile{
+  margin: 1px 1px 1px 1px;
  }
+.unauthorised {
+  color: red;
+  font-size: 15px;
+
+}
 
  .example-full-width{
-   width: 475px;
+   width: 100%;
    align-content: center;
   }
-
- .buttonCss{
-   align-items: center;
-   padding-left: 13px;
- }

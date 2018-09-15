@@ -1,32 +1,30 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  width: 100%;
+}
+
+button {
+ float: right;
+}
+
 .example-card{
-  width: 500px;
-  margin: auto;
-  align-content: center;
-  margin-top: 65px;
+   border: 1px solid;
+   width: 400px;
  }
 
- .InputContent{
-  padding-top: 50px;
-  align-content: center;
-  width: 500px;
-  /* height: 500px; */
+ .maintile{
+  margin: 1px 1px 1px 1px;
  }
+.unauthorised {
+  color: red;
+  font-size: 15px;
 
- .example-full-width{
-   width: 475px;
-   align-content: center;
-  }
-
- .buttonCss{
-   align-items: center;
-   padding-left: 13px;
- }
- .example-header-image {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cro_semicolon_plain.svg/2000px-Cro_semicolon_plain.svg.png');
-  background-size: cover;
 }
-
-mat-toolbar {
-  background-color: #333;
-  color: white;
-}
+.example-full-width{
+  width: 100%;
+  align-content: center;
+ }

@@ -1,15 +1,32 @@
+<mat-grid-list cols="8" rowHeight= "100%">
+    <mat-grid-tile [colspan]= "1"></mat-grid-tile>
+    <mat-grid-tile [colspan]= "6" class="maintile">
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>
       <h1>List Of Workspaces</h1>
-       <h3>Welcome {{currentEmail}}</h3>
+      <h3>Welcome {{currentEmail}}, Here's list of your all workspaces.</h3>
     </mat-card-title>
   </mat-card-header>
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <div class="InputContent">
-    <mat-card-content *ngFor = "let workspace of workspaces">
-      {{workspace}}<a [href]="_url+'?email='+currentEmail+'&workspace='+workspace"><button mat-raised-button color="primary">Launch</button></a>
+    <mat-card-content>
+      <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let workspace of workspaces">
+
+          <a [href]="_url+'?email='+currentEmail+'&workspace='+workspace">
+            <button mat-raised-button color="primary">{{workspace}}</button>
+          </a>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+      <!-- <a [href]="_url+'?email='+currentEmail+'&workspace='+workspace"><button mat-raised-button color="primary">{{workspace}}</button></a> -->
     </mat-card-content>
   </div>
-  <button mat-raised-button color="primary" (click) = "EnterWorkspaceName()">Create Workspace</button>
+  <section>
+      <button mat-raised-button color="primary" class="align-center" (click)="EnterWorkspaceName()">Create Workspace</button>
+  </section>
 </mat-card>
+</mat-grid-tile>
+<mat-grid-tile [colspan]= "1"></mat-grid-tile>
+</mat-grid-list>

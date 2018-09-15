@@ -1,27 +1,30 @@
-.example-card{
-  width: 500px;
-  margin: auto;
-  align-content: center;
-  margin-top: 65px;
- }
 
- .InputContent{
-  padding-top: 50px;
-  align-content: center;
-  width: 500px;
-  /* height: 500px; */
- }
-
- .example-full-width{
-   width: 475px;
-   align-content: center;
-  }
-
- .buttonCss{
-   align-items: center;
-   padding-left: 13px;
- }
-
- .invalid-feedback{
-  color: red;
+.example-container {
+  display: flex;
+  flex-direction: column;
 }
+
+mat-card {
+  width: 100%;
+}
+
+button {
+ float: right;
+}
+.unauthorised{
+  color: red;
+  font-size: 12px;
+}
+
+.example-card{
+   border: 1px solid;
+
+ }
+
+ .maintile{
+  margin: 1px 1px 1px 1px;
+ }
+ .example-full-width{
+  width: 100%;
+  align-content: center;
+ }

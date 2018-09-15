@@ -1,25 +1,41 @@
-<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-<mat-toolbar class="main-toolbar" color="primary">
+
+<link href= "https://fonts.googleapis.com/css?family=Open Sans" rel= "stylesheet">
+<mat-toolbar class="main-toolbar">
   <span class="example-header-image"></span>
   <span>TLDM</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button color="Basic" (click)="getLogged()">Log In</button>
+  <button mat-stroked-button (click)="getLogged()">Log In</button>
 </mat-toolbar>
-<div class="container" fxLayoutfxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="10px">
-  <div class="btn" (click)="getWorkspace()">
-    <button mat-stroked-button color="primary">
-      <div class="buttonText">
-        <h1>Create a new Workspace </h1>
-        <h2>Get your organization on TLDM</h2>
-      </div>
-    </button>
+<div class="row">
+
+  <div class="col-6 col-s-6">
+    <div class="aside">
+      <button class="btn" (click)="getWorkspace()">
+        <!-- <button mat-stroked-button color="primary" (click)="getWorkspace()"> -->
+        <div class="buttonText">
+          <h1>Create a new Workspace </h1>
+          <h2>Get your organization on TLDM</h2>
+        </div>
+      <!-- </button> -->
+      </button>
+    </div>
   </div>
-  <div class="btn" routerLink="/invitedUserVerify">
-    <button mat-stroked-button color="primary">
-      <div class="buttonText">
-        <h1>Find your TLDM workspace</h1>
-        <h2>Join existing workspaces</h2>
-      </div>
-    </button>
+
+
+  <div class="col-6 col-s-6">
+    <div class="aside">
+      <button  class="btn"  routerLink= "/invitedUserVerify">
+       <!-- <button mat-stroked-button color="primary" routerLink= "/invitedUserVerify"> -->
+
+        <div class="buttonText">
+          <h1>Find your workspace</h1>
+          <h2>Join existing workspaces</h2>
+        </div>
+
+        <!-- </button> -->
+      </button>
+    </div>
+
   </div>
 </div>
+
