@@ -20,7 +20,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OnboardingService {
-  private _ipaddress = "http://172.23.238.165:7000";
+  private _ipaddress = "http://172.23.238.206:7000";
 
   private TokenApi: string = `${this._ipaddress}/onboard/login`;
   private UsersApi: string = `${this._ipaddress}onboard/users`;
@@ -133,20 +133,12 @@ export class OnboardingService {
     // return this.http.post(this._signupUrlChatApi, signup, httpOptions);
   }
 
-  // postSignupDataToChat(signup: any, workspace: string) {
-  //   console.log(workspace);
-  //   return this.http.put(`${this._signupUrlChatApi}${workspace}`, signup);
-  // }
-
 
   /*this is to post workspace object to onboarding api */
   postworkspace(work: any) {
     return this.http.post(this._createworkspaceUrl, work, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));;
   }
 
-  // postworkspaceToChat(workspaceWithBots: any) {
-  //   return this.http.post(this.workspaceobjecForChat, workspaceWithBots, httpOptions);
-  // }
 
   /*This is to update existing workspace details with default Bots */
   postworkspaceDetails(Bots: any) {

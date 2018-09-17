@@ -16,7 +16,7 @@
             required>
         </mat-form-field>
         <p *ngIf= "error" class="unauthorised">
-          * Workspace Name already taken. Please enter different workspace name.
+          *Workspace name already exist. Please enter different workspace name.
         </p>
         <mat-card-actions class="buttonCss">
           <button mat-raised-button [disabled]="!workspaceModel.WorkspaceName" color="primary">Create Workspace</button>

@@ -94,7 +94,7 @@ export class UserdetailsComponent implements OnInit {
       // this.JoinForm.value.Password = this.signupForm.value.Password;
       // this.JoinForm.value.Workspaces = this.signupForm.value.Workspaces.Name;
       console.log("here is shit ", workspace);
-      this._signupServicetoChat.postSignupDataToChat(JSONForm, this.workspace).subscribe(workspace => console.log('Success', workspace))
+      this._signupServicetoChat.postSignupDataToChat(JSONForm, this.workspace).subscribe(workspace => console.log('Success', JSONForm))
     });
     //this._signupservice.postSignupDataToChat(this.data, this.workspace).subscribe();
   }
