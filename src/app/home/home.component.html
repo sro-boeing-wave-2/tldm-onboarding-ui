@@ -1,41 +1,20 @@
-
-<link href= "https://fonts.googleapis.com/css?family=Open Sans" rel= "stylesheet">
 <mat-toolbar class="main-toolbar">
   <span class="example-header-image"></span>
   <span>TLDM</span>
   <span class="example-spacer"></span>
   <button mat-stroked-button (click)="getLogged()">Log In</button>
 </mat-toolbar>
-<div class="row">
 
-  <div class="col-6 col-s-6">
-    <div class="aside">
-      <button class="btn" (click)="getWorkspace()">
-        <!-- <button mat-stroked-button color="primary" (click)="getWorkspace()"> -->
-        <div class="buttonText">
-          <h1>Create a new Workspace </h1>
-          <h2>Get your organization on TLDM</h2>
-        </div>
-      <!-- </button> -->
-      </button>
-    </div>
-  </div>
-
-
-  <div class="col-6 col-s-6">
-    <div class="aside">
-      <button  class="btn"  routerLink= "/invitedUserVerify">
-       <!-- <button mat-stroked-button color="primary" routerLink= "/invitedUserVerify"> -->
-
-        <div class="buttonText">
-          <h1>Find your workspace</h1>
-          <h2>Join existing workspaces</h2>
-        </div>
-
-        <!-- </button> -->
-      </button>
-    </div>
-
-  </div>
+<div align="center">
+  <a class="button" routerLink="/invitedUserVerify">
+    <span>Find your workspace</span>
+  </a>
 </div>
+
+<div align="center">
+  <a class="button" (click)="getWorkspace()">
+    <span>Create a new Workspace</span>
+  </a>
+</div>
+
 
