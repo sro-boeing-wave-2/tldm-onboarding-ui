@@ -11,7 +11,7 @@
   top: 50%;
   width: 80vw;
   max-width: 400px;
-  height: 360px;
+  height: 440px;
   background: #34344A;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -45,7 +45,7 @@ h1 {
 
 h4 {
   margin-left: 5%;
-  color: #80475E;
+  color: #1AC8ED;
 }
 
 .l1 {

@@ -1,60 +1,26 @@
-HELLO
-<mat-grid-list cols="8" rowHeight= "100%">
-  <mat-grid-tile [colspan]= "1"></mat-grid-tile>
-  <mat-grid-tile [colspan]= "6" class="maintile">
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>
-      <h1>Check your email</h1>
-      <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
-    </mat-card-title>
-
-
-  </mat-card-header>
-  <div class="InputContent">
-    <mat-card-content>
-      <div class="jumbotron">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 offset-md-3">
-
-              <form [formGroup]="inviteForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                  <mat-form-field class="example-full-width">
-                    <input type="text" matInput placeholder="Enter your workspace" formControlName="workspace" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.workspace.errors }"
-                    />
-                  </mat-form-field>
-                  <div *ngIf="submitted && f.workspace.errors" class="invalid-feedback">
-                    <div *ngIf="f.Password.errors.required"> * workspace is required</div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <mat-form-field class="example-full-width">
-                    <input type="text" matInput placeholder="Enter your OTP" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }"
-                    />
-                  </mat-form-field>
-                  <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
-                    <div *ngIf="f.Password.errors.required"> * OTP is required</div>
-                  </div>
-                  <p *ngIf= "error" class="unauthorised">
-                    Invalid OTP
-                  </p>
-                </div>
-                <div class="form-group">
-                  <mat-card-actions class="buttonCss">
-                    <button mat-raised-button color="primary">Submit</button>
-                  </mat-card-actions>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+<div class="mailbg">
+  <h1>Check your email</h1>
+  <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
+  <form [formGroup]="inviteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="l1" for="mailinput">Enter your workspace name:</label>
+      <input class="mailinput form-control" type="text" placeholder="" formControlName="workspace" [ngClass]="{ 'is-invalid': submitted && f.workspace.errors }" />
+      <div *ngIf="submitted && f.workspace.errors" class="invalid-feedback">
+        <div *ngIf="f.Password.errors.required"> * workspace is required</div>
       </div>
-
-    </mat-card-content>
-
-  </div>
-</mat-card>
-</mat-grid-tile>
-<mat-grid-tile [colspan]= "1"></mat-grid-tile>
-</mat-grid-list>
+    </div>
+    <div class="form-group">
+      <label class="l1" for="mailinput">Enter your OTP:</label>
+      <input type="text" matInput placeholder="" formControlName="Password" class="mailinput form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+      <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+        <div *ngIf="f.Password.errors.required"> * OTP is required</div>
+      </div>
+      <p *ngIf="error" class="unauthorised">
+        Invalid OTP
+      </p>
+    </div>
+    <div class="form-group">
+      <button class="sendmess">Submit</button>
+    </div>
+  </form>
+</div>
