@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 html, body {
   margin: 0;
   padding: 0;
@@ -14,5 +14,10 @@ body {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
   background-size: cover;
-  background: url(https://p.w3layouts.com/demos_new/12-01-2017/credit_login_register_form-demo_Free/1763555537/web/images/banner1.jpg)no-repeat 0px 0px;
+  background-color: whitesmoke;
+}
+
+mat-pseudo-checkbox, .mat-pseudo-checkbox {
+  color: white !important;
+  background-color:#34344A;
 }

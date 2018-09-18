@@ -1,32 +1,21 @@
-<mat-grid-list cols="8" rowHeight= "100%">
-  <mat-grid-tile [colspan]= "1"></mat-grid-tile>
-  <mat-grid-tile [colspan]= "6" class="maintile">
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>
-      <h1>Check your email</h1>
-      <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
-    </mat-card-title>
+<mat-toolbar class="main-toolbar">
+  <span mat-card-avatar class="example-header-image"></span>
+  <span>TLDM</span>
+</mat-toolbar>
 
+<div class="mailbg">
+  <h1>Check your email</h1>
+  <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
+  <form>
+    <label class="l1" for="mailinput">Enter your confirmation code:</label>
+    <input class="mailinput" [ngModelOptions]="{standalone: true}" placeholder="" [(ngModel)]="OTPmodel.Otp">
+    <p *ngIf="error" class="unauthorised">
+      * Invalid OTP
+    </p>
+  </form>
+  <button class="sendmess" [disabled]="!OTPmodel.Otp" (click)="PostToServer()">Done</button>
+</div>
 
-  </mat-card-header>
-  <div class="InputContent">
-    <mat-card-content>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <input [ngModelOptions]="{standalone: true}" matInput placeholder="Your confirmation code" [(ngModel)]="OTPmodel.Otp">
-        </mat-form-field>
-        <p *ngIf="error" class="unauthorised">
-          * Invalid OTP
-        </p>
-      </form>
-
-    </mat-card-content>
-    <mat-card-actions class="buttonCss">
-      <button [disabled]="!OTPmodel.Otp" mat-raised-button color="primary" (click)="PostToServer()">Done</button>
-    </mat-card-actions>
-  </div>
-</mat-card>
-</mat-grid-tile>
-<mat-grid-tile [colspan]= "1"></mat-grid-tile>
-</mat-grid-list>
+<div class="copyright">
+  <p> © 2018 TLDM . All rights reserved </p>
+</div>

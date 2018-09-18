@@ -1,31 +1,26 @@
-<mat-grid-list cols="8" rowHeight="100%">
-    <mat-grid-tile [colspan]="1"></mat-grid-tile>
-    <mat-grid-tile [colspan]="6" class="maintile">
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>
-      <h1>Enter your default channels</h1>
-      <h4>All the members of your workspace {{workspacename}} will get added to these channels by default</h4>
-    </mat-card-title>
-  </mat-card-header>
-  <div class="InputContent">
-    <mat-card-content>
-      <form fxLayout="column" [formGroup]="workForm" (ngSubmit)="onSubmit()">
-        <div formArrayName="Channels">
-          <div *ngFor="let ChannelName of workForm.get('Channels').controls; let i = index;">
-            <div [formGroupName]="i" class="input-row" fxLayout="row" fxLayout.lt-md="column">
-              <mat-form-field class="example-full-width" fxFlex>
-                <input matInput placeholder="Channel Name" formControlName="ChannelName">
-              </mat-form-field>
-            </div>
-          </div>
-          <a button mat-raised-button color="primary" (click)="addChannel()" style="margin-bottom: 10px">Add More Channels...</a>
+<mat-toolbar class="main-toolbar">
+  <span mat-card-avatar class="example-header-image"></span>
+  <span>TLDM</span>
+</mat-toolbar>
+
+<div class="mailbg">
+  <h1>Enter your default channels</h1>
+  <h4>All the members of your workspace {{workspacename}} will get added to these channels by default</h4>
+  <form fxLayout="column" [formGroup]="workForm" (ngSubmit)="onSubmit()">
+    <label class="l1" for="mailinput">Enter channel name:</label>
+    <div formArrayName="Channels">
+      <div *ngFor="let ChannelName of workForm.get('Channels').controls; let i = index;">
+        <div [formGroupName]="i" class="input-row" fxLayout="row" fxLayout.lt-md="column">
+          <input class="mailinput" placeholder="" formControlName="ChannelName">
         </div>
-        <button mat-raised-button color="primary" mat-button type="submit" style="float: right ;">Submit</button>
-      </form>
-    </mat-card-content>
-  </div>
-</mat-card>
-</mat-grid-tile>
-<mat-grid-tile [colspan]="1"></mat-grid-tile>
-</mat-grid-list>
+      </div>
+      <a (click)="addChannel()" style="margin-bottom: 10px"><i class="fas fa-plus"></i></a>
+    </div>
+    <button class="sendmess" type="submit">Submit</button>
+  </form>
+
+</div>
+
+<div class="copyright">
+  <p> © 2018 TLDM . All rights reserved </p>
+</div>

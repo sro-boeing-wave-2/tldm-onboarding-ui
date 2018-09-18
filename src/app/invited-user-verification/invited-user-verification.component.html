@@ -1,3 +1,8 @@
+<mat-toolbar class="main-toolbar">
+  <span mat-card-avatar class="example-header-image"></span>
+  <span>TLDM</span>
+</mat-toolbar>
+
 <div class="mailbg">
   <h1>Check your email</h1>
   <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
@@ -6,14 +11,14 @@
       <label class="l1" for="mailinput">Enter your workspace name:</label>
       <input class="mailinput form-control" type="text" placeholder="" formControlName="workspace" [ngClass]="{ 'is-invalid': submitted && f.workspace.errors }" />
       <div *ngIf="submitted && f.workspace.errors" class="invalid-feedback">
-        <div *ngIf="f.Password.errors.required"> * workspace is required</div>
+        <div class="required" *ngIf="f.Password.errors.required"> * workspace is required</div>
       </div>
     </div>
     <div class="form-group">
       <label class="l1" for="mailinput">Enter your OTP:</label>
       <input type="text" matInput placeholder="" formControlName="Password" class="mailinput form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
       <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
-        <div *ngIf="f.Password.errors.required"> * OTP is required</div>
+        <div class="required" *ngIf="f.Password.errors.required"> * OTP is required</div>
       </div>
       <p *ngIf="error" class="unauthorised">
         Invalid OTP
@@ -23,4 +28,8 @@
       <button class="sendmess">Submit</button>
     </div>
   </form>
+</div>
+
+<div class="copyright">
+  <p> © 2018 TLDM . All rights reserved </p>
 </div>

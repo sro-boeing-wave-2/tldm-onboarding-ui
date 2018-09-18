@@ -1,9 +1,18 @@
+.main-toolbar {
+  background-color: #34344A;
+  color: white;
+}
+
+.example-header-image {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cro_semicolon_plain.svg/2000px-Cro_semicolon_plain.svg.png');
+  background-size: cover;
+}
+
 .unauthorised {
   color: red;
   font-size: 15px;
   margin-left: 5%;
 }
-
 
 .mailbg {
   position: absolute;
@@ -11,7 +20,7 @@
   top: 50%;
   width: 80vw;
   max-width: 400px;
-  height: 440px;
+  min-height: 350px;
   background: #34344A;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -39,18 +48,17 @@
 
 h1 {
   margin-left: 5%;
-  color: #C89B7B;
+  color: #C4D7F2;
 }
-
 
 h4 {
   margin-left: 5%;
-  color: #1AC8ED;
+  color: #C4D7F2;
 }
 
 .l1 {
   margin-left: 5%;
-  color: #DF5799;
+  color: #AFDEDC;
 }
 
 .mailinput {
@@ -75,6 +83,7 @@ h4 {
 .sendmess {
   margin-left: 50%;
   margin-top: 5%;
+  margin-bottom: 5%;
   -webkit-transform: translate(-50%, -0%);
   -ms-transform: translate(-50%, -0%);
   transform: translate(-50%, -0%);
@@ -83,7 +92,7 @@ h4 {
   text-align: center;
   font-size: 1.2em;
   font-weight: bold;
-  color: #F0F757;
+  color: #AFDEDC;
   background: #34344A;
   line-height: 40px;
   cursor: pointer;
@@ -91,4 +100,16 @@ h4 {
 
 .sendmess:focus {
   outline: none;
+}
+
+.copyright p {
+  position: absolute;
+  top: 95%;
+  left: 40%;
+  margin-bottom: 2%;
+  text-align: center;
+  font-size: 14px;
+  color: #040F0F;
+  letter-spacing: 1px;
+  text-transform: none;
 }

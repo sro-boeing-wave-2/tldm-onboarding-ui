@@ -1,45 +1,27 @@
-<mat-grid-list cols="8" rowHeight= "100%">
-  <mat-grid-tile [colspan]= "2"></mat-grid-tile>
-  <mat-grid-tile [colspan]= "4" class="maintile">
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>
-      <h1> Welcome to {{workspace}}</h1>
-      <h3>Please confirm your email address</h3>
-    </mat-card-title>
-  </mat-card-header>
-  <div class="InputContent">
-    <mat-card-content>
-      <div class="jumbotron">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 offset-md-3">
+<mat-toolbar class="main-toolbar">
+  <span mat-card-avatar class="example-header-image"></span>
+  <span>TLDM</span>
+</mat-toolbar>
 
-              <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                  <mat-form-field class="example-full-width">
-                    <input type="text" matInput placeholder="name@example.com" formControlName="EmailId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
-                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
-                  </mat-form-field>
-                  <div *ngIf="submitted && f.EmailId.errors" class="invalid-feedback">
-                    <div *ngIf= "f.EmailId.errors.required" > * Email is required</div>
-                    <div *ngIf= "f.EmailId.errors.email">* Email must be a valid email address</div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <mat-card-actions class="buttonCss">
-                    <button mat-raised-button color="primary">Submit</button>
-                  </mat-card-actions>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+<div class="mailbg">
+  <h1> Welcome to {{workspace}}</h1>
+  <h4>Please confirm your email address</h4>
+  <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="l1" for="mailinput">Enter your email:</label>
+      <input type="text" placeholder="" formControlName="EmailId" class="form-control mailinput" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+      <div *ngIf="submitted && f.EmailId.errors" class="unauthorised">
+        <div *ngIf="f.EmailId.errors.required"> * Email is required</div>
+        <div *ngIf="f.EmailId.errors.email">* Email must be a valid email address</div>
       </div>
+    </div>
+    <div class="form-group">
+      <button class="sendmess">Submit</button>
+    </div>
+  </form>
+</div>
 
-    </mat-card-content>
-  </div>
-</mat-card>
-</mat-grid-tile>
-<mat-grid-tile [colspan]= "2"></mat-grid-tile>
-</mat-grid-list>
+<div class="copyright">
+  <p> © 2018 TLDM . All rights reserved </p>
+</div>

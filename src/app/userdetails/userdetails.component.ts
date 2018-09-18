@@ -42,7 +42,6 @@ export class UserdetailsComponent implements OnInit {
   //   Workspaces : [''],
   //   // UserWorkspaces : []
   // });
-
   JoinForm = this.fb.group({
     FirstName: [''],
     LastName: [''],
