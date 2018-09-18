@@ -6,20 +6,13 @@
 <div class="mailbg">
   <h1>List Of Workspaces</h1>
   <h4>Welcome {{currentEmail}}, Here's list of your all workspaces.</h4>
-  <div class="InputContent">
-    <mat-card-content>
-      <mat-grid-list cols="4" rowHeight="2:1">
-        <mat-grid-tile *ngFor="let workspace of workspaces">
-
-          <a [href]="_url+'?email='+currentEmail+'&workspace='+workspace">
-            <button mat-raised-button color="primary">{{workspace}}</button>
-          </a>
-
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card-content>
+  <div *ngFor="let workspace of workspaces">
+    <a [href]="_url+'?email='+currentEmail+'&workspace='+workspace">
+      <button class="sendmess">{{workspace}}</button>
+    </a>
   </div>
-  <section>
-    <button mat-raised-button color="primary" class="align-center" (click)="EnterWorkspaceName()">Create Workspace</button>
-  </section>
+</div>
+
+<div class="copyright">
+  <p> © 2018 TLDM . All rights reserved </p>
 </div>
