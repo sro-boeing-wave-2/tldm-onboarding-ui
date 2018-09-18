@@ -14,7 +14,15 @@
           <input class="mailinput" placeholder="" formControlName="ChannelName">
         </div>
       </div>
-      <a (click)="addChannel()" style="margin-bottom: 10px"><i class="fas fa-plus"></i></a>
+      <a style="margin-bottom: 10px" (click)="incrementChannels()">
+        <i class="fas fa-plus"></i>
+      </a>
+      <div class="unauthorised">
+        {{errorfornullchannel}}
+      </div>
+      <div class="unauthorised">
+        {{error}}
+      </div>
     </div>
     <button class="sendmess" type="submit">Submit</button>
   </form>

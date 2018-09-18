@@ -22,6 +22,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.com
     InvitemembersComponent,
     InvitedUserVerificationComponent,
     AddDefaultBotsComponent,
+
 
   ],
   imports: [

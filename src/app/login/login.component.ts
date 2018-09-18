@@ -7,6 +7,7 @@ import {FormGroup, FormBuilder} from  '@angular/forms';
 import {FormControl} from  '@angular/forms';
 import{MaterialModule} from '../materialmodule'
 import { LocalStorageService } from 'ngx-webstorage';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   tokenparam:TokenParams;
   // loginModel = new LoginViewModel('','','')
-  constructor(private _loginservice : OnboardingService, private router: Router, private fb: FormBuilder, private localStorage: LocalStorageService) { }
+  constructor(private _loginservice : OnboardingService, private router: Router, private fb: FormBuilder, private localStorage: LocalStorageService, private Auth : AuthService) { }
    users = [];
    hide: boolean=true;
    error;
@@ -34,9 +35,17 @@ export class LoginComponent implements OnInit {
     this._loginservice.login(this.loginForm.value).subscribe(tokenInfo => {
       console.log(tokenInfo);
       console.log(tokenInfo["token"]);
+      if(tokenInfo != null){
+        this.Auth.setStatus(true);
+        this.router.navigate(['/workspacelist']);
+
+      }else {
+        this.router.navigate(['/notfound'])
+    }
+
       this.localStorage.store("token",tokenInfo["token"]);
       console.log(this.localStorage.retrieve("token"));
-      this.router.navigate(['/workspacelist']);
+
     }, err => this.error=err);
   }
 //   getLogged() {

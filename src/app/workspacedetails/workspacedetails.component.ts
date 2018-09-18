@@ -8,6 +8,7 @@ import { Workspace } from '../Model';
 import { OnboardingService } from '../onboarding.service';
 import { Router } from '@angular/router'
 import { LocalStorageService } from 'ngx-webstorage';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-workspacedetails',
   templateUrl: './workspacedetails.component.html',
@@ -20,58 +21,57 @@ export class WorkspacedetailsComponent implements OnInit {
   channels: any = [];
   workspace: Workspace;
   submitted = false;
-  constructor(private _onboard: OnboardingService, private fb: FormBuilder, private router: Router, private localStorage: LocalStorageService) { }
+  count = 1;
+  error;
+  errorfornullchannel;
+  constructor(private _onboard: OnboardingService, private fb: FormBuilder, private router: Router, private localStorage: LocalStorageService, private Auth : AuthService) { }
 
   ngOnInit() {
-    this._onboard.currentMessageWorkspace.subscribe(workspacename => this.workspacename = workspacename)
+    this._onboard.currentMessageWorkspace.subscribe(workspacename => {this.workspacename = workspacename;
+    })
 
-    //this.workspace.WorkspaceName=this.workspacename;
     this.workForm = this.fb.group({
       WorkspaceName: [this.workspacename, Validators.required],
-
-      Channels: this.fb.array([this.createChannel()]),
-      // Invitemembers:this.fb.array([this.createMember()]),
+      Channels: this.fb.array([this.createChannel()], Validators.required),
     });
   }
 
-
-
   get f() { return this.workForm.controls; }
   onSubmit() {
-
+    console.log(this.workForm.invalid);
+    if(this.workForm.value.Channels[0].ChannelName == "") {
+      this.errorfornullchannel = "Please Enter Atleast One Channel Name";
+      return;
+    }
     this.localStorage.store("workspacewithchannels", this.workForm.value);
-    this.router.navigate(['/defaultBots']);
-
-
+    this.router.navigate(['/defaultBots'])
   }
 
+  incrementChannels(){
+    this.count++;
+    // console.log(this.count);
+    if(this.count >=1 && this.count<=3)
+    {
+      this.addChannel();
+    }
 
+    else{
+
+      this.error = "You can't have more than three Default channels";
+    }
+  }
 
   addChannel(): void {
     this.channels = this.workForm.get('Channels');
     this.channels.push(this.createChannel());
   }
 
-  addMember(): void {
-    this.Invitemembers = this.workForm.get('Invitemembers') as FormArray;
-    this.Invitemembers.push(this.createMember());
-  }
-
   createChannel(): FormGroup {
     return this.fb.group({
-      ChannelName: ''
+      ChannelName: [''],
     });
   }
 
-  createMember(): FormGroup {
-    return this.fb.group(
-      {
-        emailId: '',
-        isJoined: false,
-        otp: ''
-      }
-    )
-  }
   newMessage() {
     console.log(this.workForm.value);
     this._onboard.showEmailId(this.workForm.value.EmailId);

@@ -3,7 +3,7 @@ import { Workspace } from '../Model';
 import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Http } from '@angular/http';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-enter-workspace',
   templateUrl: './enter-workspace.component.html',
@@ -12,7 +12,7 @@ import { Http } from '@angular/http';
 export class EnterWorkspaceComponent implements OnInit {
 
   workspaceModel = new Workspace('', '', null, null, null);
-  constructor(private router: Router, private _workspaceservice: OnboardingService, private http: Http) { }
+  constructor(private router: Router, private _workspaceservice: OnboardingService, private http: Http, private Auth : AuthService) { }
   error;
   ngOnInit() {
   }
@@ -51,13 +51,19 @@ export class EnterWorkspaceComponent implements OnInit {
     };
     console.log(workspacenameObject);
     this._workspaceservice.postworkspace(workspacenameObject).subscribe(data => {
-      console.log('Success!', data),
-      // error => console.log('Error!', error);
+      if(workspacenameObject.WorkspaceName != null){
+        this.Auth.setStatus(true);
+        this.router.navigate(['/enterWorkspaceDetails']);
+      }else {
+        this.router.navigate(['/notfound'])
+    }
       this.ToWorkspaceDetails();
     }, err => {
       this.error=err;
       console.log("Error1234");
     });
+
+
 
   }
 

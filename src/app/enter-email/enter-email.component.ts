@@ -3,6 +3,7 @@ import {UserAccount} from '../Model';
 import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-enter-email',
   templateUrl: './enter-email.component.html',
@@ -13,7 +14,7 @@ export class EnterEmailComponent implements OnInit {
   submitted = false;
   workspace : string;
   userModel = new UserAccount('','','','',false,null,null);
-  constructor(private _emailservice: OnboardingService, private router: Router, private form : FormBuilder) { }
+  constructor(private _emailservice: OnboardingService, private router: Router, private form : FormBuilder, private Auth : AuthService) { }
   // workspaceModel = new Workspace('',null,false,'');
   ngOnInit() {
     this._emailservice.currentMessageWorkspace.subscribe(workspace => this.workspace = workspace)
@@ -33,7 +34,7 @@ export class EnterEmailComponent implements OnInit {
 
       this.PostToGmail();
       this.newMessage();
-      this.Verify();
+      // this.Verify();
   }
 
   PostToGmail() {
@@ -46,12 +47,17 @@ export class EnterEmailComponent implements OnInit {
       //error => console.log('Error', error)));
     // this.router.navigate(['enterToken']);
     //console.log(this.emailModel.toString());
-    this._emailservice.sendMail(Email).subscribe(data => console.log('success'), err => console.log(err));
+    this._emailservice.sendMail(Email).subscribe(data =>{
+      if(data != null){
+        this.Auth.setStatus(true);
+        this.router.navigate(['/enterOTP']);
+
+      }else {
+        this.router.navigate(['/notfound'])
+    }
+  });
   }
-  Verify() {
-    console.log("enter verification code ")
-    this.router.navigate(['/enterOTP']);
-  }
+
   newMessage() {
     console.log(this.emailForm.value);
     this._emailservice.showEmailId(this.emailForm.value.EmailId);
