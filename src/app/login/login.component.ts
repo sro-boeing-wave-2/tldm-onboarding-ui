@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/workspacelist']);
 
       }else {
-        this.router.navigate(['/notfound'])
+        return;
     }
 
       this.localStorage.store("token",tokenInfo["token"]);

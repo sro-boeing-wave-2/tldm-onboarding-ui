@@ -11,22 +11,23 @@ import { WorkspacedetailsComponent } from './workspacedetails/workspacedetails.c
 import { InvitedUserVerificationComponent } from './invited-user-verification/invited-user-verification.component'
 import { InvitemembersComponent } from './invitemembers/invitemembers.component';
 import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth.guard';
 
 import { from } from 'rxjs';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'enterWorkspace', component: EnterWorkspaceComponent },
-  { path: 'enterWorkspaceDetails', component: WorkspacedetailsComponent},
+  { path: 'enterWorkspaceDetails', component: WorkspacedetailsComponent, canActivate: [AuthGuard]},
   { path: 'defaultBots', component: AddDefaultBotsComponent },
   { path: 'enterEmail', component: EnterEmailComponent, canActivate: [AuthGuard] },
   { path: 'enterOTP', component: EnterOTPComponent, canActivate: [AuthGuard]},
-  { path: 'signup', component: UserdetailsComponent},
+  { path: 'signup', component: UserdetailsComponent, canActivate: [AuthGuard]},
   { path: 'invite', component: InvitemembersComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'workspacelist', component: ListOfWorkspaceComponent },
+  { path: 'workspacelist', component: ListOfWorkspaceComponent , canActivate: [AuthGuard]},
   { path: 'invitedUserVerify', component: InvitedUserVerificationComponent },
-
+  { path: 'pagenotfound', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -44,5 +45,5 @@ export const routingComponents =
     InvitemembersComponent, UserdetailsComponent,
     EnterOTPComponent, LoginComponent,
     WorkspacedetailsComponent, ListOfWorkspaceComponent,
-    InvitedUserVerificationComponent
+    InvitedUserVerificationComponent,PageNotFoundComponent,
   ];

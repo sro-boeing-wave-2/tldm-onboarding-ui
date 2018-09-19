@@ -9,7 +9,7 @@ describe('BotIntegrationService', () => {
     });
   });
 
-  it('should be created', inject([BotIntegrationService], (service: BotIntegrationService) => {
-    expect(service).toBeTruthy();
-  }));
+  // it('should be created', inject([BotIntegrationService], (service: BotIntegrationService) => {
+  //   expect(service).toBeTruthy();
+  // }));
 });

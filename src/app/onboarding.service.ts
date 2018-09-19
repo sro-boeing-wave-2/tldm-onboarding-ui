@@ -45,10 +45,15 @@ export class OnboardingService {
   AccessToken: string = "";
   private messageSourceEmail = new BehaviorSubject('');
   currentMessageEmail = this.messageSourceEmail.asObservable();
+
   private messageSourceWorkspace = new BehaviorSubject('');
   currentMessageWorkspace = this.messageSourceWorkspace.asObservable();
+
   private currentWorkspace = new BehaviorSubject('');
   currentWorkspaceName = this.messageSourceEmail.asObservable();
+
+  private currentWorkspacewithChannels = new BehaviorSubject('');
+  WorkspacewithChannels = this.currentWorkspacewithChannels.asObservable();
 
   constructor(public http: HttpClient, private localStorage: LocalStorageService) { }
 
@@ -65,6 +70,9 @@ export class OnboardingService {
     this.messageSourceWorkspace.next(workspace)
   }
 
+  workspacewithchannels(workwithChannels : any){
+     this.currentWorkspacewithChannels.next(workwithChannels);
+  }
   /*this is to post email to onboarding api */
   sendMail(email: any) {
     console.log(email);
@@ -107,17 +115,6 @@ export class OnboardingService {
     return this.http.get<Workspace[]>(`${this.ListofWorkspaceApi}${email}`, httpOptions);
   }
 
-  // getUsers(): Observable<UserAccount[]> {
-  //   var HeadersForUser = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${this.AccessToken}`
-  //   });
-  //   console.log(this.AccessToken);
-  //   console.log(HeadersForUser.append('Authorization', 'Bearer ' + this.AccessToken))
-
-  //   return this.http.get<UserAccount[]>(this.UsersApi, { headers: HeadersForUser });
-  // }
-
   /*this is to post userdetails to onboarding api */
   PostDataBySignUp(signup: any) {
     console.log("TOKEN ", this.localStorage.retrieve("otpverifytoken"));
@@ -130,8 +127,7 @@ export class OnboardingService {
     };
 
     return this.http.post(this._signupUrl, signup, httpOptions);
-    // return this.http.post(this._signupUrlChatApi, signup, httpOptions);
-  }
+    }
 
 
   /*this is to post workspace object to onboarding api */
@@ -161,11 +157,6 @@ export class OnboardingService {
   postInviteData(inviteData: any) {
     return this.http.post(this._url4, inviteData, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));
   }
-
-  /*This is to get all Bots details from Integration Microservice */
-  // getBots(){
-  //   return this.http.get(this._getBotsApi);
-  // }
 
 }
 

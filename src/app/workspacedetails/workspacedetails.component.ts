@@ -27,9 +27,7 @@ export class WorkspacedetailsComponent implements OnInit {
   constructor(private _onboard: OnboardingService, private fb: FormBuilder, private router: Router, private localStorage: LocalStorageService, private Auth : AuthService) { }
 
   ngOnInit() {
-    this._onboard.currentMessageWorkspace.subscribe(workspacename => {this.workspacename = workspacename;
-    })
-
+    this._onboard.currentMessageWorkspace.subscribe(workspacename => {this.workspacename = workspacename;})
     this.workForm = this.fb.group({
       WorkspaceName: [this.workspacename, Validators.required],
       Channels: this.fb.array([this.createChannel()], Validators.required),
@@ -37,13 +35,17 @@ export class WorkspacedetailsComponent implements OnInit {
   }
 
   get f() { return this.workForm.controls; }
+
+
+
   onSubmit() {
     console.log(this.workForm.invalid);
     if(this.workForm.value.Channels[0].ChannelName == "") {
       this.errorfornullchannel = "Please Enter Atleast One Channel Name";
       return;
     }
-    this.localStorage.store("workspacewithchannels", this.workForm.value);
+    // this.localStorage.store("workspacewithchannels", this.workForm.value);
+    this._onboard.workspacewithchannels(this.workForm.value);
     this.router.navigate(['/defaultBots'])
   }
 

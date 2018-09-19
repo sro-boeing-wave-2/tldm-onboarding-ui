@@ -20,6 +20,7 @@ import { InvitemembersComponent } from './invitemembers/invitemembers.component'
 import { InvitedUserVerificationComponent } from './invited-user-verification/invited-user-verification.component';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -35,6 +36,7 @@ import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.com
     InvitemembersComponent,
     InvitedUserVerificationComponent,
     AddDefaultBotsComponent,
+    PageNotFoundComponent,
 
 
   ],

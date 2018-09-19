@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
-
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-invited-user-verification',
   templateUrl: './invited-user-verification.component.html',
@@ -14,7 +14,7 @@ export class InvitedUserVerificationComponent implements OnInit {
   submitted = false;
   workspace : string;
   error;
-  constructor(private form : FormBuilder, private router :Router, private _inviteservice: OnboardingService, private localStorage: LocalStorageService) { }
+  constructor(private form : FormBuilder, private router :Router, private _inviteservice: OnboardingService, private localStorage: LocalStorageService, private Auth : AuthService) { }
 
 
   ngOnInit() {
@@ -46,10 +46,10 @@ postToOnboard(){
     error => console.log('Error!', error);
     if(data['token'] !== null )
     {
-      this.ToSignUp();
+      this.Auth.setStatus(true);
+      this.router.navigate(['/signup'])
     }
     else{
-
       return;
     }
   }, err => {

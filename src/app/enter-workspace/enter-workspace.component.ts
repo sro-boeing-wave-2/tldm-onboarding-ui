@@ -35,10 +35,6 @@ export class EnterWorkspaceComponent implements OnInit {
   //   this.router.navigate(['/enterEmail']);
   // }
 
-  ToWorkspaceDetails() {
-    console.log("ascCQAW");
-    this.router.navigate(['/enterWorkspaceDetails']);
-  }
 
   newMessage() {
     console.log(this.workspaceModel.WorkspaceName);
@@ -52,12 +48,14 @@ export class EnterWorkspaceComponent implements OnInit {
     console.log(workspacenameObject);
     this._workspaceservice.postworkspace(workspacenameObject).subscribe(data => {
       if(workspacenameObject.WorkspaceName != null){
+        console.log("checking----")
         this.Auth.setStatus(true);
         this.router.navigate(['/enterWorkspaceDetails']);
+        console.log("checking----still")
       }else {
-        this.router.navigate(['/notfound'])
+        return;
     }
-      this.ToWorkspaceDetails();
+
     }, err => {
       this.error=err;
       console.log("Error1234");

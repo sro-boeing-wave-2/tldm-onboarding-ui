@@ -21,20 +21,10 @@ export class ListOfWorkspaceComponent implements OnInit {
 
         this.workspaceservice.currentMessageEmail.subscribe(email => {this.currentEmail=email;
         this.workspaceservice.getWorkspaces(this.currentEmail).subscribe(data => {this.workspaces = data})
-
-
         })
 
     }
-  EnterWorkspaceName(){
-    console.log("ascCQAW");
-    this.router.navigate(['/enterWorkspace']);
-  }
 
-  submitWorkspace(workspace) {
-
-    //this.workspaceservice.storeWorkspace(workspace);
-  }
 
 
 }
