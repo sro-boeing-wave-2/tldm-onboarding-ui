@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'enterWorkspaceDetails', component: WorkspacedetailsComponent, canActivate: [AuthGuard]},
   { path: 'defaultBots', component: AddDefaultBotsComponent },
   { path: 'enterEmail', component: EnterEmailComponent, canActivate: [AuthGuard] },
-  { path: 'enterOTP', component: EnterOTPComponent, canActivate: [AuthGuard]},
+  { path: 'enterOTP', component: EnterOTPComponent},
   { path: 'signup', component: UserdetailsComponent, canActivate: [AuthGuard]},
   { path: 'invite', component: InvitemembersComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },

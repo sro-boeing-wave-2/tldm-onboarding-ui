@@ -100,16 +100,10 @@ export class UserdetailsComponent implements OnInit {
       console.log("Error");
     })
   }
-  // else{
-  //   window.alert("Enter valid Email ID")
-  // }
-    //this._signupservice.postSignupDataToChat(this.data, this.workspace).subscribe();
+
   }
 
-  // ToWorkspaceDetails(){
-  //   console.log("ascCQAW");
-  //   this.router.navigate(['/enterWorkspaceDetails']);
-  // }
+
 
 
 

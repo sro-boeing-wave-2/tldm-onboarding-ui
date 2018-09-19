@@ -9,7 +9,7 @@
   <label class="l1">Select your default bots:</label>
   <mat-selection-list [(ngModel)]=botSelected #selectedChannels>
     <mat-list-option *ngFor="let bot of Bots" [value]=bot>
-      {{bot['name']}}
+      {{bot['firstName']}}
     </mat-list-option>
   </mat-selection-list>
   <button (click)="addBot()" class="sendmess">Submit</button>
