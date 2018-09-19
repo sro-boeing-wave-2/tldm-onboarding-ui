@@ -5,7 +5,7 @@ import {EnterWorkspaceComponent} from './enter-workspace/enter-workspace.compone
 import {EnterEmailComponent} from './enter-email/enter-email.component';
 import{EnterOTPComponent} from './enter-otp/enter-otp.component';
 import{LoginComponent} from './login/login.component';
-import {ListOfWorkspaceComponent} from './list-of-workspace/list-of-workspace.component'
+//import {ListOfWorkspaceComponent} from './list-of-workspace/list-of-workspace.component'
 // import {GetStartComponent} from './get-start/get-start.component'
 // import{VerifyComponent} from './verify/verify.component'
 // import{LoginComponent} from './login/login.component'
@@ -25,7 +25,7 @@ const routes :  Routes =[
   // {path : 'user', component : VerifyComponent},
  {path : 'login', component : LoginComponent},
  {path : 'enterWorkspaceDetails', component : WorkspacedetailsComponent},
- {path : 'workspacelist', component : ListOfWorkspaceComponent},
+ //{path : 'workspacelist', component : ListOfWorkspaceComponent},
   // {path : 'verify', component : TokenComponent},
   // {path : 'displaydata', component :DisplaydataComponent},
   // {path : 'signup', component: SignupComponent}
@@ -39,4 +39,4 @@ const routes :  Routes =[
 
   export class AppRoutingModule{ }
 // export const routingComponents = [HomeComponent, GetStartComponent, VerifyComponent, LoginComponent, TokenComponent,DisplaydataComponent,SignupComponent];
-export const routingComponents = [HomeComponent,EnterWorkspaceComponent,EnterEmailComponent,UserdetailsComponent,EnterOTPComponent,LoginComponent,WorkspacedetailsComponent,ListOfWorkspaceComponent];
+export const routingComponents = [HomeComponent,EnterWorkspaceComponent,EnterEmailComponent,UserdetailsComponent,EnterOTPComponent,LoginComponent,WorkspacedetailsComponent];

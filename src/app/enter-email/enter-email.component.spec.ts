@@ -19,7 +19,11 @@ describe('EnterEmailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should Create',()=>{
+  //   expect(component).toBeTruthy();
+  // })
+
+  // it('Shoulb be able to PostGmail',()=>{
+
+  // })
 });
