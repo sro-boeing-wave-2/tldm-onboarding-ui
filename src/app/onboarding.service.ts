@@ -81,17 +81,13 @@ export class OnboardingService {
 
   /*this is to post otp to onboarding api */
   sendOTP(OTP: string) {
-    // const  httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json',
-    //   })
-    // };
-
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    const  httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
     console.log(`"${OTP}"`);
-    return this.http.post(this._url3, `"${OTP}"`, { responseType: 'text', headers}).pipe(catchError((error: HttpErrorResponse) => throwError(error.message || 'Server error')));
+    return this.http.post(this._url3, `"${OTP}"`, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.message || 'Server error')));
   }
 
   handleError(err: HttpErrorResponse) {

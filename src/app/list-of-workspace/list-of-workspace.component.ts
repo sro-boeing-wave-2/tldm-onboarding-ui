@@ -12,7 +12,7 @@ export class ListOfWorkspaceComponent implements OnInit {
 
   workspaces = [];
   email : string;
-  _url: string ="http://172.23.238.230:4200";
+  _url: string ="http://172.23.238.182:9999";
   currentEmail: string;
   tokenparam:TokenParams;
   constructor(private workspaceservice  : OnboardingService, private router : Router ) { }

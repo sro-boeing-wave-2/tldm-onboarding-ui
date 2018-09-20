@@ -6,12 +6,12 @@
 <div class="mailbg">
   <h1>Enter your default channels</h1>
   <h4>All the members of your workspace {{workspacename}} will get added to these channels by default</h4>
-  <form fxLayout="column" [formGroup]="workForm" (ngSubmit)="onSubmit()">
+  <form fxLayout= "column" [formGroup]= "workForm" (ngSubmit)= "onSubmit()">
     <label class="l1" for="mailinput">Enter channel name:</label>
-    <div formArrayName="Channels">
+    <div formArrayName= "Channels">
       <div *ngFor="let ChannelName of workForm.get('Channels').controls; let i = index;">
-        <div [formGroupName]="i" class="input-row" fxLayout="row" fxLayout.lt-md="column">
-          <input class="mailinput" placeholder="" formControlName="ChannelName">
+        <div [formGroupName]="i" class="input-row" fxLayout= "row" fxLayout.lt-md="column">
+          <input class="mailinput" placeholder="" formControlName= "ChannelName">
         </div>
       </div>
       <a style="margin-bottom: 10px" (click)="incrementChannels()">

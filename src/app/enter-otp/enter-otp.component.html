@@ -8,7 +8,7 @@
   <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
   <form>
     <label class="l1" for="mailinput">Enter your confirmation code:</label>
-    <input class="mailinput" [ngModelOptions]= "{standalone: true}" placeholder="" [(ngModel)]= "OTPmodel.Otp">
+    <input class="mailinput" [ngModelOptions] ="{standalone: true}" [(ngModel)]= "OTPmodel.Otp">
     <p *ngIf ="error" class="unauthorised">
       * {{error}}
     </p>
