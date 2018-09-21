@@ -15,8 +15,9 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth.guard';
 
 import { from } from 'rxjs';
+import { MainComponent } from './main/main.component';
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: MainComponent },
   { path: 'enterWorkspace', component: EnterWorkspaceComponent },
   { path: 'enterWorkspaceDetails', component: WorkspacedetailsComponent, canActivate: [AuthGuard]},
   { path: 'defaultBots', component: AddDefaultBotsComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'workspacelist', component: ListOfWorkspaceComponent , canActivate: [AuthGuard]},
   { path: 'invitedUserVerify', component: InvitedUserVerificationComponent },
   { path: 'pagenotfound', component: PageNotFoundComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

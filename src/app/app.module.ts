@@ -21,6 +21,7 @@ import { InvitedUserVerificationComponent } from './invited-user-verification/in
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MainComponent } from './main/main.component';
 
 
 
@@ -37,6 +38,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     InvitedUserVerificationComponent,
     AddDefaultBotsComponent,
     PageNotFoundComponent,
+    MainComponent,
 
 
   ],

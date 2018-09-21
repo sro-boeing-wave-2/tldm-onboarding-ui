@@ -1,0 +1,181 @@
+<mat-toolbar class="main-toolbar">
+  <span mat-card-avatar class="example-header-image"></span>
+  <span>TLDM</span>
+  <span class="example-spacer"></span>
+  <button mat-stroked-button (click)="getLogged()">Log In</button>
+</mat-toolbar>
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px; color: white;">Talk Less Do More</h1>
+    <div align="center">
+      <a class="btn" (click)="redirectToHome()">
+        <span>Get Started</span>
+      </a>
+    </div>
+    <a href="#section1">
+      <div class="arrow bounce">
+      </div>
+    </a>
+
+
+  </div>
+</div>
+
+<div class="container" id="section1">
+  <h1>The hub for your team and your work</h1>
+  <h3>TLDM is a place where your team comes together to collaborate, important information can be found by the right
+    people, and your tools pipe in information when and where you need it.</h3>
+  <div class="card-grid">
+    <div class="card-wrap">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/221181/pexels-photo-221181.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          alt="Channels" style="width:100%">
+        <div class="card-container">
+          <h4><b>Channels</b></h4>
+          <p>Communication in TLDM happens in channels, organized by project, topic, team, or whatever makes sense
+            for
+            you.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card-wrap">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/327186/pexels-photo-327186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          alt="Search" style="width:100%">
+        <div class="card-container">
+          <h4><b>Search</b></h4>
+          <p>Conversations in TLDM are searchable by everyone, so you can tap into company knowledge and find
+            information when you need it.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card-wrap">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/39290/mother-board-electronics-computer-board-39290.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="Integrations" style="width:100%">
+        <div class="card-container">
+          <h4><b>Integrations</b></h4>
+          <p>TLDM works with the tools and services you already use every day. Pipe in information or take action
+            without leaving TLDM.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card-wrap">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="Security" style="width:100%;">
+        <div class="card-container">
+          <h4><b>Security</b></h4>
+          <p>We take security seriously at TLDM. We offer measures like 2FA and SSO to ensure the safety of your data
+            and protect your organization.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <h1>Built for every team</h1>
+    <h3>No matter your job title or department, TLDM can help your team work together and get things done.</h3>
+    <div class="cols">
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container2">
+          <div class="front" style="background-image: url(https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+            <div class="inner">
+              <p>Sales</p>
+              <span>Close more deals</span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>From stop-and-go workflows to unstoppable sales</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container2">
+          <div class="front" style="background-image: url(https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+            <div class="inner">
+              <p>Marketing</p>
+              <span>Execute a winning marketing strategy</span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>From coordinating plans to measuring results, it’s all in TLDM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container2">
+          <div class="front" style="background-image: url(https://images.pexels.com/photos/210647/pexels-photo-210647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+            <div class="inner">
+              <p>Customer Support</p>
+              <span>Reach resolutions faster</span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Keep your customers happy with well-coordinated customer support in TLDM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container2">
+          <div class="front" style="background-image: url(https://images.pexels.com/photos/1260309/pexels-photo-1260309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+            <div class="inner">
+              <p>Engineering</p>
+              <span>Deploy more code instead of more process</span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>Build great products with your tools and team in one place</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container2">
+          <div class="front" style="background-image: url(https://images.pexels.com/photos/1061588/pexels-photo-1061588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);">
+            <div class="inner">
+              <p>IT</p>
+              <span>Resolve issues faster</span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>From wireless woes to tricky tickets, TLDM is your IT toolbox</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+        <div class="container2">
+          <div class="front" style="background-image: url(https://images.pexels.com/photos/1089549/pexels-photo-1089549.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+            <div class="inner">
+              <p>HR</p>
+              <span>Keep employees engaged</span>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <p>From remarkable recruiting to collaborative company culture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copyright">
+  <p> © 2018 TLDM . All rights reserved </p>
+</div>
