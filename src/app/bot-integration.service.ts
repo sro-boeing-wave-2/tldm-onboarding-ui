@@ -21,8 +21,8 @@ const httpOptions = {
 })
 export class BotIntegrationService {
   // private _ipaddress2 = "http://172.23.238.165:7000";
-  // private _ipaddress2 = "http://172.23.238.206:7001";
-  private _ipaddress2 ="http://localhost:80";
+  private _ipaddress2 = "http://172.23.238.206:7001";
+  // private _ipaddress2 ="http://localhost:80";
   private _getBotsApi = `${this._ipaddress2}/marketplace/applications`;
 
   constructor(public http: HttpClient, private localStorage: LocalStorageService) { }

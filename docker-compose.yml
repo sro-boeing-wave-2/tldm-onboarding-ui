@@ -1,7 +1,8 @@
-version: "3"
+version: '3.4'
+
 services:
  web:
    build: .
-   labels:
-     - "SERVICE_4200_NAME=onboarding-ui-service"
-     - "SERVICE_TAG=onboarding-ui-serviceTag"
+
+   ports:
+       - "8888:4200"
