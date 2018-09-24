@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Http } from '@angular/http';
 import { AuthService } from '../auth.service';
+import { LocalStorageService } from 'ngx-webstorage';
 @Component({
   selector: 'app-enter-workspace',
   templateUrl: './enter-workspace.component.html',
@@ -12,8 +13,10 @@ import { AuthService } from '../auth.service';
 export class EnterWorkspaceComponent implements OnInit {
 
   workspaceModel = new Workspace('', '', null, null, null);
-  constructor(private router: Router, private _workspaceservice: OnboardingService, private http: Http, private Auth : AuthService) { }
+  workspacename : string;
   error;
+  constructor(private router: Router, private _workspaceservice: OnboardingService, private http: Http, private Auth : AuthService, private localstorage : LocalStorageService) { }
+
   ngOnInit() {
   }
 

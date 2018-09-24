@@ -15,16 +15,18 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth.guard';
 
 import { from } from 'rxjs';
+import { GetStartedComponent } from './get-started/get-started.component';
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {path : '', component : GetStartedComponent},
+  { path: 'home', component: HomeComponent },
   { path: 'enterWorkspace', component: EnterWorkspaceComponent },
   { path: 'enterWorkspaceDetails', component: WorkspacedetailsComponent, canActivate: [AuthGuard]},
   { path: 'defaultBots', component: AddDefaultBotsComponent },
   { path: 'enterEmail', component: EnterEmailComponent, canActivate: [AuthGuard] },
   { path: 'enterOTP', component: EnterOTPComponent},
-  { path: 'signup', component: UserdetailsComponent, canActivate: [AuthGuard]},
+{ path: 'signup', component: UserdetailsComponent, /*canActivate: [AuthGuard]*/},
   { path: 'invite', component: InvitemembersComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'workspacelist', component: ListOfWorkspaceComponent , canActivate: [AuthGuard]},
   { path: 'invitedUserVerify', component: InvitedUserVerificationComponent },
   { path: 'pagenotfound', component: PageNotFoundComponent },

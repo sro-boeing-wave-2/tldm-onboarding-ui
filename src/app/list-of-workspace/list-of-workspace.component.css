@@ -23,7 +23,7 @@
 .mailbg {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   width: 80vw;
   max-width: 400px;
   min-height: 300px;
@@ -110,7 +110,7 @@ h4 {
 
 .copyright p {
   position: absolute;
-  top: 110%;
+  top: 100%;
   left: 40%;
   margin-bottom: 2%;
   text-align: center;
@@ -119,3 +119,26 @@ h4 {
   letter-spacing: 1px;
   text-transform: none;
 }
+
+.workspacelist {
+  overflow-y: scroll;
+  max-height: 300px;
+  overflow-x: hidden
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+ }
+
+ /* Track */
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+ }

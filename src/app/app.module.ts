@@ -21,6 +21,9 @@ import { InvitedUserVerificationComponent } from './invited-user-verification/in
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { AddDefaultBotsComponent } from './add-default-bots/add-default-bots.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CookieService } from 'ngx-cookie-service';
+import { GetStartedComponent } from './get-started/get-started.component';
+
 
 
 
@@ -37,6 +40,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     InvitedUserVerificationComponent,
     AddDefaultBotsComponent,
     PageNotFoundComponent,
+    GetStartedComponent,
+
 
 
   ],
@@ -53,7 +58,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     Ng2Webstorage
   ],
   exports : [RouterModule],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

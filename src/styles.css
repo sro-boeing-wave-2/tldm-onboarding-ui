@@ -5,9 +5,11 @@ html, body {
   margin: 0;
   padding: 0;
   border: 0;
+  height: 100%;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -15,9 +17,11 @@ body {
   width: 100%;
   background-size: cover;
   background-color: whitesmoke;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 mat-pseudo-checkbox, .mat-pseudo-checkbox {
   color: white !important;
-  background-color:#34344A;
+  background-color: #34344A;
 }

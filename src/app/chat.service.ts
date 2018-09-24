@@ -10,11 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { catchError } from 'rxjs/operators';
 //import { throwError } from 'rxjs';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  })
-};
+
 
 
 @Injectable({
@@ -22,19 +18,28 @@ const httpOptions = {
 })
 export class ChatService {
   // private _ipaddress1 = "http://172.23.238.230:5004";
-  private _ipaddress1 = "http://172.23.238.206:7000/connect";
+  // private _ipaddress1 = "http://172.23.238.165:7000/connect";
+  // private _ipaddress1 = "http://172.23.238.206:7001/connect";
+  private _ipaddress1 ="http://localhost:80";
   private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
   private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
 
   constructor(public http: HttpClient, private localStorage: LocalStorageService) { }
 
   postworkspaceToChat(workspaceWithBots: any) {
-    return this.http.post(this.workspaceobjecForChat, workspaceWithBots, httpOptions);
+
+    return this.http.post(this.workspaceobjecForChat, workspaceWithBots).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));
   }
 
   postSignupDataToChat(signup: any, workspace: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.localStorage.retrieve("otpverifytoken")}`
+      })
+    };
     console.log(workspace);
-    return this.http.put(`${this._signupUrlChatApi}${workspace}`, signup);
+    return this.http.put(`${this._signupUrlChatApi}${workspace}`, signup, httpOptions);
   }
 
 }

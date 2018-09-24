@@ -6,11 +6,16 @@
 <div class="mailbg">
   <h1>List Of Workspaces</h1>
   <h4>Welcome {{currentEmail}}, Here's list of your all workspaces.</h4>
-  <div *ngFor="let workspace of workspaces">
-    <a [href]="_url+'?email='+currentEmail+'&workspace='+workspace">
-      <button class="sendmess">{{workspace}}</button>
-    </a>
+  <div class="workspacelist">
+    <div *ngFor="let workspace of workspaces">
+      <!-- <a [href]="_url+'?email='+currentEmail+'&workspace='+workspace"> -->
+      <a [href]="_url+'?workspace='+workspace">
+        <button class="sendmess">{{workspace}}</button>
+      </a>
+      <!-- <button (click)="goToChatUI(workspace)" class="sendmess">{{workspace}}</button> -->
+    </div>
   </div>
+
 </div>
 
 <div class="copyright">

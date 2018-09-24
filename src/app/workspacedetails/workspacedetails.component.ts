@@ -39,7 +39,7 @@ export class WorkspacedetailsComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.workForm.invalid);
+    // console.log(this.workForm.invalid);
     if(this.workForm.value.Channels[0].ChannelName == "") {
       this.errorfornullchannel = "Please Enter Atleast One Channel Name";
       return;

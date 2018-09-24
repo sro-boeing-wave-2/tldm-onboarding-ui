@@ -20,9 +20,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OnboardingService {
-  private _ipaddress = "http://172.23.238.206:7000";
-
+  // private _ipaddress = "http://172.23.238.206:7001";
+  //  private _ipaddress = "http://172.23.238.165:7000";
+   private _ipaddress ="http://localhost:80";
   private TokenApi: string = `${this._ipaddress}/onboard/login`;
+  // private TokenApi: string = "http://172.23.238.165:7000/onboard/login";
   private UsersApi: string = `${this._ipaddress}onboard/users`;
   // private _signupUrlOnboarding: string = `${this._ipaddress}/api/onboard/signup`;
   private _url2: string = `${this._ipaddress}/onboard/create/workspace/email`;
@@ -90,9 +92,6 @@ export class OnboardingService {
     return this.http.post(this._url3, `"${OTP}"`, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.message || 'Server error')));
   }
 
-  handleError(err: HttpErrorResponse) {
-
-  }
   /*this is to authorize login from onboarding api */
   login(login: any): Observable<TokenParams> {
     var httpOptions = {
@@ -156,6 +155,10 @@ export class OnboardingService {
   /*This is to post invite details to Onboarding API */
   postInviteData(inviteData: any) {
     return this.http.post(this._url4, inviteData, httpOptions).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));
+  }
+
+  enterChatUI(urlPath: string) {
+    return this.http.get(urlPath).pipe(catchError((error: HttpErrorResponse) => throwError(error.status || 'Server error')));
   }
 
 }

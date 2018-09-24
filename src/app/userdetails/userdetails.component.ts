@@ -32,7 +32,8 @@ export class UserdetailsComponent implements OnInit {
     FirstName: new FormControl('', Validators.required),
     LastName: new FormControl('', Validators.required),
     Password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    EmailId: new FormControl('', Validators.required),
+    // confirmPassword : new FormControl('',Validators.required),
+    EmailId: new FormControl('', [Validators.required, Validators.email]),
   });
   get f() { return this.signupForm.controls; }
 

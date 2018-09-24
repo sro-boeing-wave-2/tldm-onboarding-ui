@@ -6,11 +6,11 @@
 <div class="mailbg">
   <h1>Log in</h1>
   <h4>Enter your email address and password</h4>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]=" loginForm" (ngSubmit)="onSubmit()">
     <label class="l1" for="mailinput">Email id:</label>
     <input class="mailinput" type="text" placeholder="" formControlName="EmailId" required>
     <label class="l1" for="mailinput">Password:</label>
-    <input class="mailinput" placeholder="" type="password" formControlName="Password" required>
+    <input class="mailinput" placeholder="" type="password" formControlName= "Password" required>
     <p *ngIf="error" class="unauthorised">
       Invalid EmailId or Password
     </p>

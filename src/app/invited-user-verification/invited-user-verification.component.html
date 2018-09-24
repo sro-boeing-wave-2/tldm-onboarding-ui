@@ -6,7 +6,7 @@
 <div class="mailbg">
   <h1>Check your email</h1>
   <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
-  <form [formGroup]="inviteForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]= "inviteForm" (ngSubmit)= "onSubmit()">
     <div class="form-group">
       <label class="l1" for="mailinput">Enter your workspace name:</label>
       <input class="mailinput form-control" type="text" placeholder="" formControlName="workspace" [ngClass]="{ 'is-invalid': submitted && f.workspace.errors }" />
@@ -20,8 +20,8 @@
       <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
         <div class="required" *ngIf="f.Password.errors.required"> * OTP is required</div>
       </div>
-      <p *ngIf="error" class="unauthorised">
-        Invalid OTP
+      <p *ngIf= "error" class="unauthorised">
+        Invalid Workspace-Name or OTP
       </p>
     </div>
     <div class="form-group">

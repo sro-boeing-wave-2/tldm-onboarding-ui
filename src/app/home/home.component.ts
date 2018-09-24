@@ -16,10 +16,7 @@ export class HomeComponent implements OnInit {
     console.log("creating workspace");
     this.router.navigate(['/enterWorkspace']);
   }
-  getLogged(){
-    console.log("log in");
-    this.router.navigate(['/login']);
-  }
+
   redirectTOtp(){
     this.router.navigate(['/enterOTP'])
   }

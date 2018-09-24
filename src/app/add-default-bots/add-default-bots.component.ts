@@ -48,6 +48,8 @@ export class AddDefaultBotsComponent implements OnInit {
     this.Botservice.postworkspaceDetails(this.workspacewithchannels).subscribe(data => {
       console.log('Success!', data);
       error => console.log('Error!', error);
+      this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
+
       if (data != null) {
         this.Auth.setStatus(true);
         this.router.navigate(['/enterEmail']);
@@ -55,8 +57,8 @@ export class AddDefaultBotsComponent implements OnInit {
       } else {
         return;
       }
-      this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
-    });;
+      // console.log(data);
+        });;
   }
 
 
