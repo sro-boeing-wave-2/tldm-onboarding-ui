@@ -19,8 +19,8 @@ import { catchError } from 'rxjs/operators';
 export class ChatService {
   // private _ipaddress1 = "http://172.23.238.230:5004";
   // private _ipaddress1 = "http://172.23.238.165:7000/connect";
-  private _ipaddress1 = "http://172.23.238.206:7001/connect";
-  // private _ipaddress1 ="http://localhost:80";
+  // private _ipaddress1 = "http://172.23.238.206:7001/connect";
+  private _ipaddress1 ="http://localhost:80";
   private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
   private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
 
