@@ -20,7 +20,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class BotIntegrationService {
-  private _ipaddress2 = "http://localhost:80";
+  // private _ipaddress2 = "http://localhost:80";
+  private _ipaddress2 = "http://13.233.42.222";
   private _getBotsApi = `${this._ipaddress2}/api/applications/all`;
 
   constructor(public http: HttpClient, private localStorage: LocalStorageService) { }

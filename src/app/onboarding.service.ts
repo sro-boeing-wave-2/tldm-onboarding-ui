@@ -20,8 +20,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OnboardingService {
-  private _ipaddress = "http://localhost:80";
-
+  // private _ipaddress = "http://localhost:80";
+  private _ipaddress = "http://13.233.42.222";
   private TokenApi: string = `${this._ipaddress}/onboard/login`;
   private UsersApi: string = `${this._ipaddress}onboard/users`;
   // private _signupUrlOnboarding: string = `${this._ipaddress}/api/onboard/signup`;

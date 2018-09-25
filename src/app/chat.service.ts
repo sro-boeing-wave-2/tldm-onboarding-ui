@@ -22,7 +22,8 @@ const httpOptions = {
 })
 export class ChatService {
   // private _ipaddress1 = "http://172.23.238.230:5004";
-  private _ipaddress1 = "http://localhost:80/connect";
+  // private _ipaddress1 = "http://localhost:80/connect";
+  private _ipaddress1 = "http://13.233.42.222";
   private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
   private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
 
