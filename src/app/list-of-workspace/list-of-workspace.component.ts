@@ -14,8 +14,9 @@ export class ListOfWorkspaceComponent implements OnInit {
   workspaces = [];
   email: string;
   // _url: string ="http://172.23.238.229:2100";
-  _url: string = "http://13.233.42.222/chatui";
-  // _url: string ="http://172.23.239.243:7001/chatui";
+  // redirect to chat ui
+  _url: string = "http://13.233.42.222/chat";
+  // _url: string ="http://172.23.239.243:7001/chat";
   currentEmail: string;
   token: string;
   tokenparam: TokenParams;

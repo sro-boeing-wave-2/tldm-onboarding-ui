@@ -6,6 +6,7 @@ import { BotIntegrationService } from '../bot-integration.service';
 import { ChatService } from '../chat.service';
 import { AuthService } from '../auth.service';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { HubConnectionService } from '../hub-connection.service';
 
 @Component({
   selector: 'app-add-default-bots',
@@ -21,10 +22,12 @@ export class AddDefaultBotsComponent implements OnInit {
   constructor(private Botservice: OnboardingService, private router: Router,
     private localStorage: LocalStorageService,
     private ResponseBotData: ChatService,
-    private getBotsService: BotIntegrationService, private Auth: AuthService) {
+    private getBotsService: BotIntegrationService, private Auth: AuthService,
+    private hubservice : HubConnectionService ) {
 
     this.hubconnection = new HubConnectionBuilder()
-      .withUrl('http://13.233.42.222/connect/chat')
+      .withUrl('http://13.233.42.222/chat-api/chat')
+      // .withUrl('http://172.23.239.243/chat-api/chat')
       .build();
 
 
@@ -68,10 +71,13 @@ export class AddDefaultBotsComponent implements OnInit {
       error => console.log('Error!', error);
       this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => {
         console.log('Success', workspace);
-        this.hubconnection
-        .start()
-        .then(() => { this.sendUserdetails();console.log('Connection started!') })
-        .catch(err => console.log('Error while establishing connection :('));
+        // this.hubconnection
+        // .start()
+        // .then(() => { this.sendUserdetails();console.log('Connection started!') })
+        // .catch(err => console.log('Error while establishing connection :('));
+        this.hubservice.addBotToParticularChannel(this.localStorage.retrieve('email')).then(data =>{
+          console.log("hub connection successful");
+        });
 
       })
 
