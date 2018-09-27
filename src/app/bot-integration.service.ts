@@ -9,6 +9,7 @@ import { headersToString } from 'selenium-webdriver/http';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment.prod';
 //import { throwError } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,8 +23,9 @@ const httpOptions = {
 export class BotIntegrationService {
   // private _ipaddress2 = "http://172.23.238.165:7000";
   // private _ipaddress2 = "http://172.23.238.206:7001";
-  private _ipaddress2 ="http://localhost:80";
-  private _getBotsApi = `${this._ipaddress2}/marketplace/applications`;
+  // private _ipaddress2 ="http://localhost:80";
+  baseUrl = environment.baseUrlforMarketplace;
+  private _getBotsApi = `${this.baseUrl}`;
 
   constructor(public http: HttpClient, private localStorage: LocalStorageService) { }
 

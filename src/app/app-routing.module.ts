@@ -27,7 +27,7 @@ const routes: Routes = [
 { path: 'signup', component: UserdetailsComponent, /*canActivate: [AuthGuard]*/},
   { path: 'invite', component: InvitemembersComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent},
-  { path: 'workspacelist', component: ListOfWorkspaceComponent , canActivate: [AuthGuard]},
+  { path: 'workspacelist', component: ListOfWorkspaceComponent , /*canActivate: [AuthGuard]*/},
   { path: 'invitedUserVerify', component: InvitedUserVerificationComponent },
   { path: 'pagenotfound', component: PageNotFoundComponent },
 ];

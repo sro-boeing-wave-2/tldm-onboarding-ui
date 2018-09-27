@@ -9,6 +9,7 @@ import { headersToString } from 'selenium-webdriver/http';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment.prod';
 //import { throwError } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,20 +22,21 @@ const httpOptions = {
 })
 export class OnboardingService {
   // private _ipaddress = "http://172.23.238.206:7001";
+  baseUrl = environment.baseUrlforOnboarding
   //  private _ipaddress = "http://172.23.238.165:7000";
-   private _ipaddress ="http://localhost:80";
-  private TokenApi: string = `${this._ipaddress}/onboard/login`;
+ //  private _ipaddress ="http://localhost:80";
+  private TokenApi: string = `${this.baseUrl}/login`;
   // private TokenApi: string = "http://172.23.238.165:7000/onboard/login";
-  private UsersApi: string = `${this._ipaddress}onboard/users`;
+  private UsersApi: string = `${this.baseUrl}/users`;
   // private _signupUrlOnboarding: string = `${this._ipaddress}/api/onboard/signup`;
-  private _url2: string = `${this._ipaddress}/onboard/create/workspace/email`;
-  private _url3: string = `${this._ipaddress}/onboard/create/workspace/verify`;
-  private _url4: string = `${this._ipaddress}/onboard/invite/verify`;
-  private _createworkspaceUrl: string = `${this._ipaddress}/onboard/create/workspace`;
-  private _signupUrl: string = `${this._ipaddress}/onboard/personaldetails`;
-  private _workspacedetailsWithBots: string = `${this._ipaddress}/onboard/workspacedetails`;
-  private inviteusers: string = `${this._ipaddress}/onboard/invite`;
-  private ListofWorkspaceApi: string = `${this._ipaddress}/onboard/`;
+  private _url2: string = `${this.baseUrl}/create/workspace/email`;
+  private _url3: string = `${this.baseUrl}/create/workspace/verify`;
+  private _url4: string = `${this.baseUrl}/invite/verify`;
+  private _createworkspaceUrl: string = `${this.baseUrl}/create/workspace`;
+  private _signupUrl: string = `${this.baseUrl}/personaldetails`;
+  private _workspacedetailsWithBots: string = `${this.baseUrl}/workspacedetails`;
+  private inviteusers: string = `${this.baseUrl}/invite`;
+  private ListofWorkspaceApi: string = `${this.baseUrl}/`;
 
 
   // private _ipaddress1 = "http://172.23.238.230:5004";

@@ -34,14 +34,17 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.loginForm.value);
     this._loginservice.showEmailId(this.loginForm.value.EmailId);
+    this.localStorage.store("","")
     this._loginservice.login(this.loginForm.value).subscribe(tokenInfo => {
       console.log(tokenInfo);
       console.log(tokenInfo["token"]);
       if(tokenInfo != null){
         this.Auth.setStatus(true);
+        this.Auth.setLoggedIn(true);
         this.router.navigate(['/workspacelist']);
 
       }else {
+        window.alert(tokenInfo.token);
         return;
     }
     const cookie = new CookieStorage();

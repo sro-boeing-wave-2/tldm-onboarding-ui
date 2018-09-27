@@ -9,6 +9,7 @@ import { headersToString } from 'selenium-webdriver/http';
 import { BehaviorSubject } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment.prod';
 //import { throwError } from 'rxjs';
 
 
@@ -19,10 +20,11 @@ import { catchError } from 'rxjs/operators';
 export class ChatService {
   // private _ipaddress1 = "http://172.23.238.230:5004";
   // private _ipaddress1 = "http://172.23.238.165:7000/connect";
+  baseUrl = environment.baseUrlforChat
   // private _ipaddress1 = "http://172.23.238.206:7001/connect";
-  private _ipaddress1 ="http://localhost:80";
-  private workspaceobjecForChat = `${this._ipaddress1}/api/chat/workspaces`;
-  private _signupUrlChatApi = `${this._ipaddress1}/api/chat/workspaces/user/`;
+  // private _ipaddress1 ="http://localhost:80";
+  private workspaceobjecForChat = `${this.baseUrl}`;
+  private _signupUrlChatApi = `${this.baseUrl}/`;
 
   constructor(public http: HttpClient, private localStorage: LocalStorageService) { }
 
@@ -39,7 +41,7 @@ export class ChatService {
       })
     };
     console.log(workspace);
-    return this.http.put(`${this._signupUrlChatApi}${workspace}`, signup, httpOptions);
+    return this.http.put(`${this._signupUrlChatApi}user/${workspace}`, signup, httpOptions);
   }
 
 }

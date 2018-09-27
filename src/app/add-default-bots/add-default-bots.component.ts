@@ -5,6 +5,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { BotIntegrationService } from '../bot-integration.service';
 import { ChatService } from '../chat.service';
 import { AuthService } from '../auth.service';
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
 @Component({
   selector: 'app-add-default-bots',
@@ -14,13 +15,29 @@ import { AuthService } from '../auth.service';
 export class AddDefaultBotsComponent implements OnInit {
   Bots;
   botSelected;
-  constructor(private Botservice: OnboardingService, private router: Router, private localStorage: LocalStorageService, private ResponseBotData: ChatService, private getBotsService: BotIntegrationService, private Auth: AuthService) { }
   defaultBots;
   workspacewithchannels;
+  hubconnection: HubConnection;
+  constructor(private Botservice: OnboardingService, private router: Router,
+    private localStorage: LocalStorageService,
+    private ResponseBotData: ChatService,
+    private getBotsService: BotIntegrationService, private Auth: AuthService) {
+
+    this.hubconnection = new HubConnectionBuilder()
+      .withUrl('http://172.23.238.230:5004/chat')
+      .build();
+
+    this.hubconnection
+      .start()
+      .then(() => { console.log('Connection started!') })
+      .catch(err => console.log('Error while establishing connection :('));
+  }
+
+
 
   ngOnInit() {
     this.getBotsService.getBots().subscribe(data => { this.Bots = data });
-    this.Botservice.WorkspacewithChannels.subscribe(workspacewithchannels => {this.workspacewithchannels = workspacewithchannels;})
+    this.Botservice.WorkspacewithChannels.subscribe(workspacewithchannels => { this.workspacewithchannels = workspacewithchannels; })
     // this.defaultBots = this.localStorage.retrieve("workspacewithchannels")
     //   .subscribe( data => {
     //   console.log("it's coming here")
@@ -39,6 +56,10 @@ export class AddDefaultBotsComponent implements OnInit {
     console.log(this.workspacewithchannels);
   }
 
+  sendUserdetails() {
+    this.hubconnection.invoke('sendAllUserChannel').catch(err => console.error(err));
+  }
+
 
   addBot() {
     console.log(JSON.stringify(this.botSelected));
@@ -48,7 +69,10 @@ export class AddDefaultBotsComponent implements OnInit {
     this.Botservice.postworkspaceDetails(this.workspacewithchannels).subscribe(data => {
       console.log('Success!', data);
       error => console.log('Error!', error);
-      this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => console.log('Success', workspace))
+      this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => {
+        console.log('Success', workspace);
+        this.sendUserdetails();
+      })
 
       if (data != null) {
         this.Auth.setStatus(true);
@@ -58,7 +82,7 @@ export class AddDefaultBotsComponent implements OnInit {
         return;
       }
       // console.log(data);
-        });;
+    });;
   }
 
 

@@ -14,7 +14,7 @@ export class ListOfWorkspaceComponent implements OnInit {
   workspaces = [];
   email: string;
   // _url: string ="http://172.23.238.229:2100";
-  _url: string = "http://172.23.238.206:7001/chatui";
+  _url: string = "http://13.233.42.222/chatui";
   currentEmail: string;
   token: string;
   tokenparam: TokenParams;
@@ -22,18 +22,19 @@ export class ListOfWorkspaceComponent implements OnInit {
 
   ngOnInit() {
     this.token = this.localstorage.retrieve('token');
+    this.email = this.localstorage.retrieve('email');
 
     this.workspaceservice.currentMessageEmail.subscribe(email => {
     this.currentEmail = email;
-      this.workspaceservice.getWorkspaces(this.currentEmail).subscribe(data => { this.workspaces = data })
+      this.workspaceservice.getWorkspaces(this.email).subscribe(data => { this.workspaces = data })
     })
   }
 
-  public goToChatUI(workspace: string) {
-    this.localstorage.store("workspacename",workspace);
-    this.router.navigateByUrl(`${this._url}?email=${this.currentEmail}&workspace=${workspace}`).then();
-    this.workspaceservice.enterChatUI(`${this._url}?email=${this.currentEmail}&workspace=${workspace}`).subscribe(data => console.log(data),err => console.log(err));
-  }
+  // public goToChatUI(workspace: string) {
+  //   this.localstorage.store("workspacename",workspace);
+  //   this.router.navigateByUrl(`${this._url}?email=${this.currentEmail}&workspace=${workspace}`).then();
+  //   this.workspaceservice.enterChatUI(`${this._url}?email=${this.currentEmail}&workspace=${workspace}`).subscribe(data => console.log(data),err => console.log(err));
+  // }
 
 
 
