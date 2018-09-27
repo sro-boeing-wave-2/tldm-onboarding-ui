@@ -27,10 +27,7 @@ export class AddDefaultBotsComponent implements OnInit {
       .withUrl('http://13.233.42.222/connect/chat')
       .build();
 
-    this.hubconnection
-      .start()
-      .then(() => { console.log('Connection started!') })
-      .catch(err => console.log('Error while establishing connection :('));
+
   }
 
 
@@ -71,7 +68,11 @@ export class AddDefaultBotsComponent implements OnInit {
       error => console.log('Error!', error);
       this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => {
         console.log('Success', workspace);
-        this.sendUserdetails();
+        this.hubconnection
+        .start()
+        .then(() => { this.sendUserdetails();console.log('Connection started!') })
+        .catch(err => console.log('Error while establishing connection :('));
+
       })
 
       if (data != null) {
