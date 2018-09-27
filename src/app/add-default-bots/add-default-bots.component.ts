@@ -24,7 +24,7 @@ export class AddDefaultBotsComponent implements OnInit {
     private getBotsService: BotIntegrationService, private Auth: AuthService) {
 
     this.hubconnection = new HubConnectionBuilder()
-      .withUrl('http://172.23.238.230:5004/chat')
+      .withUrl('http://13.233.42.222/connect/chat')
       .build();
 
     this.hubconnection
