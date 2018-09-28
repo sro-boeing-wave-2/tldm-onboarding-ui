@@ -20,14 +20,14 @@ export class HubConnectionService {
 
   constructor() {
     this.hubConnection = new HubConnectionBuilder()
-    .withUrl(environment.chatHubUrl)
-    .build();
+      .withUrl(environment.chatHubUrl)
+      .build();
 
-    this.hubConnection.start().then(() => {console.log("started")}).catch(()=> {});
+
   }
 
-  public addBotToParticularChannel(emailId: string): Promise<any> {
-    return this.hubConnection.invoke('sendAllUserChannel', emailId)
-    .catch(err => console.log("ERROR FROM HUB METHOD",err));
+  public addBotToParticularChannel(emailId: string) {
+
+
   }
 }
