@@ -1,5 +1,5 @@
 .main-toolbar {
-  background-color: #34344A;
+  background-color: #320e3b;
   color: white;
 }
 
@@ -27,7 +27,7 @@ a {
   width: 80vw;
   max-width: 400px;
   min-height: 400px;
-  background: #34344A;
+  background: #320e3b;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
@@ -43,7 +43,7 @@ a {
   top: 99%;
   width: 0;
   height: 0;
-  border-top: 50px solid #34344A;
+  border-top: 50px solid #320e3b;
   border-right: 30px solid transparent;
   border-left: 5px solid transparent;
   -webkit-transform: translate(0%, -0%);
@@ -54,12 +54,12 @@ a {
 
 h1 {
   margin-left: 5%;
-  color: #C4D7F2;
+  color: #320e3b;
 }
 
 h4 {
   margin-left: 5%;
-  color: #C4D7F2;
+  color: #320e3b;
 }
 
 .l1 {
@@ -99,7 +99,7 @@ h4 {
   font-size: 1.2em;
   font-weight: bold;
   color: #AFDEDC;
-  background: #34344A;
+  background: #320e3b;
   line-height: 40px;
   cursor: pointer;
 }

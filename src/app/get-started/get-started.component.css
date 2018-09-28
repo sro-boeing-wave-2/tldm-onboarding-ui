@@ -3,7 +3,7 @@
 }
 
 .main-toolbar {
-  background-color: #320e3b;
+  background-color: #34344A;
   color: white;
 }
 
@@ -32,6 +32,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #EDF4ED;
+  font-family: 'Ultra', serif;
 }
 
 @-moz-keyframes bounce {
@@ -113,12 +114,13 @@ body {
   color: #EDF4ED;
   background-color: #EDF4ED;
   display: inline-block;
-  background: #320e3b;
+  background: #34344A;
   opacity: 0.8;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  font-family: sans-serif;
   font-weight: 800;
   font-size: .85em;
   text-transform: uppercase;
@@ -144,7 +146,7 @@ body {
 }
 
 .container {
-  color: #320e3b;
+  color: #34344A;
   margin: 5%;
 }
 
@@ -202,6 +204,7 @@ body {
 
 h1 {
   font-size: 2.5rem;
+  font-family: 'Montserrat';
   font-weight: normal;
   color: #444;
   text-align: center;
@@ -359,6 +362,7 @@ h1 {
 
 .front .inner span {
   color: rgba(255, 255, 255, 0.7);
+  font-family: 'Montserrat';
   font-weight: 300;
 }
 
