@@ -1,0 +1,10 @@
+.main-toolbar {
+  background-color: #320e3b;
+  color: white;
+  position: fixed;
+
+}
+.main-toolbar a {
+  text-decoration: none;
+  color: white;
+}

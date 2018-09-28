@@ -7,6 +7,7 @@ import { ChatService } from '../chat.service';
 import { AuthService } from '../auth.service';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { HubConnectionService } from '../hub-connection.service';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 @Component({
   selector: 'app-add-default-bots',
@@ -29,8 +30,7 @@ export class AddDefaultBotsComponent implements OnInit {
       .withUrl('http://13.233.42.222/chat-api/chat')
       // .withUrl('http://172.23.238.206:7001/chat-hub/chat')
       .build();
-
-
+    this.hubconnection.serverTimeoutInMilliseconds = 6000000;
   }
 
 
