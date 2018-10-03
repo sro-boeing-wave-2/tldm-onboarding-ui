@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Userstate } from '../Model';
 import{TokenParams} from '../Model';
@@ -14,17 +14,23 @@ export class EnterOTPComponent implements OnInit {
   message:string;
   error;
   tokenparam:TokenParams;
+  orderObj;
+  otp : string;
   OTPmodel = new Userstate( '',false, '')
-  constructor(private _OtpService: OnboardingService, private router: Router,private localStorage: LocalStorageService, private Auth : AuthService) { }
+  constructor(private _OtpService: OnboardingService, private router: Router,private localStorage: LocalStorageService, private Auth : AuthService,
+   private route : ActivatedRoute) { }
 
   ngOnInit() {
-    this._OtpService.currentMessageEmail.subscribe(message => this.message = message)
-
+    this._OtpService.currentMessageEmail.subscribe(message => this.message = message);
+    this.route.queryParamMap.subscribe(params => {
+      this.orderObj = { ...params.keys, ...params };
+    });
+   this.otp =this.orderObj["params"]["otp"];
   }
 
   PostToServer() {
 
-    this._OtpService.sendOTP(this.OTPmodel.Otp).subscribe(data => {
+    this._OtpService.sendOTP(this.otp).subscribe(data => {
       this.localStorage.store("otpverifytoken",data["token"]);
       console.log("Token Info",data);
       console.log('Success!', data),

@@ -1,7 +1,15 @@
-.main-toolbar {
+.main-toolbar[_ngcontent-c0] {
   background-color: #320e3b;
   color: white;
+
 }
+
+.mat-toolbar-single-row{
+
+  height: 64px;
+  position: fixed;
+}
+
 
 .example-header-image {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cro_semicolon_plain.svg/2000px-Cro_semicolon_plain.svg.png');
@@ -23,10 +31,10 @@ a {
 .mailbg {
   position: absolute;
   left: 50%;
-  top: 60%;
+  margin-top: 45vh ;
   width: 80vw;
   max-width: 400px;
-  min-height: 400px;
+  min-height: 350px;
   background: #320e3b;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -73,7 +81,7 @@ h4 {
   padding: 5px;
   margin-left: 50%;
   margin-top: 2%;
-  width: 90%;
+  width:  90%;
   height: 50px;
   resize: none;
   font-size: 1.2em;
@@ -108,14 +116,84 @@ h4 {
   outline: none;
 }
 
+  .material-icons.md-36 { font-size: 36px; }
+
+
 .copyright p {
-  position: absolute;
-  top: 110%;
-  left: 40%;
-  margin-bottom: 2%;
+
+
   text-align: center;
   font-size: 14px;
   color: #040F0F;
   letter-spacing: 1px;
   text-transform: none;
+  font-family: lato;
+}
+
+.hero-image{
+
+  background-image: url("https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 117vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: -webkit-fill-available;
+
+}
+
+
+
+.steps-form-2 {
+  display: table;
+  width: 100%;
+  position: relative;
+  top : 3%
+}
+
+.steps-form-2 .steps-row-2 {
+  display: table-row; }
+
+.steps-form-2 .steps-row-2:before {
+  top: 50%;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 5px;
+  background-color: black;
+ }
+
+.steps-form-2 .steps-row-2 .steps-step-2 {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+ }
+.steps-form-2 .steps-row-2 .steps-step-2 p {
+  margin-top: 0.5rem;
+}
+
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+  width: 70px;
+  height: 70px;
+  border: 2px solid black;
+
+  color:black !important;
+  border-radius: 50%;
+  padding: 22px 18px 15px 18px;
+  margin-top: -22px; }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {
+  border: 2px solid #4285F4;
+  color: #4285F4 !important;
+
+ }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {
+  font-size: 1.7rem;
+}
+
+.steps-step-2 button{
+  font-size: 20px;
+}
+
+.change-cursor:hover{
+cursor: pointer;
 }

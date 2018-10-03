@@ -2,19 +2,62 @@
   <span mat-card-avatar class="example-header-image"></span>
   <span>TLDM</span>
 </mat-toolbar>
+<div style="height: 64px; width: 100%;"></div>
 
-<div class="mailbg">
-  <h1>Enter your default Bots</h1>
-  <h4>All the Bots will get automatically added to your channels </h4>
-  <label class="l1">Select your default bots:</label>
-  <mat-selection-list [(ngModel)]=botSelected #selectedChannels>
-    <mat-list-option *ngFor="let bot of Bots" [value]=bot>
-      {{bot['name']}}
-    </mat-list-option>
-  </mat-selection-list>
-  <button (click)="addBot()" class="sendmess">Submit</button>
+<div class="hero-image">
+  <div class="steps-form-2">
+    <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+      <div class="steps-step-2">
+        <button mat-fab color="primary">1</button>
+        <!-- <a href="#step-1" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Basic Information"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a> -->
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-2" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" -->
+        <!-- title="Personal Data"> -->
+        <!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+        <button mat-fab color="primary">2</button>
+        <!-- </a> -->
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top"
+                      title="Terms and Conditions">
+                      <i class="fa fa-photo" aria-hidden="true"></i>
+                    </a> -->
+                    <button mat-fab color="primary">3</button>
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
+                      title="Finish">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </a> -->
+        <button mat-fab disabled style="background-color: yellow">4</button>
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
+                      title="Finish">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                    </a> -->
+        <button mat-fab disabled style="background-color: yellow">5</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; height: 84vh;">
+  <div class="mailbg">
+
+    <h1>Enter your default Bots</h1>
+    <h4>All the Bots will get automatically added to your channels </h4>
+    <label class="l1">Select your default bots:</label>
+    <mat-selection-list [(ngModel)]= botSelected #selectedChannels>
+      <mat-list-option *ngFor= "let bot of Bots" [value]= bot>
+        {{bot['name']}}
+      </mat-list-option>
+    </mat-selection-list>
+    <button (click)="addBot()" class="sendmess">Submit</button>
+    <h5>Disclaimer : Entre is default bot of TL;DM </h5>
+  </div>
 </div>
-
-<div class="copyright">
-  <p> © 2018 TLDM . All rights reserved </p>
+  <div class="copyright">
+    <p> © 2018 TLDM . All rights reserved </p>
+  </div>
 </div>

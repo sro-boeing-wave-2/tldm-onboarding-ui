@@ -1,21 +1,60 @@
 <mat-toolbar class="main-toolbar">
   <span mat-card-avatar class="example-header-image"></span>
-  <span>TLDM</span>
+  <span>TL;DM</span>
 </mat-toolbar>
+<div style="height: 64px; width: 100%;"></div>
 
-<div class="mailbg">
-  <h1>Check your email</h1>
-  <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
-  <form>
-    <label class="l1" for="mailinput">Enter your confirmation code:</label>
-    <input class="mailinput" [ngModelOptions] ="{standalone: true}" [(ngModel)]= "OTPmodel.Otp">
-    <p *ngIf ="error" class="unauthorised">
-      * {{error}}
-    </p>
-  </form>
-  <button class="sendmess" [disabled]="!OTPmodel.Otp" (click)="PostToServer()">Done</button>
-</div>
+<div class="hero-image">
+  <div class="steps-form-2">
+    <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+      <div class="steps-step-2">
+        <button mat-fab color="primary">1</button>
+        <!-- <a href="#step-1" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Basic Information"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a> -->
+      </div>
+      <div class="steps-step-2">
+        <button  mat-fab color="primary">2</button>
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top"
+              title="Terms and Conditions">
+              <i class="fa fa-photo" aria-hidden="true"></i>
+            </a> -->
+            <button mat-fab color="primary">3</button>
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
+              title="Finish">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </a> -->
+            <button mat-fab color="primary">4</button>
+      </div>
+      <div class="steps-step-2">
+        <!-- <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
+              title="Finish">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </a> -->
+            <button mat-fab color="primary">5</button>
+      </div>
+    </div>
+  </div>
 
-<div class="copyright">
-  <p> © 2018 TLDM . All rights reserved </p>
+  <div style="width: 100%; height: 75vh;">
+  <div class="mailbg">
+    <h1>Check your email</h1>
+    <h4>We’ve sent a confirmation OTP to your email. It will expire shortly, so enter your OTP soon.</h4>
+    <form>
+      <label class="l1" for="mailinput">Enter your confirmation code:</label>
+      <input class="mailinput" [ngModelOptions]="{standalone: true}" [(ngModel)]="otp">
+      <p *ngIf="error" class="unauthorised">
+        * {{error}}
+      </p>
+    </form>
+    <button class="sendmess" [disabled]="!OTPmodel.Otp" (click)="PostToServer()">Done</button>
+  </div>
+  </div>
+
+  <div class="copyright">
+    <p> © 2018 TL;DM . All rights reserved </p>
+  </div>
+
 </div>

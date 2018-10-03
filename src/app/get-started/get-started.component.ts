@@ -14,7 +14,7 @@ export class GetStartedComponent implements OnInit {
   }
   redirectToHome(){
     console.log("redirecting to home");
-    this.router.navigate(['/home']);
+    this.router.navigate(['/enterWorkspace']);
   }
   getLogged(){
     console.log("log in");

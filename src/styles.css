@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html, body {
   margin: 0;
   padding: 0;
@@ -26,3 +26,19 @@ mat-pseudo-checkbox, .mat-pseudo-checkbox {
   color: white !important;
   background-color: #320e3b;
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.main-toolbar {
+  background-color: #320e3b;
+  color: white;
+  z-index: 10;
+}
+
+.example-header-image {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cro_semicolon_plain.svg/2000px-Cro_semicolon_plain.svg.png');
+  background-size: cover;
+}
+

@@ -1,7 +1,15 @@
-.main-toolbar {
+.main-toolbar[_ngcontent-c0] {
   background-color: #320e3b;
   color: white;
+
 }
+
+.mat-toolbar-single-row{
+
+  height: 64px;
+  position: fixed;
+}
+
 
 .example-header-image {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Cro_semicolon_plain.svg/2000px-Cro_semicolon_plain.svg.png');
@@ -17,7 +25,7 @@
 .mailbg {
   position: absolute;
   left: 50%;
-  top: 60%;
+  margin-top: 40vh ;
   width: 80vw;
   max-width: 400px;
   min-height: 350px;
@@ -102,14 +110,92 @@ h4 {
   outline: none;
 }
 
-.copyright p {
-  position: absolute;
+/* .copyright p {
   top: 110%;
-  left: 40%;
-  margin-bottom: 2%;
+  position: absolute;
+  text-align: center;
+  margin-bottom:0;
   text-align: center;
   font-size: 14px;
   color: #040F0F;
   letter-spacing: 1px;
   text-transform: none;
+} */
+
+.copyright p {
+
+
+  text-align: center;
+  font-size: 14px;
+  color: #040F0F;
+  letter-spacing: 1px;
+  text-transform: none;
+  font-family: lato;
+}
+
+.hero-image{
+
+  background-image: url("https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: -webkit-fill-available;
+
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+.steps-form-2 {
+  display: table;
+  width: 100%;
+  position: relative;
+  top : 3%
+}
+
+.steps-form-2 .steps-row-2 {
+  display: table-row; }
+
+.steps-form-2 .steps-row-2:before {
+  top: 50%;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 5px;
+  background-color: black;
+ }
+
+.steps-form-2 .steps-row-2 .steps-step-2 {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+ }
+.steps-form-2 .steps-row-2 .steps-step-2 p {
+  margin-top: 0.5rem;
+}
+/* .steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {
+
+  filter: alpha(opacity=100) !important;
+} */
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+  width: 70px;
+  height: 70px;
+  border: 2px solid black;
+  /* background-color: white; */
+  color:black !important;
+  border-radius: 50%;
+  padding: 22px 18px 15px 18px;
+  margin-top: -22px; }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {
+  border: 2px solid #4285F4;
+  color: #4285F4 !important;
+  /* background-color: white */
+ }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {
+  font-size: 1.7rem;
+}
+
+.steps-step-2 button{
+  font-size: 20px;
 }

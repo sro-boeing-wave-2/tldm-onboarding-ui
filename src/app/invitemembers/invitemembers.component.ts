@@ -47,7 +47,7 @@ export class InvitemembersComponent implements OnInit {
       "workspace" : this.workspace
     };
     console.log(Email);
-     this._emailservice.sendInviteMail(Email).subscribe(data => console.log('success'), err => console.log(err));
+     this._emailservice.sendInviteMail(Email).subscribe(data => console.log(data), err => console.log(err));
   }
 
   newMessage() {

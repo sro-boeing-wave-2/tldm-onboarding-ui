@@ -19,6 +19,7 @@ export class AddDefaultBotsComponent implements OnInit {
   botSelected;
   defaultBots;
   workspacewithchannels;
+  array = [];
   hubconnection: HubConnection;
   constructor(private Botservice: OnboardingService, private router: Router,
     private localStorage: LocalStorageService,
@@ -28,7 +29,7 @@ export class AddDefaultBotsComponent implements OnInit {
 
     this.hubconnection = new HubConnectionBuilder()
       .withUrl('http://13.233.42.222/chat-api/chat')
-      // .withUrl('http://172.23.238.206:7001/chat-hub/chat')
+      // .withUrl('http://172.23.238.206:7001/chat-api/chat')
       .build();
     this.hubconnection.serverTimeoutInMilliseconds = 6000000;
   }
@@ -42,15 +43,15 @@ export class AddDefaultBotsComponent implements OnInit {
     //   .subscribe( data => {
     //   console.log("it's coming here")
     console.log(this.workspacewithchannels.length);
-    if (this.workspacewithchannels.length != 0) {
-      // console.log("it's coming here")
-      this.Auth.setStatus(true);
-      // this.router.navigate(['/default']);
+    // if (this.workspacewithchannels.length != 0) {
 
-    } else {
-      console.log("it's coming here")
-      this.router.navigate(['/pagenotfound'])
-    }
+    //   this.Auth.setStatus(true);
+
+
+    // } else {
+    //   console.log("it's coming here")
+    //   this.router.navigate(['/pagenotfound'])
+    // }
 
     // this.workspacewithchannels = this.local  Storage.retrieve("workspacewithchannels");
     console.log(this.workspacewithchannels);
@@ -64,7 +65,6 @@ export class AddDefaultBotsComponent implements OnInit {
   addBot() {
     console.log(JSON.stringify(this.botSelected));
     this.workspacewithchannels["Bots"] = this.botSelected;
-
     console.log("Full Object", JSON.stringify(this.workspacewithchannels));
     this.Botservice.postworkspaceDetails(this.workspacewithchannels).subscribe(data => {
       console.log('Success!', data);
@@ -73,8 +73,19 @@ export class AddDefaultBotsComponent implements OnInit {
         console.log('Success', workspace);
         this.hubconnection.start().then(() => {
           console.log("started");
-          this.hubconnection.invoke('sendAllUserChannel', this.localStorage.retrieve('email'))
+          console.log(this.localStorage.retrieve('email'));
+          console.log(this.workspacewithchannels["Bots"]);
+          this.botSelected.forEach(element => {
+            console.log(element.emailId);
+            this.hubconnection.invoke('sendAllUserChannel', element.emailId).then(()=>
+            console.log("sent to rishabh"))
+            .catch(err => console.log("ERROR FROM HUB METHOD", err));
+
+          });
+          this.hubconnection.invoke('sendAllUserChannel',"entre.bot@gmail.com").then(()=>
+          console.log("sent entre"))
           .catch(err => console.log("ERROR FROM HUB METHOD", err));
+
         }).catch(() => { });
         // this.hubconnection
         // .start()

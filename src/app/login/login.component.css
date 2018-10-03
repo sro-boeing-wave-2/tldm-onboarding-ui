@@ -1,6 +1,13 @@
-.main-toolbar {
+.main-toolbar[_ngcontent-c0] {
   background-color: #320e3b;
   color: white;
+
+}
+
+.mat-toolbar-single-row{
+
+  height: 64px;
+  position: fixed;
 }
 
 .example-header-image {
@@ -17,7 +24,7 @@
 .mailbg {
   position: absolute;
   left: 50%;
-  top: 60%;
+  margin-top: 40vh;
   width: 80vw;
   max-width: 400px;
   min-height: 300px;
@@ -44,6 +51,18 @@
   -ms-transform: translate(0%, -0%);
   transform: translate(0%, -0%);
   transform: rotate(0deg);
+}
+
+
+.hero-image{
+
+  background-image: url("https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: -webkit-fill-available;
+
 }
 
 h1 {
@@ -103,13 +122,12 @@ h4 {
 }
 
 .copyright p {
-  position: absolute;
-  top: 110%;
-  left: 40%;
-  margin-bottom: 2%;
+
+
   text-align: center;
   font-size: 14px;
   color: #040F0F;
   letter-spacing: 1px;
   text-transform: none;
+  font-family: lato;
 }

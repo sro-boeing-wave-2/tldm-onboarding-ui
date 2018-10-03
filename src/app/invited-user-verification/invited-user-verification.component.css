@@ -1,6 +1,19 @@
-.main-toolbar {
+.main-toolbar[_ngcontent-c0] {
   background-color: #320e3b;
   color: white;
+
+}
+
+.mat-toolbar-single-row{
+
+  height: 64px;
+  position: fixed;
+}
+
+.mat-toolbar-single-row{
+
+  height: 64px;
+  position: fixed;
 }
 
 .example-header-image {
@@ -109,13 +122,22 @@ h4 {
 }
 
 .copyright p {
-  position: absolute;
-  top: 110%;
-  left: 40%;
-  margin-bottom: 2%;
+
   text-align: center;
   font-size: 14px;
   color: #040F0F;
   letter-spacing: 1px;
   text-transform: none;
+  font-family: lato;
+}
+
+.hero-image{
+
+  background-image: url("https://images.pexels.com/photos/926987/pexels-photo-926987.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: -webkit-fill-available;
+
 }

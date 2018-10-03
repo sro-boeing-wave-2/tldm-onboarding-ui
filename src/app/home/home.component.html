@@ -5,16 +5,36 @@
 
 </mat-toolbar>
 
-<div class="hero-image">
-<div align="center">
-  <a class="button" routerLink="/invitedUserVerify">
-    <span>Find Your Workspace <i class="fas fa-search"></i></span>
-  </a>
-</div>
+<!-- <div align="center">
+    <a class="button" routerLink="/invitedUserVerify">
+      <span>Find Your Workspace
+        <i class="fas fa-search"></i>
+      </span>
+    </a>
+  </div>
 
-<div align="center">
-  <a class="button" (click)="getWorkspace()">
-    <span>Create A New Workspace <i class="fas fa-plus-circle"></i></span>
-  </a>
-</div>
+  <div align="center">
+    <a class="button" (click)="getWorkspace()">
+      <span>Create A New Workspace
+        <i class="fas fa-plus-circle"></i>
+      </span>
+    </a>
+  </div> -->
+<div class="hero-image">
+  <div class="row">
+    <div align="center"  class="col-sm-6">
+      <a class="button" routerLink= "/invitedUserVerify">
+        <span>Find your Workspace
+          <i class="fas fa-search"></i>
+        </span>
+      </a>
+    </div>
+    <div align="center" class="col-sm-6">
+      <a class="button" (click)="getWorkspace()">
+        <span>Create your Workspace
+          <i class="fas fa-plus-circle"></i>
+        </span>
+      </a>
+    </div>
+  </div>
 </div>

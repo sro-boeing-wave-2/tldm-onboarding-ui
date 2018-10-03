@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -13,8 +13,12 @@ export class InvitedUserVerificationComponent implements OnInit {
   inviteForm: FormGroup;
   submitted = false;
   workspace : string;
+  orderObj;
+  otp;
+  workspaceName;
   error;
-  constructor(private form : FormBuilder, private router :Router, private _inviteservice: OnboardingService, private localStorage: LocalStorageService, private Auth : AuthService) { }
+  constructor(private form : FormBuilder, private router :Router,
+    private route : ActivatedRoute, private _inviteservice: OnboardingService, private localStorage: LocalStorageService, private Auth : AuthService) { }
 
 
   ngOnInit() {
@@ -22,6 +26,12 @@ export class InvitedUserVerificationComponent implements OnInit {
       workspace: ['', [Validators.required]],
       Password : ['',[Validators.required]]
     })
+    this.route.queryParamMap.subscribe(params => {
+      this.orderObj = { ...params.keys, ...params };
+    });
+   this.otp =this.orderObj["params"]["otp"];
+   this.workspaceName = this.orderObj["params"]["workspace"];
+
   }
   get f() { return this.inviteForm.controls; }
   onSubmit() {

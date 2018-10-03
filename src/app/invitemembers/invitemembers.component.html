@@ -4,22 +4,27 @@
   <span class="example-spacer"></span>
   <button mat-stroked-button routerLink="/login">Log In</button>
 </mat-toolbar>
+<div style="height: 64px; width: 100%;"></div>
+<div class="hero-image">
+  <div style="width: 100%; height: 85vh;">
+    <div class="mailbg">
 
-<div class="mailbg">
-  <h1>Send invitations</h1>
-  <h4>Your workspace is ready to go. Know a few friends or coworkers who’d like to explore TLDM with you?</h4>
-  <form [formGroup]= "emailForm" (ngSubmit)= "onSubmit()">
-    <label class="l1" for="mailinput">Enter email id:</label>
-    <input formControlName= "EmailId" class="form-control mailinput" [ngClass]= "{ 'is-invalid': submitted && f.EmailId.errors }"
-      placeholder="" />
-    <div *ngIf = "submitted && f.EmailId.errors" class="unauthorised">
-      <div *ngIf = "f.EmailId.errors.required">Email is required</div>
-      <div *ngIf = "f.EmailId.errors.email">Email must be a valid email address</div>
+      <h1>Send invitations</h1>
+      <h4>Your workspace is ready to go. Know a few friends or coworkers who’d like to explore TLDM with you?</h4>
+      <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+        <label class="l1" for="mailinput">Enter email id:</label>
+        <input formControlName="EmailId" class="form-control mailinput" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
+          placeholder="" />
+        <div *ngIf="submitted && f.EmailId.errors" class="unauthorised">
+          <div *ngIf="f.EmailId.errors.required">Email is required</div>
+          <div *ngIf="f.EmailId.errors.email">Email must be a valid email address</div>
+        </div>
+        <button class="sendmess">Send Invitation</button>
+      </form>
     </div>
-    <button class="sendmess">Send Invitation</button>
-  </form>
-</div>
+  </div>
 
-<div class="copyright">
-  <p> © 2018 TLDM . All rights reserved </p>
+  <div class="copyright">
+    <p> © 2018 TLDM . All rights reserved </p>
+  </div>
 </div>
