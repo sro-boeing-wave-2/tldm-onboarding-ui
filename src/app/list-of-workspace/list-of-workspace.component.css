@@ -97,7 +97,7 @@ h4 {
   margin-bottom: 2%;
   text-align: center;
   font-size: 14px;
-  color: #040F0F;
+  color: white;
   letter-spacing: 1px;
   text-transform: none;
 }
@@ -129,7 +129,7 @@ h4 {
 
   .hero-image{
 
-    background-image: url("https://3sr05l2l7ihe1u4u613nqp53-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/blockchain-technology-boss-magazine.jpg");
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/54/57/78579acd5c1195f.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -137,4 +137,8 @@ h4 {
     width: -webkit-fill-available;
 
 
+ }
+
+ .workspacelist a:hover{
+   text-decoration: none;
  }

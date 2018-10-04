@@ -29,18 +29,24 @@ export class InvitedUserVerificationComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.orderObj = { ...params.keys, ...params };
     });
+
+
    this.otp =this.orderObj["params"]["otp"];
    this.workspaceName = this.orderObj["params"]["workspace"];
 
+   this.inviteForm.value.workspace = this.workspaceName;
+   this.inviteForm.value.Password = this.otp;
+   console.log(this.inviteForm.value);
+   this.onSubmit();
   }
   get f() { return this.inviteForm.controls; }
   onSubmit() {
     this.submitted = true;
-
+    console.log(this.inviteForm.invalid);
     // stop here if form is invalid
-    if (this.inviteForm.invalid) {
-        return;
-    }
+    // if (this.inviteForm.invalid) {
+    //     return;
+    // }
     this.newMessage();
     this.postToOnboard();
 

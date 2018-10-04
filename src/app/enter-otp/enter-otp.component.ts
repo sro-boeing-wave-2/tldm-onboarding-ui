@@ -16,6 +16,7 @@ export class EnterOTPComponent implements OnInit {
   tokenparam:TokenParams;
   orderObj;
   otp : string;
+  workspace : string;
   OTPmodel = new Userstate( '',false, '')
   constructor(private _OtpService: OnboardingService, private router: Router,private localStorage: LocalStorageService, private Auth : AuthService,
    private route : ActivatedRoute) { }
@@ -26,10 +27,20 @@ export class EnterOTPComponent implements OnInit {
       this.orderObj = { ...params.keys, ...params };
     });
    this.otp =this.orderObj["params"]["otp"];
+   this.workspace = this.orderObj["params"]["workspace"];
+   this.sendWorkspaceToSignup();
+  //  this.PostToServer();
+  }
+
+  sendWorkspaceToSignup(){
+
+      console.log(this.workspace);
+      this._OtpService.showWorkspace(this.workspace);
+
   }
 
   PostToServer() {
-
+    console.log(this.otp, this.workspace);
     this._OtpService.sendOTP(this.otp).subscribe(data => {
       this.localStorage.store("otpverifytoken",data["token"]);
       console.log("Token Info",data);

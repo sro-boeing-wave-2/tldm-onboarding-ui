@@ -101,7 +101,7 @@ body {
 
 .arrow {
   position: fixed;
-  bottom: -80%;
+  bottom: -90%;
   left: 50%;
   margin-left: -20px;
   width: 40px;
@@ -422,11 +422,18 @@ h1 {
   .col {
     width: calc(33.333333% - 2rem);
   }
+
+  .arrow {
+    bottom: -80%;
+  }
 }
 
 @media screen and (max-width: 48rem) {
   .col {
     width: calc(50% - 2rem);
+  }
+  .arrow {
+    bottom: -40%;
   }
 }
 
@@ -434,6 +441,9 @@ h1 {
   .col {
     width: 100%;
     margin: 0 0 2rem 0;
+  }
+  .arrow {
+    bottom: -40%;
   }
 }
 

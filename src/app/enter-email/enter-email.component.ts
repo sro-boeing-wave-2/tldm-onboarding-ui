@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { ToastrService } from 'ngx-toastr'
 @Component({
   selector: 'app-enter-email',
   templateUrl: './enter-email.component.html',
@@ -14,7 +15,8 @@ export class EnterEmailComponent implements OnInit {
   submitted = false;
   workspace : string;
   userModel = new UserAccount('','','','',false,null,null);
-  constructor(private _emailservice: OnboardingService, private router: Router, private form : FormBuilder, private Auth : AuthService) { }
+  constructor(private _emailservice: OnboardingService, private router: Router, private form : FormBuilder, private Auth : AuthService,
+    private toast : ToastrService ) { }
   // workspaceModel = new Workspace('',null,false,'');
   ngOnInit() {
     this._emailservice.currentMessageWorkspace.subscribe(workspace => this.workspace = workspace)
@@ -34,6 +36,10 @@ export class EnterEmailComponent implements OnInit {
 
       this.PostToGmail();
       this.newMessage();
+      var x = document.getElementById("toast");
+      console.log("inside launch toast");
+      x.className = "show";
+      setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
       // this.Verify();
   }
 
@@ -50,10 +56,10 @@ export class EnterEmailComponent implements OnInit {
     this._emailservice.sendMail(Email).subscribe(data =>{
       if(data != null){
         this.Auth.setStatus(true);
-        this.router.navigate(['/enterOTP']);
+        // this.router.navigate(['/enterOTP']);
 
       }else {
-        this.router.navigate(['/notfound'])
+        // this.router.navigate(['/notfound'])
     }
   });
   }

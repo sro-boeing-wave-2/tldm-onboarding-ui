@@ -3,6 +3,7 @@ import {UserAccount} from '../Model';
 import { Router } from '@angular/router';
 import { OnboardingService } from '../onboarding.service';
 import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr'
 @Component({
   selector: 'app-invitemembers',
   templateUrl: './invitemembers.component.html',
@@ -14,7 +15,7 @@ export class InvitemembersComponent implements OnInit {
   submitted = false;
   workspace : string;
   userModel = new UserAccount('','','','',false,null,null);
-  constructor(private _emailservice: OnboardingService, private router: Router, private form : FormBuilder) { }
+  constructor(private _emailservice: OnboardingService, private router: Router, private form : FormBuilder, private toast : ToastrService) { }
   // workspaceModel = new Workspace('',null,false,'');
   ngOnInit() {
     this._emailservice.currentMessageWorkspace.subscribe(workspace => this.workspace = workspace)
@@ -40,6 +41,13 @@ export class InvitemembersComponent implements OnInit {
 
   }
 
+  sendWorkspaceToInvite(){
+
+    console.log(this.workspace);
+    this._emailservice.showWorkspace(this.workspace);
+
+}
+
   PostToGmail() {
     console.log("Open Gmail");
     var Email = {
@@ -47,7 +55,26 @@ export class InvitemembersComponent implements OnInit {
       "workspace" : this.workspace
     };
     console.log(Email);
-     this._emailservice.sendInviteMail(Email).subscribe(data => console.log(data), err => console.log(err));
+    //  this._emailservice.sendInviteMail(Email).subscribe(data => console.log(data),
+    //  err => console.log(err));
+     this._emailservice.sendInviteMail(Email).subscribe(data => {
+      console.log(data["emailId"]);
+      if(data["emailId"] != null){
+         // this.toast.success("Email is sent successfully!");
+         {
+          var x = document.getElementById("toast");
+          console.log("inside launch toast");
+          x.className = "show";
+          setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+      }
+
+    }, err => {
+
+      console.log("Error");
+    });
+
   }
 
   newMessage() {

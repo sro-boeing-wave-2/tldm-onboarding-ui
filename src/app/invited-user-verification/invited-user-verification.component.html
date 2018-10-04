@@ -8,7 +8,7 @@
     <div class="mailbg">
       <h1>Check your email</h1>
       <h4>We’ve sent a confirmation code to your email. It will expire shortly, so enter your code soon.</h4>
-      <form [formGroup]="inviteForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="inviteForm"  (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label class="l1" for="mailinput">Enter your workspace name:</label>
           <input class="mailinput form-control" type="text" placeholder="" formControlName="workspace" [ngClass]="{ 'is-invalid': submitted && f.workspace.errors }"

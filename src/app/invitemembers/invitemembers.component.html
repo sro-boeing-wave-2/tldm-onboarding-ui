@@ -1,18 +1,25 @@
 <mat-toolbar class="main-toolbar">
   <span mat-card-avatar class="example-header-image"></span>
-  <span>TLDM</span>
+  <span>TL;DM</span>
   <span class="example-spacer"></span>
   <button mat-stroked-button routerLink="/login">Log In</button>
 </mat-toolbar>
 <div style="height: 64px; width: 100%;"></div>
 <div class="hero-image">
+  <div id="toast">
+    <!-- <mat-icon id="img">message</mat-icon> -->
+    <div id="desc">
+      <p>Email has been sent successfully!</p>
+    </div>
+  </div>
   <div style="width: 100%; height: 85vh;">
+
     <div class="mailbg">
 
       <h1>Send invitations</h1>
-      <h4>Your workspace is ready to go. Know a few friends or coworkers who’d like to explore TLDM with you?</h4>
+      <h4>Your workspace is ready to go. Know a few friends or coworkers who’d like to explore TL;DM with you?</h4>
       <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
-        <label class="l1" for="mailinput">Enter email id:</label>
+        <label class="l1" for="mailinput">Enter email:</label>
         <input formControlName="EmailId" class="form-control mailinput" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
           placeholder="" />
         <div *ngIf="submitted && f.EmailId.errors" class="unauthorised">
@@ -21,6 +28,7 @@
         </div>
         <button class="sendmess">Send Invitation</button>
       </form>
+
     </div>
   </div>
 

@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Validators } from '@angular/forms';
 import { ChatService } from '../chat.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-userdetails',
   templateUrl: './userdetails.component.html',
@@ -19,13 +20,19 @@ export class UserdetailsComponent implements OnInit {
   error2 : string;
   signUpModel = new UserAccount('', '', '', '', true, null, null);
   submitted = false;
-  constructor(private _signupservice: OnboardingService, private router: Router, private fb: FormBuilder, private _signupServicetoChat: ChatService, private Auth: AuthService) { }
+  constructor(private _signupservice: OnboardingService, private router: Router, private fb: FormBuilder, private _signupServicetoChat: ChatService, private Auth: AuthService,
+    private toast : ToastrService) { }
 
   ngOnInit() {
     this._signupservice.currentMessageWorkspace.subscribe(workspace => this.workspace = workspace)
     console.log(this.workspace);
     this._signupservice.currentMessageEmail.subscribe(email => this.email = email)
     console.log(this.email);
+
+    var x = document.getElementById("toast");
+    console.log("inside launch toast");
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
   }
 
   signupForm = new FormGroup({
@@ -47,6 +54,12 @@ export class UserdetailsComponent implements OnInit {
     // UserWorkspaces : []
   });
 
+  sendWorkspaceToInvite(){
+
+    console.log(this.workspace);
+    this._signupservice.showWorkspace(this.workspace);
+
+}
   onSubmit() {
     this.submitted = true;
 

@@ -5,6 +5,12 @@
 <div style="height: 64px; width: 100%;"></div>
 
 <div class="hero-image">
+  <div id="toast">
+    <!-- <mat-icon id="img">message</mat-icon> -->
+    <div id="desc">
+      <p>Email has been sent successfully</p>
+    </div>
+  </div>
   <div class="steps-form-2">
     <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
       <div class="steps-step-2">
@@ -23,14 +29,14 @@
                 title="Terms and Conditions">
                 <i class="fa fa-photo" aria-hidden="true"></i>
               </a> -->
-         <button mat-fab color="primary">3</button>
+        <button mat-fab color="primary">3</button>
       </div>
       <div class="steps-step-2">
         <!-- <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
                 title="Finish">
                 <i class="fa fa-check" aria-hidden="true"></i>
               </a> -->
-              <button mat-fab color="primary">4</button>
+        <button mat-fab color="primary">4</button>
       </div>
       <div class="steps-step-2">
         <!-- <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top"
@@ -42,24 +48,24 @@
     </div>
   </div>
   <div style="width: 100%; height: 80vh;">
-  <div class="mailbg">
-    <h1> Welcome to {{workspace}}</h1>
-    <h4>Please confirm your email</h4>
-    <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label class="l1" for="mailinput">Enter your email:</label>
-        <input type="text" placeholder="" formControlName="EmailId" class="form-control mailinput" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
-        <div *ngIf="submitted && f.EmailId.errors" class="unauthorised">
-          <div *ngIf="f.EmailId.errors.required"> * Email is required</div>
-          <div *ngIf="f.EmailId.errors.email">* Email must be a valid email address</div>
+    <div class="mailbg">
+      <h1> Welcome to {{workspace}}</h1>
+      <h4>Please confirm your email</h4>
+      <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="l1" for="mailinput">Enter your email:</label>
+          <input type="text" placeholder="" formControlName="EmailId" class="form-control mailinput" [ngClass]="{ 'is-invalid': submitted && f.EmailId.errors }"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+          <div *ngIf="submitted && f.EmailId.errors" class="unauthorised">
+            <div *ngIf="f.EmailId.errors.required"> * Email is required</div>
+            <div *ngIf="f.EmailId.errors.email">* Email must be a valid email address</div>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <button class="sendmess">Submit</button>
-      </div>
-    </form>
-  </div>
+        <div class="form-group">
+          <button class="sendmess">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <div class="copyright">

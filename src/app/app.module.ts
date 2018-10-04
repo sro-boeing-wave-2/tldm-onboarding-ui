@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpModule} from '@angular/http';
+import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import{AppRoutingModule, routingComponents} from './app-routing.module';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
@@ -55,7 +56,8 @@ import { GetStartedComponent } from './get-started/get-started.component';
     HttpModule,
     MaterialModule,
     ReactiveFormsModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    ToastrModule.forRoot(),
   ],
   exports : [RouterModule],
   providers: [CookieService],

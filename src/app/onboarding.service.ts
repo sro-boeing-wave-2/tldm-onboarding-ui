@@ -145,6 +145,7 @@ export class OnboardingService {
 
   /*This is to send invite-email for a particular workspace */
   sendInviteMail(email: any) {
+
     console.log(email);
     return this.http.post(this.inviteusers, email, httpOptions);
   }
