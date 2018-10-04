@@ -68,23 +68,24 @@ export class AddDefaultBotsComponent implements OnInit {
     console.log("Full Object", JSON.stringify(this.workspacewithchannels));
     this.Botservice.postworkspaceDetails(this.workspacewithchannels).subscribe(data => {
       console.log('Success!', data);
-      error => console.log('Error!', error);
+      // error => console.log('Error!', error);
       this.ResponseBotData.postworkspaceToChat(data).subscribe(workspace => {
         console.log('Success', workspace);
         this.hubconnection.start().then(() => {
+          this.hubconnection.invoke('sendAllUserChannel',"entre.bot@gmail.com").then(()=>
+          console.log("sent entre"))
+          .catch(err => console.log("ERROR FROM HUB METHOD", err));
           console.log("started");
           console.log(this.localStorage.retrieve('email'));
           console.log(this.workspacewithchannels["Bots"]);
           this.botSelected.forEach(element => {
+            console.log("Sending ...");
             console.log(element.emailId);
             this.hubconnection.invoke('sendAllUserChannel', element.emailId).then(()=>
             console.log("sent to rishabh"))
             .catch(err => console.log("ERROR FROM HUB METHOD", err));
-
           });
-          this.hubconnection.invoke('sendAllUserChannel',"entre.bot@gmail.com").then(()=>
-          console.log("sent entre"))
-          .catch(err => console.log("ERROR FROM HUB METHOD", err));
+
 
         }).catch(() => { });
         // this.hubconnection
@@ -93,6 +94,8 @@ export class AddDefaultBotsComponent implements OnInit {
         // .catch(err => console.log('Error while establishing connection :('));
 
 
+      }, err => {
+        console.log("Entre Bot Didn't Invoked");
       })
 
       if (data != null) {
