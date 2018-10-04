@@ -28,8 +28,8 @@ export class AddDefaultBotsComponent implements OnInit {
     private hubservice: HubConnectionService) {
 
     this.hubconnection = new HubConnectionBuilder()
-      .withUrl('http://13.233.42.222/chat-api/chat')
-      // .withUrl('http://172.23.238.206:7001/chat-api/chat')
+      // .withUrl('http://13.233.42.222/chat-api/chat')
+      .withUrl('http://172.23.238.206:7001/chat-api/chat')
       .build();
     this.hubconnection.serverTimeoutInMilliseconds = 6000000;
   }

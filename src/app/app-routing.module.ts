@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'enterOTP', component: EnterOTPComponent},
 { path: 'signup', component: UserdetailsComponent, canActivate: [AuthGuard]},
   { path: 'invite', component: InvitemembersComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent},
   { path: 'workspacelist', component: ListOfWorkspaceComponent ,canActivate: [AuthGuard]},
   { path: 'invitedUserVerify', component: InvitedUserVerificationComponent },
   { path: 'pagenotfound', component: PageNotFoundComponent },
